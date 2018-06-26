@@ -1,0 +1,62 @@
+{
+  "parser": "babel-eslint",
+  "extends": "airbnb",
+  "rules": {
+    // `.jsx` extension cannot be used with React Native
+    "react/jsx-filename-extension": [
+      "error",
+      {
+        "extensions": [
+          ".js",
+          ".jsx"
+        ]
+      }
+    ],
+    "react/no-typos": "off",
+    "no-param-reassign": [
+      2,
+      {
+        "props": false
+      }
+    ],
+    "jsx-a11y/no-static-element-interactions": 0,
+    "no-unused-vars": 0,
+    "no-underscore-dangle": "off",
+    "no-bitwise": [
+      "error",
+      {
+        "allow": [
+          "~"
+        ]
+      }
+    ],
+    "no-octal-escape": "off",
+    "no-console": "off",
+    "no-script-url": "off",
+    "no-alert": "off",
+    "react/no-danger": "off",
+    "react/sort-prop-types": [
+      "error",
+      {
+        "callbacksLast": true,
+        "requiredFirst": true,
+        "sortShapeProp": true
+      }
+    ],
+    "generator-star-spacing": [
+      "error",
+      {
+        "before": false,
+        "after": true,
+        "method": {
+          "before": true,
+          "after": true
+        }
+      }
+    ]
+  },
+  "env": {
+    "browser": true,
+    "node": true
+  }
+}

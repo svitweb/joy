@@ -1,0 +1,70 @@
+// General variables ----
+$default-fonts  : "Helvetica", Arial, sans-serif;
+$base-font-name : 'Open Sans';
+// ----------------------
+
+// Fonts path -----------
+$font-path      : '/src/fonts/';
+
+$base-font-data : (
+  // order of variables
+  // 'font-folder', 'font-file-name', 'font-local-1', 'font-local-2', 'font-weight'
+  1: ('open-sans/', 'open-sans-300', 'Open Sans Light', 'OpenSans-Light', 300),
+  2: ('open-sans/', 'open-sans-regular', 'Open Sans', 'OpenSans', 400),
+  3: ('open-sans/', 'open-sans-600', 'Open Sans Semibold', 'OpenSans-Semibold', 600),
+  4: ('open-sans/', 'open-sans-700', 'Open Sans Bold', 'OpenSans-Bold', 700)
+);
+// ----------------------
+
+// Fonts family variables
+$base-font-size   : 62.5%; // 10px
+$base-font-family : $base-font-name, $default-fonts !default;
+
+// Typography -----------
+@function line_height($fs, $lh) { // fs - font-size, lh - line-height
+  @return $lh / $fs; // value float or integer
+}
+
+$size-body: (
+  null   : (1.6rem, line_height(16, 20)), // 'font-size', 'line-height'
+  medium : (1.6rem, line_height(16, 22))
+);
+
+$size-h1: (
+  null   : (3.2rem, line_height(32, 40), 2rem), // 'font-size', 'line-height', 'margin-value'
+  medium : (4rem, line_height(40, 45), 2.2rem),
+  xlarge : (4.8rem, line_height(48, 50.4), 2.2rem)
+);
+
+$size-h2: (
+  null   : (2.6rem, line_height(26, 30), 2rem),
+  medium : (3.2rem, line_height(32, 40), 2.2rem),
+  xlarge : 3.6rem
+);
+
+$size-h3: (
+  null   : (2.2rem, line_height(22, 25), 2rem),
+  medium : (2.4rem, line_height(24, 30), 2.2rem),
+  xlarge : 2.8rem
+);
+
+$size-h4: (
+  null   : (1.8rem, line_height(18, 20), 2rem),
+  medium : (1.8rem, line_height(18, 22), 2.2rem)
+);
+
+$size-h5: (
+  null   : (1.6rem, line_height(16, 20), 2rem),
+  medium : (1.6rem, line_height(16, 22), 2.2rem)
+);
+
+$size-h6: (
+  null   : (1.4rem, line_height(14, 20), 2rem),
+  medium : (1.4rem, line_height(14, 22), 2.2rem)
+);
+
+$size-q: (
+  null   : (2rem, line_height(20, 25)),
+  medium : (2.4rem, line_height(24, 35))
+);
+// ----------------------
