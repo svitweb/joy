@@ -1,25 +1,50 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
-  "icons": [
-    {
-      "src": "favicon.ico",
-      "sizes": "64x64 32x32 24x24 16x16",
-      "type": "image/x-icon"
-    },
-    {
-      "src": "logo192.png",
-      "type": "image/png",
-      "sizes": "192x192"
-    },
-    {
-      "src": "logo512.png",
-      "type": "image/png",
-      "sizes": "512x512"
-    }
-  ],
-  "start_url": ".",
-  "display": "standalone",
-  "theme_color": "#000000",
-  "background_color": "#ffffff"
+  "files": {
+    "main.css": "/static/css/main.988ae8fb.css",
+    "main.js": "/static/js/main.7d909de3.js",
+    "static/media/formats-bg.png": "/static/media/formats-bg.ee537f136414ffcda419.png",
+    "static/media/main-bg.png": "/static/media/main-bg.4dc9ecd72bfb3dd1c150.png",
+    "static/media/form-bg.png": "/static/media/form-bg.dda83ecc32bfc4155440.png",
+    "static/media/list-img-3.png": "/static/media/list-img-3.c97748882804548b1ab5.png",
+    "static/media/way.png": "/static/media/way.c30a19b3397eb055f19e.png",
+    "static/media/list-img-1-s.png": "/static/media/list-img-1-s.cfc627d3ce08b2fc724c.png",
+    "static/media/responses-bg.png": "/static/media/responses-bg.bbf70feda3085f0c8d64.png",
+    "static/media/list-img-1.png": "/static/media/list-img-1.40da4c065c92e4127119.png",
+    "static/media/list-img-2.png": "/static/media/list-img-2.082912079bc1aea6a783.png",
+    "static/media/list-img-4.png": "/static/media/list-img-4.b0b552400c331d8ddec6.png",
+    "static/media/responses-bg-small.png": "/static/media/responses-bg-small.9829a8f037e8cb70d2d6.png",
+    "static/media/m1.png": "/static/media/m1.7f083f2ce8eac6eef75e.png",
+    "static/media/m2.png": "/static/media/m2.b163483033ec54291a8a.png",
+    "static/media/m-1.png": "/static/media/m-1.d6be12fcf6306e7dfb90.png",
+    "static/media/m-2.png": "/static/media/m-2.b9dfaf0cf691a40cf515.png",
+    "static/media/theme-img-3.png": "/static/media/theme-img-3.344a6d851502bfdd43ed.png",
+    "static/media/theme-img-2.png": "/static/media/theme-img-2.63d0579cc35e403d7ad5.png",
+    "static/media/package-bg.png": "/static/media/package-bg.f6e2dbbf33aba0f48eb2.png",
+    "static/media/Raleway-Regular.woff": "/static/media/Raleway-Regular.7caf4b6f36b9284c2f43.woff",
+    "static/media/Raleway-Medium.woff": "/static/media/Raleway-Medium.7947610111f75504fddd.woff",
+    "static/media/Raleway-Regular.woff2": "/static/media/Raleway-Regular.32f1ff583b976ae9d5cd.woff2",
+    "static/media/Raleway-Medium.woff2": "/static/media/Raleway-Medium.0c206b62da70ba1fc0d6.woff2",
+    "static/media/about-bg.png": "/static/media/about-bg.0e49055d5b55b354fce0.png",
+    "static/media/spiral-2.svg": "/static/media/spiral-2.3b04684fbc7b6922343fceda45fd6fa9.svg",
+    "static/media/theme-img-1.png": "/static/media/theme-img-1.101e11c6eaa564010bcc.png",
+    "static/media/icon.svg?lu2uzt": "/static/media/icon.343d4c850393b72e4d2a.svg",
+    "static/media/spiral-1-full.svg": "/static/media/spiral-1-full.928aaf6a5837d5682842e645ca5bea2a.svg",
+    "static/media/Sansation-Bold.woff": "/static/media/Sansation-Bold.2d5ebd39c034f7814aef.woff",
+    "static/media/Sansation-Bold.woff2": "/static/media/Sansation-Bold.d99e93b0d640f9a7d403.woff2",
+    "static/media/labyrinth.svg": "/static/media/labyrinth.add644bebdec21d5fc36403ecd732d08.svg",
+    "static/media/crystal-2.svg": "/static/media/crystal-2.841860fb420df662fb13709c05183191.svg",
+    "static/media/logo-full.svg": "/static/media/logo-full.3631d82cd78b472a0df39b22a53930f0.svg",
+    "static/media/crystal-1.svg": "/static/media/crystal-1.6712e192092c1d0e785f11531323517a.svg",
+    "static/media/icon.woff?lu2uzt": "/static/media/icon.ae967588d6829620ef21.woff",
+    "static/media/icon.ttf?lu2uzt": "/static/media/icon.4ef118d0ab89fbc30ccc.ttf",
+    "static/media/logo.svg": "/static/media/logo.6a4767a644744756662172e9d6ad8d51.svg",
+    "static/media/deco-dot.svg": "/static/media/deco-dot.1980cddb8f276aa41316.svg",
+    "index.html": "/index.html",
+    "main.988ae8fb.css.map": "/static/css/main.988ae8fb.css.map",
+    "main.7d909de3.js.map": "/static/js/main.7d909de3.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.988ae8fb.css",
+    "static/js/main.7d909de3.js"
+  ]
 }
