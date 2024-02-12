@@ -1,0 +1,46 @@
+@import '../../../styles/utilities/variables';
+
+.form-section {
+	position: relative;
+	text-align: center;
+
+	.container {
+		padding: {
+			top: 24px;
+			bottom: 34px;
+		}
+		background: {
+			image: url('../../../images/illustrations/form-bg.png');
+			position: center bottom;
+			size: cover;
+			repeat: no-repeat;
+		}
+	}
+
+	.subtitle {
+		margin-bottom: 8px;
+	}
+
+	.desc {
+		margin-bottom: 16px;
+	}
+
+	.submit-btn {
+		margin-top: 12px;
+	}
+}
+
+@media (min-width: $small-screen) {
+	.form-section {
+		.container {
+			padding: {
+				top: 60px;
+				bottom: 80px;
+			}
+		}
+
+		.btn-group {
+			margin-top: 8px;
+		}
+	}
+}

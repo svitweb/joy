@@ -1,0 +1,172 @@
+@import '../../styles/utilities/variables';
+
+.socials {
+	position: relative;
+	display: flex;
+	align-items: center;
+	font-size: 21px;
+
+	&::before,
+	&::after {
+		display: block;
+		width: 100%;
+		height: 2px;
+	}
+
+	&::before {
+		margin-right: 6px;
+		background: linear-gradient(-90deg, #5564c6, rgba(177, 176, 237, 0.2));
+	}
+
+	&::after {
+		margin-left: 6px;
+		background: linear-gradient(90deg, #5564c6, rgba(177, 176, 237, 0.2));
+	}
+
+	.btn-icon {
+		font-size: inherit;
+		line-height: 0;
+
+		.icon {
+			font-size: inherit;
+		}
+
+		+ .btn-icon {
+			margin-left: 16px;
+		}
+
+		&:hover {
+			.icon {
+				color: goldenrod;
+			}
+		}
+	}
+
+	&.deco-line {
+		&::before,
+		&::after {
+			content: '';
+		}
+	}
+
+	&.large {
+		font-size: 26px;
+
+		&::before {
+			margin-right: 20px;
+		}
+
+		&::after {
+			margin-left: 20px;
+		}
+
+		.btn-icon + .btn-icon {
+			margin-left: 20px;
+		}
+	}
+
+	&.vertical {
+		flex-direction: column;
+
+		&::before,
+		&::after {
+			width: 2px;
+			height: 30px;
+		}
+
+		&::before {
+			margin-right: 0;
+			margin-bottom: 12px;
+			background: linear-gradient(0deg, #5564c6, rgba(177, 176, 237, 0.2));
+		}
+
+		&::after {
+			margin-left: 0;
+			margin-top: 12px;
+			background: linear-gradient(180deg, #5564c6, rgba(177, 176, 237, 0.2));
+		}
+
+		.btn-icon + .btn-icon {
+			margin: {
+				top: 8px;
+				left: 0;
+			}
+		}
+
+		&.large {
+			&::before {
+				margin-right: 0;
+				margin-bottom: 22px;
+			}
+
+			&::after {
+				margin-left: 0;
+				margin-top: 22px;
+			}
+
+			.btn-icon + .btn-icon {
+				margin: {
+					top: 20px;
+					left: 0;
+				}
+			}
+		}
+	}
+}
+
+@media (min-width: $small-screen) {
+	.socials {
+		font-size: 32px;
+
+		&::before,
+		&::after {
+			height: 60px;
+		}
+
+		&::before {
+			margin-right: 22px;
+		}
+
+		&::after {
+			margin-left: 22px;
+		}
+
+		.btn-icon + .btn-icon {
+			margin-left: 20px;
+		}
+
+		&.large {
+			font-size: 32px;
+		}
+
+		&.vertical {
+			flex-direction: column;
+
+			&::before,
+			&::after {
+				height: 60px;
+			}
+
+			&::before {
+				margin: {
+					left: 0;
+					bottom: 22px;
+				}
+			}
+
+			&::after {
+				margin: {
+					top: 22px;
+					left: 0;
+				}
+			}
+
+			.btn-icon + .btn-icon {
+				margin: {
+					top: 20px;
+					left: 0;
+				}
+			}
+		}
+	}
+}

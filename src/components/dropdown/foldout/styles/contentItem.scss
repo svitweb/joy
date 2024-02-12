@@ -1,0 +1,89 @@
+@import '../../../utils/styles/utilities/fonts_var';
+@import '../../../utils/styles/utilities/color';
+@import '../../../utils/styles/utilities/variables';
+@import '../../../utils/styles/utilities/shadows';
+@import '../../../utils/styles/utilities/mixins';
+
+.wrts-content-item {
+	display: flex;
+	align-items: center;
+	width: 100%;
+	position: relative;
+	cursor: pointer;
+	padding: 8px 12px;
+	min-width: 288px;
+
+	&.active {
+		.content-check {
+			visibility: visible;
+		}
+	}
+
+	.content-cover {
+		@include bookShadow();
+		width: 32px;
+		height: 44px;
+		background-position: center;
+		background-size: cover;
+		position: relative;
+
+		&::after {
+			content: '';
+			display: block;
+			width: 2px;
+			height: 100%;
+			position: absolute;
+			top: 0;
+			left: 0;
+			bottom: 0;
+			background-color: color('opacities', 'black-10%');
+			z-index: 1;
+		}
+	}
+
+	.content-title-block {
+		margin-left: 16px;
+
+		.content-title {
+			@include text-m();
+			color: color('light-mode-shades', 'almost-black');
+		}
+		.content-description {
+			@include text-s();
+			color: color('light-mode-shades', 'medium-grey');
+		}
+	}
+	.content-check {
+		position: absolute;
+		right: 12px;
+		visibility: hidden;
+		color: color('light-mode-shades', 'dark-grey');
+	}
+
+	&:hover,
+	&:focus,
+	&.active {
+		border-radius: 4px;
+		background-color: color('opacities', 'black-5%');
+	}
+
+	&.dark {
+		.content-title-block {
+			.content-title {
+				color: color('light-mode-shades', 'white');
+			}
+			.content-description {
+				color: color('dark-mode-shades', 'light-grey-purple');
+			}
+		}
+		.content-check {
+			color: color('dark-mode-shades', 'very-light-grey-purple');
+		}
+
+		&:hover,
+		&:focus,
+		&.active {
+			background-color: color('opacities', 'white-5%');
+		}
+	}
+}

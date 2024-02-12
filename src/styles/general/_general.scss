@@ -1,43 +1,100 @@
 @import '../utilities/variables';
+@import '../utilities/shadows';
 
 // Footer fixed to bottom
 
 html {
-  position: relative;
-  min-height: 100%;
+	position: relative;
+	font-variant: lining-nums;
+}
 
-  body {
-    height: 100%;
-    min-height: .1rem;
-    margin-bottom: var('footer-height', 'xsmall');
-  }
+.wrapper {
+	min-height: 100%;
+	overflow: hidden;
+}
 
-  @media (min-width: $small-screen) {
-    body {
-      margin-bottom: var('footer-height', 'small');
-    }
-  }
-
-  @media (min-width: $medium-screen) {
-    body {
-      margin-bottom: var('footer-height', 'medium');
-    }
-  }
-
-  @media (min-width: $large-screen) {
-    body {
-      margin-bottom: var('footer-height', 'large');
-    }
-  }
-  
-  @media (min-width: $xlarge-screen) {
-    body {
-      margin-bottom: var('footer-height', 'xlarge');
-    }
-  }
+// General mixins for project
+@mixin card() {
+	@include cardShadow();
+	background-color: #fff;
+	border-radius: 8px;
 }
 
 // General classes for project
-.wrapper {
-  width: 100%;
+
+.page-content {
+	//padding-top: $menuHeightMobile;
+	//overflow: hidden;
+	//height: 100%;
+}
+
+.swiper {
+	&-container {
+		position: relative;
+		width: 100%;
+		height: 100%;
+		max-width: 100%;
+		overflow: hidden;
+
+		&:hover {
+			.swiper-btn {
+				opacity: 1;
+				visibility: visible;
+			}
+		}
+	}
+
+	&-wrapper {
+		display: flex;
+
+		&.row {
+			flex-wrap: nowrap;
+		}
+	}
+
+	&-slide {
+		/* Center slide text vertically */
+		display: -webkit-box;
+		display: -ms-flexbox;
+		display: -webkit-flex;
+		display: flex;
+		-webkit-box-pack: center;
+		-ms-flex-pack: center;
+		-webkit-justify-content: center;
+		justify-content: center;
+		-webkit-box-align: center;
+		-ms-flex-align: center;
+		-webkit-align-items: center;
+		align-items: center;
+
+		.active {
+			//color: var(--content-purple);
+		}
+	}
+}
+
+.text-right {
+	text-align: right;
+}
+
+.text-center {
+	text-align: center;
+}
+
+@media (max-width: $small-screen-down) {
+	html {
+		&.mobile-menu-active {
+			overflow: hidden;
+		}
+	}
+}
+
+@media (min-width: $medium-screen) {
+	.swiper {
+		&-wrapper {
+			&.row {
+				flex-wrap: wrap;
+			}
+		}
+	}
 }

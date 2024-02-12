@@ -1,25 +1,136 @@
-@import './colors/project_default';
+// Default --------------
+$black: #000 !default;
+$white: #fff !default;
+// -----------------------
+
+$primary-colors: (
+        'light-purple' : #8952da,
+        'purple' : #662ea3,
+        'dark-purple' : #3d1868,
+        'green' : #29b966
+);
+
+$secondary-colors: (
+        'red' : #FF4548,
+  //'green' : #4caf50,
+        'blue' : #6045FB,
+        'light-blue':#20B6F8,
+        //'orange' : #ff9800,
+        'yellow': #FFD600,
+        'pink': #FD6DFC
+);
+
+$shades-colors: (
+        'white' : #ffffff,
+        'very-light-grey' : #f2f1f4,
+        'light-grey' : #d3d1d6,
+        'medium-grey' : #b2afb6,
+        'dark-grey' : #65616b,
+        'almost-black' : #323036
+);
+
+$opacities-colors: (
+        'white-10%' : rgba(255, 255, 255, 0.1),
+        'white-50%' : rgba(255, 255, 255, 0.5),
+        'white-80%' : rgba(255, 255, 255, 0.8),
+        'purple-5%' : rgba(137, 82, 218, 0.05),
+        'black-5%' : rgba(0, 0, 0, 0.05),
+        'black-10%' : rgba(0, 0, 0, 0.1),
+        'black-30%' : rgba(0, 0, 0, 0.3),
+        'green-20%' : rgba(27, 186, 99, 0.2),
+        'red-20%' : rgba(255, 69, 72, 0.2)
+);
+
+$colors: (
+        'primary' : $primary-colors,
+        'secondary' : $secondary-colors,
+        'shades' : $shades-colors,
+        'opacities' : $opacities-colors
+);
+
+// usage: color("name-of-type", "name-of-color")
+// to avoid to repeating map-get($colors, ...)
+@function color($color, $type) {
+  @if map-has-key($colors, $color) {
+    $curr-color: map-get($colors, $color);
+    @if map-has-key($curr-color, $type) {
+      @return map-get($curr-color, $type);
+    }
+  }
+
+  @warn "Unknown `#{$type}` in #{$color}.";
+  @return null;
+}
+
+
+// Base ------------------
+$base-bg: #1d2941;
+$base-text: #e1f3ff;
+$base-link: color('shades', 'dark-grey');
+$base-border: color('shades', 'light-grey');
+
+$error: color('secondary', 'red');
+// -----------------------
 
 // General ---------------
 
 // -----------------------
 
-// Header ---------------
-
-// -----------------------
-
-// Nav-bar ----------------
-
-// -----------------------
 
 // Footer ----------------
 
 // -----------------------
 
 // Buttons ---------------
+$btn-primary: #dae8ec;
+$btn-primary-text: color('shades', 'almost-black');
+//$btn-primary-shadow: #319a5f;
 
+$btn-secondary: color('shades', 'very-light-grey');
+$btn-secondary-text: color('shades', 'almost-black');
+$btn-secondary-shadow: #cbc7d1;
+
+$btn-menu: color('primary', 'green');
+$btn-menu-text: $white;
+$btn-menu-shadow: #319a5f;
+
+$link-text: color('shades', 'almost-black');
+$link-icon: color('shades', 'dark-grey');
+$link-hover-icon: color('shades', 'almost-black');
+$link-hover-bg: color('opacities', 'black-5%');
+
+$link-purple-text: color('primary', 'light-purple');
+$link-purple-icon: color('primary', 'light-purple');
+$link-purple-hover-icon: color('primary', 'light-purple');
+$link-purple-hover-bg: color('opacities', 'purple-5%');
+
+$btn-add-text: color('primary', 'light-purple');
+$btn-add-border: color('primary', 'light-purple');
+$btn-add-hover-text: $white;
+$btn-add-hover-bg: color('primary', 'purple');
+$btn-add-success-bg: color('primary', 'light-purple');
+$btn-add-error-bg: #ff4548;
+
+$btn-close-icon: color('shades', 'dark-grey');
+$btn-close-bg: $white;
+// ------------------------
+
+// Form elements ----------
+
+// ------------------------
+
+// Menu ----------------
+$menu-bg: #652EA3;
+// ------------------------
+
+// Headers ----------------
+$submenu-text-hover: #8952DA;
+$submenu-active: #8952DA;
+$submenu-border: color('opacities', 'black-10%');
+$header-desc: #65616B;
+$header-meta-desc: #65616B;
+$header-border: 1px solid color('opacities', 'black-10%');
 // -----------------------
 
-// Tables ----------------
 
-// -----------------------
+

@@ -1,0 +1,107 @@
+@import '../../styles/utilities/variables';
+
+.main-footer {
+	padding: {
+		top: 60px;
+		bottom: 30px;
+	}
+	overflow: hidden;
+
+	&-logo {
+		margin-bottom: 16px;
+	}
+
+	&-title {
+		margin-bottom: 12px;
+		font-size: 20px;
+		line-height: 24px;
+		font-weight: 500;
+		text-transform: uppercase;
+	}
+
+	li + li {
+		margin-top: 8px;
+	}
+
+	.nav-btn,
+	.nav-btn .text {
+		font-size: 18px;
+		line-height: 22px;
+		font-weight: 400;
+		color: rgba(225, 243, 255, 0.8);
+		cursor: pointer;
+
+		&:hover {
+			color: #e1f3ff;
+		}
+	}
+
+	.socials {
+		margin-top: auto;
+		font-size: 26px;
+
+		.btn-icon + .btn-icon {
+			margin-left: 20px;
+		}
+	}
+
+	.col-flex {
+		flex-direction: column;
+	}
+
+	.divider {
+		margin: {
+			top: 20px;
+			bottom: 20px;
+		}
+	}
+
+	.copyright {
+		font-size: 12px;
+		line-height: 16px;
+	}
+}
+
+@media (min-width: $small-screen) {
+	.main-footer {
+		padding: {
+			top: 120px;
+			bottom: 40px;
+		}
+
+		&-title {
+			margin: {
+				top: 18px;
+				bottom: 20px;
+			}
+			font-size: 26px;
+			line-height: 26px;
+		}
+
+		li + li {
+			margin-top: 20px;
+		}
+
+		.nav-btn,
+		.nav-btn .text {
+			font-size: 22px;
+			line-height: 26px;
+		}
+
+		.socials {
+			font-size: 32px;
+		}
+
+		.divider {
+			margin: {
+				top: 32px;
+				bottom: 32px;
+			}
+		}
+
+		.copyright {
+			font-size: 18px;
+			line-height: 22px;
+		}
+	}
+}

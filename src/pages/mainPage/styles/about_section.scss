@@ -1,0 +1,71 @@
+@import '../../../styles/utilities/variables';
+
+.about-section {
+	position: relative;
+	padding-bottom: 60px;
+	background: {
+		image: url('../../../images/illustrations/about-bg.png');
+		position: center bottom;
+		size: 540px;
+		repeat: no-repeat;
+	}
+	text-align: center;
+
+	.sup-text {
+		margin-bottom: 60px;
+	}
+
+	.spiral-img {
+		position: absolute;
+		width: 76px;
+		height: 76px;
+		top: -30px;
+		left: -42px;
+		animation: rotate-revers linear 120s infinite;
+	}
+
+	.labyrinth-img {
+		display: none;
+	}
+
+	.sup-text,
+	.desc {
+		margin: {
+			left: auto;
+			right: auto;
+		}
+		max-width: 380px;
+	}
+}
+
+@media (min-width: $small-screen) {
+	.about-section {
+		padding-bottom: 156px;
+		background-size: auto;
+
+		.sup-text {
+			margin-bottom: 156px;
+		}
+
+		.spiral-img {
+			position: absolute;
+			width: 290px;
+			height: 290px;
+			top: -92px;
+			left: -98px;
+		}
+
+		.labyrinth-img {
+			display: block;
+			position: absolute;
+			right: -200px;
+			bottom: -119px;
+			animation: rotate-revers linear 120s infinite;
+		}
+
+		.sup-text,
+		.desc {
+			max-width: none;
+		}
+	}
+}

@@ -1,0 +1,149 @@
+//@import '../utils/styles/utilities/variables';
+//@import '../utils/styles/utilities/color';
+//@import '../utils/styles/utilities/fonts_var';
+
+.accordion {
+	&-btn {
+		position: relative;
+		padding: {
+			top: 20px;
+			bottom: 20px;
+		}
+		cursor: pointer;
+
+		.title {
+			font-size: 16px;
+			font-weight: 500;
+			color: #fff;
+		}
+
+		.desc {
+			//@include text-m();
+			display: block;
+			margin-right: 56px;
+			//color: color('light-mode-shades', 'dark-grey');
+			text-align: right;
+		}
+
+		.icon-expand-more {
+			position: absolute;
+			top: 50%;
+			right: 8px;
+			margin-left: 16px;
+			//color: color('support', 'light-purple');
+			font-size: 32px;
+			transition: all 0.2s ease-out;
+			transform: translateY(-50%);
+			border-radius: 50%;
+			padding: 4px;
+		}
+
+		&:hover .icon-expand-more {
+			//background-color: color('opacities', 'black-5%');
+		}
+
+		&.active .icon-expand-more {
+			transform: translateY(-50%) rotate(-180deg);
+		}
+	}
+
+	&-body {
+		max-height: 0;
+		overflow: hidden;
+		transition: max-height 0.2s ease-out;
+		margin: {
+			left: -6px;
+			right: -6px;
+		}
+
+		.content-desc {
+			//@include text-m();
+			//color: color('light-mode-shades', 'dark-grey');
+		}
+
+		&.active {
+			max-height: none;
+			overflow: visible;
+		}
+	}
+
+	&-content {
+		padding: 0 6px 16px;
+	}
+
+	&.disabled .accordion-btn {
+		cursor: default;
+
+		.title,
+		.desc {
+			//color: color('light-mode-shades', 'medium-grey');
+		}
+
+		.icon-expand-more {
+			visibility: hidden;
+		}
+	}
+
+	&.bordered {
+		border: {
+			//top: 1px solid rgba(255, 255, 255, 0.15);
+			bottom: 1px solid rgba(255, 255, 255, 0.15);
+		}
+
+		+ .wrts-accordion {
+			border-top: 0 none;
+		}
+	}
+
+	&.dark {
+		.wrts-accordion-btn {
+			.title {
+				//color: $white;
+			}
+
+			.desc {
+				//color: color('dark-mode-shades', 'very-light-grey-purple');
+			}
+
+			.icon-expand-more {
+				//color: color('support', 'very-light-purple');
+			}
+
+			&:hover .icon-expand-more {
+				//background-color: color('opacities', 'white-5%');
+			}
+		}
+
+		.wrts-accordion-body .content-desc {
+			//color: color('dark-mode-shades', 'very-light-grey-purple');
+		}
+
+		&.disabled .wrts-accordion-btn {
+			.title,
+			.desc {
+				//color: color('dark-mode-shades', 'light-grey-purple');
+			}
+		}
+
+		&.bordered {
+			//border-color: color('opacities', 'white-10%');
+		}
+	}
+}
+
+//@media (min-width: $small-screen) {
+//	.wrts-accordion-btn {
+//		.title {
+//			@include subtitle-m();
+//		}
+//
+//		.icon-expand-more {
+//			right: 16px;
+//		}
+//
+//		.desc {
+//			text-align: left;
+//			margin-right: 64px;
+//		}
+//	}
+//}

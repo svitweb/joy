@@ -1,0 +1,75 @@
+@import '../../../styles/utilities/variables';
+
+.responses-section {
+	position: relative;
+	padding-bottom: 0;
+	margin-bottom: 70px;
+	background: {
+		image: url('../../../images/illustrations/responses-bg-small.png');
+		position: center bottom;
+		size: 582px;
+		repeat: no-repeat;
+	}
+	text-align: center;
+
+	.subtitle {
+		max-width: 300px;
+		margin: {
+			left: auto;
+			right: auto;
+		}
+		padding-bottom: 90px;
+	}
+
+	.btn {
+		position: absolute;
+		bottom: 0;
+		left: 50%;
+		transform: translate(-50%, 100%);
+		min-width: 190px;
+	}
+}
+
+@media (min-width: $small-screen) {
+	.responses-section {
+		margin-bottom: 0;
+		padding-bottom: 60px;
+		background: {
+			image: url('../../../images/illustrations/responses-bg.png');
+			size: 900px;
+		}
+
+		.section-title {
+			max-width: 700px;
+			margin: {
+				left: auto;
+				right: auto;
+			}
+		}
+
+		.subtitle {
+			margin-bottom: 0;
+			max-width: 700px;
+			padding-bottom: 50px;
+		}
+
+		.btn {
+			position: relative;
+			left: 0;
+			transform: none;
+		}
+	}
+}
+@media (min-width: $medium-screen) {
+	.responses-section {
+		padding-bottom: 90px;
+		background: {
+			position: 53% top;
+			size: 1100px;
+		}
+
+		.btn {
+			min-width: 260px;
+		}
+	}
+}

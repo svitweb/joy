@@ -1,137 +1,149 @@
 @import '../utilities/color';
 @import '../utilities/fonts_var';
+@import '../utilities/shadows';
 
-// Buttons colors - transfer into 'utilities/colors.scss' file for project
-
-$btn-text   : $white;
-$btn-red    : color('state', 'red');
-$btn-blue   : color('state', 'blue');
-$btn-green  : color('state', 'green');
-$btn-orange : color('state', 'orange');
-// ----------------------
-
-// Buttons style
-.close { // popup close button
-  padding: 0;
-  border: 0;
-  background: none;
-  cursor: pointer;
-}
-
-.btn {  // general styles for all buttons(<a>, <button>)
+%btnBase {
   position: relative;
   display: inline-block;
-  margin: 0;
-  padding: .8rem 1.6rem;
-  border: 0 none {
-    width: .1rem;
-    style: solid;
-    color: transparent;
-  };
-  outline: none 0;
-  background-color: transparent;
-  font-family: $base-font-family;
-  font-size: 1.6rem;
-  font-weight: 700;
-  line-height: 1;
+  padding: 16px 30px;
+  border-radius: 8px;
+  color: transparent;
   text-align: center;
-  text-decoration: none;
-  text-transform: uppercase;
-  white-space: nowrap;
-  cursor: pointer;
+  overflow: visible;
   vertical-align: middle;
-  transition: all 350ms ease-in-out 0s;
-  user-select: none;
+  transition: all .25s ease-out;
+  font-size: 0;
+
+  .text {
+    display: inline-block;
+    line-height: 24px;
+    vertical-align: middle;
+    user-select: none;
+    font-size: 16px;
+  }
+
+  .icon {
+    font-size: 16px;
+  }
+
+  .icon + .text {
+    margin-left: 8px;
+  }
+
+  &.circle {
+    border-radius: 25%;
+    padding: 10px;
+  }
+
+  &.disabled {
+    pointer-events: none;
+  }
+}
+
+.btn {
+  @extend %btnBase;
+  background: #181b3e;
+  box-shadow: 3px 3px 5px #000, -3px -3px 5px #2e326a;
+  color: #fff;
+
+  &:hover {
+    background: linear-gradient(145deg, #1a1d42, #161838);
+  }
+
+  &:active,
+  &.active {
+    background: #11132b;
+    box-shadow: inset 5px 5px 10px #070811,
+    inset -5px -5px 10px #1b1e45;
+  }
+
+  &.active {
+    pointer-events: none;
+  }
+
+  &.disabled {
+    background: linear-gradient(145deg, #161838, #1a1d42);
+  }
 
   &.red {
-    border-color: $btn-red;
-    background-color: $btn-red;
-    color: $white;
-
-    &:hover {
-      border-color: lighten($btn-red, 10%);
-      background-color: lighten($btn-red, 10%);
+    .icon {
+      color: #bb4d4d;
     }
   }
 
-  &.blue {
-    border-color: $btn-blue;
-    background-color: $btn-blue;
-    color: $white;
+  &.loading {
+    &::before {
 
-    &:hover {
-      border-color: lighten($btn-blue, 10%);
-      background-color: lighten($btn-blue, 10%);
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      z-index: -1;
+      //background: linear-gradient(to right, red 20%, black 20%, red 20%, black 20%, red 20%);
     }
   }
+}
 
-  &.green {
-    border-color: $btn-green;
-    background-color: $btn-green;
-    color: $white;
 
-    &:hover {
-      border-color: lighten($btn-green, 10%);
-      background-color: lighten($btn-green, 10%);
-    }
+.btn-close {
+  padding: 8px;
+  //position: relative;
+  //display: inline-block;
+  //flex: 0 0 auto;
+  //margin: 0;
+  //padding: 20px;
+  //border: 0 none;
+  //background-color: color('shades', 'white');
+  //outline: none 0;
+  //vertical-align: middle;
+  //transition: all .08s ease-out 0s;
+  //overflow: visible;
+  //user-select: none;
+  //cursor: pointer;
+  //font-size: 0;
+  //border-radius: 50%;
+  //height: min-content;
+  //
+  //.icon {
+  //  color: $btn-close-icon;
+  //}
+  //
+  //&.small {
+  //  padding: 8px;
+  //}
+  //
+  //&:hover {
+  //  @include elevation4();
+  //}
+}
+
+
+//Group -------------
+.btn-group {
+  display: flex;
+  //margin: -4px;
+  align-items: center;
+
+  .btn {
+    margin: 4px;
   }
 
-  &.orange {
-    border-color: $btn-orange;
-    background-color: $btn-orange;
-    color: $white;
-
-    &:hover {
-      border-color: lighten($btn-orange, 10%);
-      background-color: lighten($btn-orange, 10%);
-    }
+  .full-width {
+    flex: 1 1 auto;
+    max-width: 100%;
   }
 
-  &.bordered {
-    background-color: transparent;
-
-    &.red {
-      color: $btn-red;
-
-      &:hover {
-        border-color: $btn-red;
-        background-color: $btn-red;
-        color: $white;
-      }
-    }
-
-    &.blue {
-      color: $btn-blue;
-
-      &:hover {
-        border-color: $btn-blue;
-        background-color: $btn-blue;
-        color: $white;
-      }
-    }
-
-    &.green {
-      color: $btn-green;
-
-      &:hover {
-        border-color: $btn-green;
-        background-color: $btn-green;
-        color: $white;
-      }
-    }
-
-    &.orange {
-      color: $btn-orange;
-
-      &:hover {
-        border-color: $btn-orange;
-        background-color: $btn-orange;
-        color: $white;
-      }
-    }
+  &.wrap {
+    flex-wrap: wrap;
   }
 
-  &.rounded {
-    border-radius: .5rem;
+  &.center {
+    justify-content: center;
+  }
+
+  &.right {
+    justify-content: flex-end;
   }
 }

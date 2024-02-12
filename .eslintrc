@@ -1,62 +1,116 @@
 {
-  "parser": "babel-eslint",
-  "extends": "airbnb",
-  "rules": {
-    // `.jsx` extension cannot be used with React Native
-    "react/jsx-filename-extension": [
-      "error",
-      {
-        "extensions": [
-          ".js",
-          ".jsx"
-        ]
-      }
-    ],
-    "react/no-typos": "off",
-    "no-param-reassign": [
-      2,
-      {
-        "props": false
-      }
-    ],
-    "jsx-a11y/no-static-element-interactions": 0,
-    "no-unused-vars": 0,
-    "no-underscore-dangle": "off",
-    "no-bitwise": [
-      "error",
-      {
-        "allow": [
-          "~"
-        ]
-      }
-    ],
-    "no-octal-escape": "off",
-    "no-console": "off",
-    "no-script-url": "off",
-    "no-alert": "off",
-    "react/no-danger": "off",
-    "react/sort-prop-types": [
-      "error",
-      {
-        "callbacksLast": true,
-        "requiredFirst": true,
-        "sortShapeProp": true
-      }
-    ],
-    "generator-star-spacing": [
-      "error",
-      {
-        "before": false,
-        "after": true,
-        "method": {
-          "before": true,
-          "after": true
-        }
-      }
-    ]
-  },
-  "env": {
-    "browser": true,
-    "node": true
-  }
+	"env": {
+		"browser": true,
+		"es6": true,
+		"node": true,
+		"es2022": true,
+		"jest": true
+	},
+	"extends": [
+		"eslint:recommended"
+	],
+	"plugins": ["import", "prettier", "cypress", "jsx"],
+	"parser": "@babel/eslint-parser",
+	"parserOptions": {
+		"ecmaVersion": "latest",
+		"requireConfigFile": false,
+		"sourceType": "module",
+		"ecmaFeatures": {
+			"experimentalObjectRestSpread": true,
+			"experimentalDecorators": true,
+			"jsx": true
+		},
+		babelOptions: {
+			babelrc: false,
+			configFile: false,
+			presets: ["@babel/preset-env"],
+			parserOpts: {
+				plugins: ["jsx"]
+			}
+		}
+	},
+	"overrides": [
+		{
+			"files": "*.spec.js",
+			"rules": {
+				"no-unused-expressions": [0],
+				"no-invalid-this": [0],
+				"max-nested-callbacks": [0]
+			}
+		},
+		{
+			"files": "*/constants/**",
+			"rules": {
+				"sort-keys": [0],
+				"no-magic-numbers": [0]
+			}
+		}
+	],
+	"rules": {
+		"default-param-last": 0,
+		"max-len": ["error", { "code": 120 }],
+		"react/react-in-jsx-scope": "off",
+		"camelcase": [0],
+		"consistent-return": [1],
+		"func-names": [0],
+		"indent": [
+			2,
+			"tab",
+			{
+				"SwitchCase": 1,
+				"ignoredNodes": ["JSXElement *", "JSXElement"]
+			}
+		],
+		"no-tabs": 0,
+		"no-mixed-spaces-and-tabs": [0, false],
+
+		"no-case-declarations": [0],
+		"no-continue": [0],
+		"no-nested-ternary": [0],
+		"no-param-reassign": [0],
+		"no-plusplus": [2, { "allowForLoopAfterthoughts": true }],
+		"no-restricted-syntax": [2, "DebuggerStatement", "LabeledStatement", "WithStatement"],
+		"no-underscore-dangle": [0],
+		"no-unused-expressions": [
+			1,
+			{
+				"allowShortCircuit": true,
+				"allowTernary": true,
+				"allowTaggedTemplates": true
+			}
+		],
+		"no_underscore_dangle": [0],
+		"no-unused-vars": [2, { "vars": "all", "args": "none", "ignoreRestSiblings": true }],
+		"no-use-before-define": [0],
+		"operator-assignment": [0, "always"],
+		"import/prefer-default-export": [0],
+		"import/no-extraneous-dependencies": [0],
+		"import/order": [0],
+		"react-hooks/exhaustive-deps": "off",
+		"react/button-has-type": 0,
+		"react/no-children-prop": 0,
+		"react/jsx-first-prop-new-line": 0,
+		"react/jsx-indent-props": 0,
+		"react/jsx-curly-newline": [0],
+		"react/forbid-prop-types": [0],
+		"jsx-a11y/no-static-element-interactions": 0,
+		"jsx-a11y/click-events-have-key-events": 0,
+		"jsx-a11y/label-has-associated-control": 0,
+		"jsx-a11y/anchor-is-valid": 0,
+		"react/jsx-props-no-spreading": [0],
+		"react/jsx-indent": [2, "tab"],
+		"react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
+		"react/default-props-match-prop-types": 0,
+		"react/no-unused-prop-types": 0,
+		"react/prefer-stateless-function": 0,
+		"react/prop-types": 0,
+		"react/require-default-props": 0,
+		"react/jsx-one-expression-per-line": 0,
+		"react/jsx-wrap-multilines": 0,
+		"react/no-array-index-key": 0,
+		"react/function-component-definition": [1, {
+			"namedComponents": "arrow-function"
+		}],
+		"import/no-cycle": [1, { maxDepth: 2 }]
+	}
 }

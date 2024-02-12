@@ -1,50 +1,89 @@
 @import '../utilities/color';
 
 // Popup variable - transfer into 'utilities/variables.scss' for project
-$popup-width  : 50rem;
-$popup-height : 50rem;
-$popup-head   : 6.2rem;
-$popup-foot   : 6.2rem;
-$popup-close  : 1.6rem;
+$popup-width: 50rem;
+$popup-height: 50rem;
+$popup-head: 6.2rem;
+$popup-foot: 6.2rem;
+$popup-close: 1.6rem;
 // ----------------------
 
 // Popup colors - transfer into 'utilities/colors.scss' file for project
-$popup-border : $base-border;
-$popup-bg     : $white;
-$popup-shadow : $black;
+$popup-border: $base-border;
+$popup-bg: #181b3e;
+$popup-shadow: $black;
 // ----------------------
 
 // Popup style
 .popup {
   position: fixed;
-  top: 50%;
-  left: 50%;
-  width: $popup-width;
-  height: $popup-height;
-  transform: translate(-50%, -50%);
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  //top: 50%;
+  //left: 50%;
+  //width: $popup-width;
+  //height: $popup-height;
+  //height: auto;
+  //transform: translate(-50%, -50%);
   z-index: 1050;
+  display: flex;
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding: 5px;
 
   &-backdrop {
-    position: fixed;
+    position: absolute;
     top: 0;
     left: 0;
     right: 0;
     bottom: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba($popup-shadow, .8);
+    background-color: rgba($popup-bg, 0.9);
+
+
     z-index: 1040;
+
+    //&.backdrop-img {
+    //  background-color: rgba(#dae8ec, 1);
+    //  background: {
+    //    image: url("../../images/1.jpg");
+    //
+    //    repeat: no-repeat;
+    //    position: center;
+    //    size: cover;
+    //  }
+    //
+    //  //filter: blur(4px);
+    //
+    //}
   }
 
   &-wrap {
-    height: 100%;
-    border: {
-      width: .1rem;
-      style: solid;
-      color: $popup-border;
-    };
-    background-color: $popup-bg;
-    box-shadow: 0 0 2rem 0 rgba($popup-shadow, .2), 0 .5rem .5rem 0 rgba($popup-shadow, .24);
+    //height: 100%;
+    flex: 1 1 auto;
+    max-width: 500px;
+    margin: auto;
+    //border: {
+    //  width: .1rem;
+    //  style: solid;
+    //  color: $popup-border;
+    //};
+    //background-color: $popup-bg;
+    //box-shadow: 0 0 2rem 0 rgba($popup-shadow, .2), 0 .5rem .5rem 0 rgba($popup-shadow, .24);
+    padding: 10px 10px;
+    //background-color: #d5e8f9;
+    border-radius: 18px;
+
+    background: linear-gradient(145deg, #161838, #1a1d42);
+    box-shadow:  11px 11px 26px #0f1026,
+    -11px -11px 26px #212656;
+
+
+    position: relative;
+    z-index: 1050;
   }
 
   &-head {
@@ -61,21 +100,45 @@ $popup-shadow : $black;
       margin: 0;
       padding-right: $popup-close;
     }
+  }
 
-    .close {
-      position: absolute;
-      top: 50%;
-      right: 1.5rem;
-      width: $popup-close;
-      height: $popup-close;
-      filter: alpha('opacity=20');
-      opacity: .2;
-      transform: translate(0, -50%);
+  .btn-close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    //width: $popup-close;
+    //height: $popup-close;
+    //filter: alpha('opacity=20');
+    //opacity: .2;
+    //transform: translate(0, -50%);
+    //
+    //&::before {
+    //  content: "\e909";
+    //  font-family: 'icon' !important;
+    //}
+    //
+    //&:hover {
+    //  filter: alpha('opacity=80');
+    //  opacity: .8;
+    //}
+  }
 
-      &:hover {
-        filter: alpha('opacity=80');
-        opacity: .8;
-      }
+  &-title {
+    //margin: 0;
+    padding-right: $popup-close;
+    margin-bottom: 20px;
+    user-select: none;
+    font-size: 24px;
+    font-weight: 600;
+
+    .icon {
+      margin-right: 10px;
+      color: #00db40;
+    }
+
+    .text {
+      display: inline-block;
+      vertical-align: middle;
     }
   }
 
@@ -98,5 +161,16 @@ $popup-shadow : $black;
       style: solid;
       color: $popup-border;
     };
+  }
+}
+
+
+.add-edit-popup {
+
+}
+
+@media (min-width: $small-screen) {
+  .popup-wrap {
+    padding: 20px 20px;
   }
 }

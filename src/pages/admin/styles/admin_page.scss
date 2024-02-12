@@ -1,0 +1,50 @@
+.admin-page {
+	padding: {
+		top: 24px;
+		bottom: 32px;
+	}
+
+	&-header {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		margin-bottom: 24px;
+
+		.info {
+			font-size: 14px;
+			margin-right: 16px;
+		}
+	}
+
+	&-accordion {
+		.accordion-btn .title {
+			font-size: 18px;
+		}
+
+		.inner-accordion {
+			//padding-left: 16px;
+			margin-left: 16px;
+			//border-left: 1px solid rgba(255, 255, 255, 0.15);
+
+			.accordion-btn .title {
+				font-size: 15px;
+			}
+
+			&:last-child {
+				border-bottom: 0 none;
+			}
+		}
+
+		.codes-list {
+			padding-left: 16px;
+
+			&-item {
+				+ .codes-list-item {
+					margin-top: 4px;
+					padding-top: 4px;
+					border-top: 1px solid rgba(255, 255, 255, 0.1);
+				}
+			}
+		}
+	}
+}

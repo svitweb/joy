@@ -1,0 +1,56 @@
+@import '../../../styles/utilities/variables';
+
+.main-section {
+	position: relative;
+	height: 100vh;
+	text-align: center;
+	background: {
+		image: url('../../../images/illustrations/main-bg.png');
+		position: center;
+		size: cover;
+		repeat: no-repeat;
+	}
+	z-index: 2;
+
+	&.page-section {
+		padding: 0;
+	}
+
+	.container {
+		position: relative;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		min-height: 100%;
+	}
+
+	.main-desc {
+		margin-top: 8px;
+	}
+
+	.main-btn {
+		min-width: 190px;
+		margin-top: 16px;
+	}
+
+	.socials {
+		position: absolute;
+		right: 16px;
+		bottom: 6px;
+	}
+}
+
+@media (min-width: $small-screen) {
+	.main-section {
+		.main-btn {
+			margin-top: 32px;
+			min-width: 268px;
+		}
+
+		.socials {
+			right: 32px;
+			bottom: 18px;
+		}
+	}
+}
