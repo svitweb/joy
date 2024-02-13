@@ -1,96 +1,99 @@
 {
-  "name": "joy-frontend",
-  "version": "0.1.0",
-  "private": true,
-  "dependencies": {
-    "axios": "^0.19.2",
-    "classnames": "^2.2.6",
-    "connected-react-router": "^6.8.0",
-    "history": "^4.10.1",
-    "js-cookie": "^2.2.1",
-    "keymirror": "^0.1.1",
-    "lodash": "^4.17.15",
-    "react": "18.2.0",
-    "react-app-polyfill": "3.0.0",
-    "react-custom-scrollbars": "^4.2.1",
-    "react-dom": "18.2.0",
-    "react-redux": "8.0.5",
-    "react-router-dom": "5.3.3",
-    "react-scripts": "5.0.1",
-    "react-tippy": "1.4.0",
-    "redux": "4.2.1",
-    "redux-form": "8.3.10",
-    "redux-logger": "^3.0.6",
-    "redux-saga": "1.2.3",
-    "shortid": "^2.2.15",
-    "socket.io": "^2.3.0",
-    "swiper": "11.0.5",
-    "uuid": "^7.0.3",
-    "validator": "^13.0.0"
-  },
-  "scripts": {
-    "start": "ESLINT_NO_DEV_ERRORS='true' && react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "test:ci": "react-scripts test --ci --coverage --reporters=default --reporters=jest-junit",
-    "eject": "react-scripts eject",
-    "storybook": "start-storybook -p 9009 -s public",
-    "build-storybook": "build-storybook -s public"
-  },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version",
-      "ie 11"
-    ]
-  },
-  "jest": {
-    "transformIgnorePatterns": [],
-    "snapshotSerializers": [
-      "enzyme-to-json/serializer"
-    ],
-    "moduleNameMapper": {
-      "\\.(css|less|sass|scss)$": "<rootDir>/src/jest/styleMock.js"
-    }
-  },
-  "devDependencies": {
-    "@babel/eslint-parser": "7.21.3",
-    "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
-    "@bugsnag/source-maps": "2.3.1",
-    "@storybook/addon-actions": "^5.3.18",
-    "@storybook/addon-knobs": "^5.3.18",
-    "@storybook/addon-links": "^5.3.18",
-    "@storybook/addons": "^5.3.18",
-    "@storybook/preset-create-react-app": "^2.1.1",
-    "@storybook/react": "^5.3.18",
-    "@testing-library/jest-dom": "^5.16.4",
-    "@testing-library/react": "14.0.0",
-    "@testing-library/user-event": "14.4.3",
-    "enzyme": "^3.11.0",
-    "enzyme-adapter-react-16": "^1.15.7",
-    "enzyme-to-json": "3.6.2",
-    "eslint": "^8.0.0",
-    "eslint-config-airbnb": "19.0.4",
-    "eslint-config-prettier": "8.8.0",
-    "eslint-plugin-cypress": "2.13.2",
-    "eslint-plugin-import": "2.27.5",
-    "eslint-plugin-jsx": "0.1.0",
-    "eslint-plugin-jsx-a11y": "6.7.1",
-    "eslint-plugin-prettier": "4.2.1",
-    "eslint-plugin-react": "7.32.2",
-    "eslint-plugin-react-hooks": "4.6.0",
-    "jest-junit": "15.0.0",
-    "mocha-junit-reporter": "2.2.0",
-    "node-sass": "9.0.0",
-    "prettier": "2.8.7",
-    "react-facebook-login": "^4.1.1",
-    "redux-mock-store": "^1.5.4",
-    "start-server-and-test": "2.0.0"
-  }
+	"name": "joy-frontend",
+	"version": "0.1.0",
+	"private": true,
+	"dependencies": {
+		"axios": "^0.19.2",
+		"classnames": "^2.2.6",
+		"connected-react-router": "^6.8.0",
+		"history": "^4.10.1",
+		"js-cookie": "^2.2.1",
+		"keymirror": "^0.1.1",
+		"lodash": "^4.17.15",
+		"react": "18.2.0",
+		"react-app-polyfill": "3.0.0",
+		"react-custom-scrollbars": "^4.2.1",
+		"react-dom": "18.2.0",
+		"react-redux": "8.0.5",
+		"react-router-dom": "5.3.3",
+		"react-scripts": "5.0.1",
+		"react-tippy": "1.4.0",
+		"redux": "4.2.1",
+		"redux-form": "8.3.10",
+		"redux-logger": "^3.0.6",
+		"redux-saga": "1.2.3",
+		"shortid": "^2.2.15",
+		"socket.io": "^2.3.0",
+		"swiper": "11.0.5",
+		"uuid": "^7.0.3",
+		"validator": "^13.0.0"
+	},
+	"scripts": {
+		"start": "ESLINT_NO_DEV_ERRORS='true' && react-scripts start",
+		"build": "react-scripts build",
+		"test": "react-scripts test",
+		"test:ci": "react-scripts test --ci --coverage --reporters=default --reporters=jest-junit",
+		"eject": "react-scripts eject",
+		"storybook": "start-storybook -p 9009 -s public",
+		"build-storybook": "build-storybook -s public",
+		"predeploy" : "npm run build",
+		"deploy" : "gh-pages -d build"
+	},
+	"browserslist": {
+		"production": [
+			">0.2%",
+			"not dead",
+			"not op_mini all"
+		],
+		"development": [
+			"last 1 chrome version",
+			"last 1 firefox version",
+			"last 1 safari version",
+			"ie 11"
+		]
+	},
+	"jest": {
+		"transformIgnorePatterns": [],
+		"snapshotSerializers": [
+			"enzyme-to-json/serializer"
+		],
+		"moduleNameMapper": {
+			"\\.(css|less|sass|scss)$": "<rootDir>/src/jest/styleMock.js"
+		}
+	},
+	"devDependencies": {
+		"@babel/eslint-parser": "7.21.3",
+		"@babel/plugin-proposal-private-property-in-object": "^7.21.11",
+		"@bugsnag/source-maps": "2.3.1",
+		"@storybook/addon-actions": "^5.3.18",
+		"@storybook/addon-knobs": "^5.3.18",
+		"@storybook/addon-links": "^5.3.18",
+		"@storybook/addons": "^5.3.18",
+		"@storybook/preset-create-react-app": "^2.1.1",
+		"@storybook/react": "^5.3.18",
+		"@testing-library/jest-dom": "^5.16.4",
+		"@testing-library/react": "14.0.0",
+		"@testing-library/user-event": "14.4.3",
+		"enzyme": "^3.11.0",
+		"enzyme-adapter-react-16": "^1.15.7",
+		"enzyme-to-json": "3.6.2",
+		"eslint": "^8.0.0",
+		"eslint-config-airbnb": "19.0.4",
+		"eslint-config-prettier": "8.8.0",
+		"eslint-plugin-cypress": "2.13.2",
+		"eslint-plugin-import": "2.27.5",
+		"eslint-plugin-jsx": "0.1.0",
+		"eslint-plugin-jsx-a11y": "6.7.1",
+		"eslint-plugin-prettier": "4.2.1",
+		"eslint-plugin-react": "7.32.2",
+		"eslint-plugin-react-hooks": "4.6.0",
+		"jest-junit": "15.0.0",
+		"mocha-junit-reporter": "2.2.0",
+		"node-sass": "9.0.0",
+		"prettier": "2.8.7",
+		"react-facebook-login": "^4.1.1",
+		"redux-mock-store": "^1.5.4",
+		"start-server-and-test": "2.0.0",
+		"gh-pages": "^6.1.1"
+	}
 }
