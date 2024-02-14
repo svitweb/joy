@@ -1,17 +1,17 @@
 {
   "files": {
-    "main.css": "/joy/static/css/main.771b3838.css",
-    "main.js": "/joy/static/js/main.81897475.js",
+    "main.css": "/joy/static/css/main.c3a566c1.css",
+    "main.js": "/joy/static/js/main.77360213.js",
     "static/media/formats-bg.png": "/joy/static/media/formats-bg.ee537f136414ffcda419.png",
     "static/media/main-bg.png": "/joy/static/media/main-bg.4dc9ecd72bfb3dd1c150.png",
     "static/media/form-bg.png": "/joy/static/media/form-bg.dda83ecc32bfc4155440.png",
-    "static/media/list-img-3.png": "/joy/static/media/list-img-3.c97748882804548b1ab5.png",
+    "static/media/list-img-3.png": "/joy/static/media/list-img-3.5da2199a02687bf3cc65.png",
     "static/media/way.png": "/joy/static/media/way.c30a19b3397eb055f19e.png",
     "static/media/list-img-1-s.png": "/joy/static/media/list-img-1-s.cfc627d3ce08b2fc724c.png",
     "static/media/responses-bg.png": "/joy/static/media/responses-bg.bbf70feda3085f0c8d64.png",
     "static/media/list-img-1.png": "/joy/static/media/list-img-1.40da4c065c92e4127119.png",
-    "static/media/list-img-2.png": "/joy/static/media/list-img-2.082912079bc1aea6a783.png",
-    "static/media/list-img-4.png": "/joy/static/media/list-img-4.b0b552400c331d8ddec6.png",
+    "static/media/list-img-2.png": "/joy/static/media/list-img-2.c8cb21100ff70aafcf22.png",
+    "static/media/list-img-4.png": "/joy/static/media/list-img-4.95ce9498af8b316e545b.png",
     "static/media/responses-bg-small.png": "/joy/static/media/responses-bg-small.9829a8f037e8cb70d2d6.png",
     "static/media/m1.png": "/joy/static/media/m1.7f083f2ce8eac6eef75e.png",
     "static/media/m2.png": "/joy/static/media/m2.b163483033ec54291a8a.png",
@@ -40,11 +40,11 @@
     "static/media/logo.svg": "/joy/static/media/logo.6a4767a644744756662172e9d6ad8d51.svg",
     "static/media/deco-dot.svg": "/joy/static/media/deco-dot.1980cddb8f276aa41316.svg",
     "index.html": "/joy/index.html",
-    "main.771b3838.css.map": "/joy/static/css/main.771b3838.css.map",
-    "main.81897475.js.map": "/joy/static/js/main.81897475.js.map"
+    "main.c3a566c1.css.map": "/joy/static/css/main.c3a566c1.css.map",
+    "main.77360213.js.map": "/joy/static/js/main.77360213.js.map"
   },
   "entrypoints": [
-    "static/css/main.771b3838.css",
-    "static/js/main.81897475.js"
+    "static/css/main.c3a566c1.css",
+    "static/js/main.77360213.js"
   ]
 }
