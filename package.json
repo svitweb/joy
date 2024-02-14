@@ -1,7 +1,8 @@
 {
+	"homepage": "https://svitweb.github.io/joy",
 	"name": "joy-frontend",
 	"version": "0.1.0",
-	"private": true,
+	"private": false,
 	"dependencies": {
 		"axios": "^0.19.2",
 		"classnames": "^2.2.6",
@@ -37,7 +38,7 @@
 		"storybook": "start-storybook -p 9009 -s public",
 		"build-storybook": "build-storybook -s public",
 		"predeploy" : "npm run build",
-		"deploy" : "gh-pages -d build"
+		"deploy": "gh-pages -d build -b gh-pages -t process.env.GH_KEY"
 	},
 	"browserslist": {
 		"production": [

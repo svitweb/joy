@@ -27,8 +27,8 @@ const Themes = () => (
 							<img
 								className="recorder-img"
 								alt="illustration"
-								width="400"
-								height="270"
+								width="363"
+								height="246"
 								src={listImg1S}
 							/>
 						</picture>
@@ -87,8 +87,8 @@ const Themes = () => (
 								src={listImg2}
 								alt="illustration"
 								className="float-img"
-								width="180"
-								height="180"
+								width="168"
+								height="168"
 							/>
 						</picture>
 					</div>
@@ -114,8 +114,8 @@ const Themes = () => (
 								src={listImg3}
 								alt="illustration"
 								className="img"
-								width="400"
-								height="252"
+								width="363"
+								height="228"
 							/>
 						</picture>
 					</div>

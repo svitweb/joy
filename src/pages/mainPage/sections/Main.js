@@ -1,7 +1,7 @@
 import '../styles/main_section.scss';
 import React, { memo } from 'react';
-import { compose } from 'redux';
-import { connect } from 'react-redux';
+// import { compose } from 'redux';
+// import { connect } from 'react-redux';
 import Button from '../../../components/button/Button';
 import Socials from '../../../components/socials/Socials';
 
@@ -23,16 +23,17 @@ Main.propTypes = {
 	// playLists: PropTypes.object,
 };
 
-const mapStateToProps = ({ mainPageReducer }) => ({
-	loading: mainPageReducer.loading,
-});
+// const mapStateToProps = ({ mainPageReducer }) => ({
+// 	loading: mainPageReducer.loading,
+// });
+//
+// const mapDispatchToProps = {
+// 	// getList: mainPageActions.getList,
+// 	// editListInit: mainPageActions.editListInit,
+// 	// editList: mainPageActions.editList,
+// 	// deleteList: mainPageActions.deleteList,
+// 	// toggleAddListModal: mainPageActions.toggleEditListModal,
+// };
 
-const mapDispatchToProps = {
-	// getList: mainPageActions.getList,
-	// editListInit: mainPageActions.editListInit,
-	// editList: mainPageActions.editList,
-	// deleteList: mainPageActions.deleteList,
-	// toggleAddListModal: mainPageActions.toggleEditListModal,
-};
-
-export default compose(connect(mapStateToProps, mapDispatchToProps), memo)(Main);
+// export default compose(connect(mapStateToProps, mapDispatchToProps), memo)(Main);
+export default memo(Main);

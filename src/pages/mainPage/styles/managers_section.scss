@@ -1,26 +1,25 @@
 @import '../../../styles/utilities/variables';
 
-.managers-section {
-	//height: 100vh;
-	padding: {
-		top: 60px;
-		bottom: 60px;
-	}
-
-}
-
 .manager {
-	text-align: center;
-	margin-top: 16px;
+	display: flex;
+	align-items: flex-start;
+	margin-top: 24px;
 
 	&-img {
-		max-width: 190px;
+		max-width: 160px;
+		margin-right: 16px;
+		flex: 1 1 33%;
+		width: 33%;
+	}
+
+	&-info {
+		flex: 1 1 auto;
+		align-self: center;
 	}
 
 	&-name {
-		font-size: 20px;
+		font-size: 18px;
 		line-height: 26px;
-		margin-top: 10px;
 	}
 
 	&-desc {
@@ -31,39 +30,35 @@
 }
 
 @media (min-width: $small-screen) {
-	.managers-section {
-		//height: 100vh;
-		padding: {
-			top: 60px;
-			bottom: 60px;
-		}
-	}
-
 	.manager {
-		text-align: left;
+		text-align: center;
+		display: block;
+		max-width: 360px;
+		margin: {
+			left: auto;
+			right: auto;
+		}
 
 		&-img {
-			max-width: 100%;
+			max-width: 320px;
+			width: 100%;
+			margin-right: 0;
 		}
 
 		&-name {
-			font-size: 36px;
-			line-height: 38px;
+			font-size: 28px;
+			line-height: 32px;
 			margin-top: 20px;
 		}
 
 		&-desc {
-			font-size: 28px;
-			line-height: 36px;
-			margin-top: 30px;
-		}
+			font-size: 18px;
+			line-height: 26px;
+			margin-top: 16px;
 
-		&.left-side {
-			padding-right: 40px;
-		}
-
-		&.right-side {
-			padding-left: 40px;
+			&.sub {
+				font-size: 16px;
+			}
 		}
 	}
 }

@@ -1,5 +1,5 @@
 import '../styles/style.scss';
-import React, { useEffect, useState } from 'react';
+import React, { memo, useEffect, useState } from 'react';
 import { connect } from 'react-redux';
 import Button from '../../../components/button/Button';
 import logo from '../../../images/illustrations/logo.svg';
@@ -63,18 +63,19 @@ Menu.propTypes = {
 	// signInActions: PropTypes.object.isRequired,
 };
 
-const mapStateToProps = ({ mainPageReducer }) => ({
-	// loading: state.mainPageReducer.loading,
-	// isCreateListModal: state.menuReducer.isCreateListModal,
-	// isJoinListModal: state.menuReducer.isJoinListModal,
-});
+// const mapStateToProps = ({ mainPageReducer }) => ({
+// 	// loading: state.mainPageReducer.loading,
+// 	// isCreateListModal: state.menuReducer.isCreateListModal,
+// 	// isJoinListModal: state.menuReducer.isJoinListModal,
+// });
+//
+// const mapDispatchToProps = {
+// 	// logOut: menuActions.logOut,
+// 	// toggleCreateListModal: menuActions.toggleCreateListModal,
+// 	// toggleJoinListModal: menuActions.toggleJoinListModal,
+// 	// createList: menuActions.createList,
+// 	// joinList: menuActions.joinList,
+// };
 
-const mapDispatchToProps = {
-	// logOut: menuActions.logOut,
-	// toggleCreateListModal: menuActions.toggleCreateListModal,
-	// toggleJoinListModal: menuActions.toggleJoinListModal,
-	// createList: menuActions.createList,
-	// joinList: menuActions.joinList,
-};
-
-export default connect(mapStateToProps, mapDispatchToProps)(Menu);
+// export default connect(mapStateToProps, mapDispatchToProps)(Menu);
+export default memo(Menu);

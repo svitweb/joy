@@ -1,5 +1,5 @@
 import '../styles/form_section.scss';
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import PropTypes from 'prop-types';
 import * as mainPageActions from '../Actions';
 import { connect } from 'react-redux';
@@ -28,6 +28,8 @@ import Requests from '../sections/Requests';
 import Formats from '../sections/Formats';
 import Footer from '../../footer/Footer';
 import FormInput from '../../../components/input/FormInput';
+import Spiral from '../../../images/illustrations/spiral';
+import LabyrinthImg from '../../../images/illustrations/labyrinth';
 
 const Form = ({
 	loading,
@@ -40,52 +42,14 @@ const Form = ({
 	isAddListModal,
 	toggleAddListModal,
 }) => {
-	const submenu = useRef(null);
-	const submenuItems = useRef(null);
-	const swiper = useRef(null);
-
-	useEffect(() => {
-		window.addEventListener('resize', initiateSwiper);
-		initiateSwiper();
-
-		return () => {
-			window.removeEventListener('resize', initiateSwiper);
-		};
-	}, []);
-
-	const initiateSwiper = () => {
-		const submenuNode = submenu.current;
-
-		if (window.innerWidth < 768) {
-			swiper.current = new Swiper(submenuNode, {
-				slidesPerView: 'auto',
-				containerModifierClass: 'swiper-',
-			});
-		} else if (swiper.current?.initialized) {
-			swiper.current.destroy(true, true);
-		}
-	};
-
-	const gameRequests = [
-		'- Хочу раскрыть свой потенциал:\n Как могу развивать свои сильные стороны?',
-
-		'- Хочу достичь успеха:\n В каком направлении двигаться, чтобы успешно продвигаться\n в жизни?',
-
-		'- Хочу подняться финансово:\n Каким образом можно улучшить свою финансовую ситуацию?',
-
-		'- Хочу улучшить отношения:\n Как создать гармонию в семье или найти подходящего партнера?',
-
-		'- Хочу радость и яркость жизни:\n Что может приносить радость\n и как ее обрести?',
-
-		'- Хочу добиваться желаемого:\n Как проявляться в мир для достижения целей?',
-
-		'- Хочу найти свое призвание:\n Как определить, чем стоит заниматься для получения удовлетворения?',
-
-		'- Хочу принимать верные решения: Как разрабатывать стратегии для достижения желаемого результата?',
-	];
+	const [name, setName] = useState('');
+	const [phone, setPhone] = useState('');
+	const [messenger, setMessenger] = useState('');
 
 	return (
 		<div className="page-section form-section">
+			<Spiral />
+			<LabyrinthImg />
 			<div className="container">
 				<div className="row">
 					<div className="col s-8 s-offset-2">
@@ -97,27 +61,54 @@ const Form = ({
 						<form>
 							<div className="row">
 								<div className="col s-6">
-									<FormInput label="Ваше Имя" value="df" floatingLabel />
+									<FormInput
+										label="Ваше Имя"
+										value={name}
+										floatingLabel
+										onChange={(val) => {
+											setName(val);
+										}}
+									/>
 								</div>
 								<div className="col s-6">
-									<FormInput label="Номер телефона" value="" floatingLabel />
+									<FormInput
+										label="Номер телефона"
+										value={phone}
+										floatingLabel
+										onChange={(val) => {
+											setPhone(val);
+										}}
+									/>
 								</div>
 								<div className="col s-6">
 									<div className="btn-group">
 										<Button
 											className="white-border full-width"
-											// type="icon"
 											iconName="icon-whatsapp"
+											active={messenger === 'whatsapp'}
+											onClick={
+												messenger === 'whatsapp'
+													? undefined
+													: () => setMessenger('whatsapp')
+											}
 										/>
 										<Button
 											className="white-border full-width"
-											// type="icon-link"
 											iconName="icon-telegram"
+											active={messenger === 'telegram'}
+											onClick={
+												messenger === 'telegram'
+													? undefined
+													: () => setMessenger('telegram')
+											}
 										/>
 									</div>
 								</div>
 								<div className="col s-6">
-									<Button title="Отправить" className="full-width submit-btn" />
+									<Button
+										title="Отправить"
+										className="full-width submit-btn blue"
+									/>
 								</div>
 							</div>
 						</form>

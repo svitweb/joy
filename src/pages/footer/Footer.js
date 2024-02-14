@@ -19,10 +19,10 @@ const Footer = ({
 		<footer className="main-footer">
 			<div className="container">
 				<div className="row">
-					<div className="col s-6">
+					<div className="col s-4 m-6">
 						<img src={logoFull} alt="logo" className="main-footer-logo" />
 					</div>
-					<div className="col xs-5 s-3">
+					<div className="col xs-5 s-4 m-3">
 						<h3 className="main-footer-title">меню</h3>
 						<ul>
 							<li>
@@ -42,7 +42,7 @@ const Footer = ({
 							</li>
 						</ul>
 					</div>
-					<div className="col xs-7 s-3 col-flex">
+					<div className="col xs-7 s-4 m-3 col-flex">
 						<h3 className="main-footer-title">Контакты</h3>
 						<ul>
 							<li>

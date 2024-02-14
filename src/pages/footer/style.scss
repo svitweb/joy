@@ -2,31 +2,32 @@
 
 .main-footer {
 	padding: {
-		top: 60px;
+		top: 30px;
 		bottom: 30px;
 	}
 	overflow: hidden;
 
 	&-logo {
 		margin-bottom: 16px;
+		max-width: 260px;
 	}
 
 	&-title {
-		margin-bottom: 12px;
-		font-size: 20px;
-		line-height: 24px;
+		margin-bottom: 16px;
+		font-size: 18px;
+		line-height: 21px;
 		font-weight: 500;
 		text-transform: uppercase;
 	}
 
 	li + li {
-		margin-top: 8px;
+		margin-top: 12px;
 	}
 
 	.nav-btn,
 	.nav-btn .text {
-		font-size: 18px;
-		line-height: 22px;
+		font-size: 16px;
+		line-height: 18px;
 		font-weight: 400;
 		color: rgba(225, 243, 255, 0.8);
 		cursor: pointer;
@@ -65,31 +66,36 @@
 @media (min-width: $small-screen) {
 	.main-footer {
 		padding: {
-			top: 120px;
+			top: 60px;
 			bottom: 40px;
+		}
+
+		&-logo {
+			//margin-bottom: 16px;
+			max-width: 100%;
 		}
 
 		&-title {
 			margin: {
-				top: 18px;
-				bottom: 20px;
+				top: 10px;
+				bottom: 24px;
 			}
-			font-size: 26px;
-			line-height: 26px;
-		}
-
-		li + li {
-			margin-top: 20px;
-		}
-
-		.nav-btn,
-		.nav-btn .text {
 			font-size: 22px;
 			line-height: 26px;
 		}
 
+		li + li {
+			margin-top: 16px;
+		}
+
+		.nav-btn,
+		.nav-btn .text {
+			font-size: 18px;
+			line-height: 22px;
+		}
+
 		.socials {
-			font-size: 32px;
+			font-size: 28px;
 		}
 
 		.divider {
@@ -100,8 +106,23 @@
 		}
 
 		.copyright {
-			font-size: 18px;
-			line-height: 22px;
+			font-size: 16px;
+			line-height: 18px;
+		}
+	}
+}
+
+@media (min-width: $medium-screen) {
+	.main-footer {
+		&-logo {
+			max-width: 320px;
+		}
+
+		&-title {
+			margin: {
+				top: 22px;
+				//bottom: 24px;
+			}
 		}
 	}
 }

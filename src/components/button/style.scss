@@ -135,8 +135,13 @@
 		}
 
 		&.active {
-			background-color: #6c5aa9;
+			background-color: #4c5bb0;
+			border-color: transparent;
 		}
+	}
+
+	&.blue {
+		background-color: #4c5bb0;
 	}
 
 	&.loading {

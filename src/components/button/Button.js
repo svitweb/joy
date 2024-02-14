@@ -64,7 +64,11 @@ const Button = ({
 				</NavLink>
 			)}
 			{!href && !link && (
-				<button className={_className} onClick={disabled || loading ? undefined : onClick}>
+				<button
+					className={_className}
+					onClick={disabled || loading ? undefined : onClick}
+					type="button"
+				>
 					<Content />
 				</button>
 			)}

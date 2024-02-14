@@ -129,7 +129,7 @@
 				padding-right: 60px;
 
 				.img-wrap + .desc-block {
-					margin-top: 80px;
+					margin-top: 60px;
 				}
 
 				.desc-block {
@@ -170,7 +170,7 @@
 					position: absolute;
 					top: 24px;
 					right: 0;
-					left: 344px;
+					left: 360px;
 					transform: translateY(-100%);
 
 					&-wrap {
@@ -197,12 +197,16 @@
 					margin-top: 40px;
 				}
 			}
+
+			.desc + .desc {
+				margin-top: 4px;
+			}
 		}
 	}
 }
 
 @media (min-width: $medium-screen) {
 	.themes-section-block .desc-block + .desc-block {
-		margin-top: 62px;
+		//margin-top: 62px;
 	}
 }

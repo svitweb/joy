@@ -54,9 +54,20 @@
 
 @media (min-width: $small-screen) {
 	.formats-section {
+		&.page-section {
+			padding-bottom: 30px;
+		}
+
+		.section-title {
+			margin-bottom: 0;
+		}
+
 		&-body {
 			position: relative;
-			padding-bottom: 120px;
+			padding: {
+				top: 60px;
+				bottom: 120px;
+			}
 
 			&::after {
 				bottom: 0;
@@ -82,8 +93,8 @@
 			}
 
 			&-title {
-				font-size: 21px;
-				line-height: 32px;
+				font-size: 18px;
+				line-height: 28px;
 
 				+ .block-img {
 					margin-top: 16px;
@@ -100,7 +111,7 @@
 		}
 
 		&-img {
-			max-width: 220px;
+			max-width: 180px;
 		}
 	}
 }

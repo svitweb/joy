@@ -18,15 +18,35 @@
 	}
 
 	.subtitle {
-		margin-bottom: 8px;
+		margin-bottom: 16px;
 	}
 
 	.desc {
-		margin-bottom: 16px;
+		margin-bottom: 24px;
 	}
 
 	.submit-btn {
 		margin-top: 12px;
+	}
+
+	.spiral-img,
+	.labyrinth-img {
+		position: absolute;
+		animation: rotate-revers linear 120s infinite;
+	}
+
+	.spiral-img {
+		width: 100px;
+		height: 100px;
+		top: -18px;
+		left: -56px;
+	}
+
+	.labyrinth-img {
+		width: 82px;
+		height: 82px;
+		right: -28px;
+		bottom: -28px;
 	}
 }
 
@@ -39,8 +59,26 @@
 			}
 		}
 
+		.section-title {
+			margin-bottom: 24px;
+		}
+
 		.btn-group {
 			margin-top: 8px;
+		}
+
+		.spiral-img {
+			width: 250px;
+			height: auto;
+			top: -75px;
+			left: -122px;
+		}
+
+		.labyrinth-img {
+			width: 235px;
+			height: auto;
+			right: -84px;
+			bottom: -84px;
 		}
 	}
 }

@@ -10,7 +10,7 @@ const Responses = ({}) => {
 		<div className="page-section responses-section">
 			<div className="container">
 				<h2 className="section-title">Что Вы получите в результате прохождения игры?</h2>
-				<p className="subtitle">
+				<p className="sup-text">
 					Вы погрузитесь в захватывающий мир игры UPGRADE, где каждый шаг активирует ваши
 					размышления, переворачивает привычные представления и открывает новые горизонты
 					в восприятии и реализации возможностей.

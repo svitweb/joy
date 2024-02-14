@@ -5,6 +5,8 @@ import LabyrinthImg from '../../../images/illustrations/labyrinth';
 
 const About = () => (
 	<div className="page-section about-section">
+		<Spiral />
+		<LabyrinthImg />
 		<div className="container">
 			<div className="row">
 				<div className="col s-8 m-6 s-offset-2 m-offset-3">
@@ -22,8 +24,6 @@ const About = () => (
 				</div>
 			</div>
 		</div>
-		<Spiral />
-		<LabyrinthImg />
 	</div>
 );
 
