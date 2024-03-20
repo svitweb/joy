@@ -53,6 +53,23 @@ export default function adminReducer(state = initialState, action) {
 				loading: false,
 				isOpenLoginModal: true,
 			};
+		case adminActionTypes.CREATE_USER:
+			return {
+				...state,
+				loadingCreateUser: true,
+			};
+		case adminActionTypes.CREATE_USER_SUCCESS:
+			return {
+				...state,
+				data,
+				loadingCreateUser: false,
+				isOpenCreateUserModal: false,
+			};
+		case adminActionTypes.CREATE_USER_ERROR:
+			return {
+				...state,
+				loadingCreateUser: false,
+			};
 		case adminActionTypes.CLEAR_ADMIN_STATE:
 			return initialState;
 		default:

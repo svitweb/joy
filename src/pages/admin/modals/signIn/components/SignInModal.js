@@ -1,30 +1,31 @@
-import React, { useState } from 'react';
+import React, { useState, memo, useEffect } from 'react';
 // import { renderFormInput } from '../../../components/FormFields';
 // import { createListValidate } from '../../../services/FormValidate.js';
-import Button from '../../../components/button/Button';
+import { compose } from 'redux';
 import { connect } from 'react-redux';
-import * as adminActions from '../Actions';
-import FormInput from '../../../components/input/FormInput';
+import * as signInActions from '../Actions';
+import Button from '../../../../../components/button/Button';
+import FormInput from '../../../../../components/input/FormInput';
 
-const LoginAdminModal = ({ open, toggleAdminLoginModal, loginAdmin }) => {
-	const [name, setName] = useState('');
+const SignInModal = ({ open, toggleSignInModal, signIn, loading }) => {
+	const [email, setEmail] = useState('');
 	const [password, setPassword] = useState('');
 
-	const disabled = !name?.trim() && !password?.trim();
+	const valid = email?.trim() && password?.trim();
 
-	useState(() => {
+	useEffect(() => {
 		if (!open) {
-			setName('');
+			setEmail('');
 			setPassword('');
 		}
 	}, [open]);
 
 	const onClose = () => {
-		toggleAdminLoginModal({ isOpenLoginModal: false });
+		toggleSignInModal({ open: false });
 	};
 
 	const logIn = () => {
-		loginAdmin(name, password);
+		signIn(email, password);
 	};
 
 	return (
@@ -40,10 +41,10 @@ const LoginAdminModal = ({ open, toggleAdminLoginModal, loginAdmin }) => {
 						</h3>
 						<FormInput
 							floatingLabel
-							label="Name"
-							onChange={setName}
+							label="Email"
+							onChange={setEmail}
 							type="text"
-							value={name}
+							value={email}
 						/>
 						<FormInput
 							floatingLabel
@@ -56,8 +57,8 @@ const LoginAdminModal = ({ open, toggleAdminLoginModal, loginAdmin }) => {
 						<div className="btn-group submit-btn-group right">
 							<Button
 								onClick={logIn}
-								disabled={disabled}
-								loading={false}
+								disabled={!valid}
+								loading={loading}
 								title="Log in"
 							/>
 						</div>
@@ -68,13 +69,14 @@ const LoginAdminModal = ({ open, toggleAdminLoginModal, loginAdmin }) => {
 	);
 };
 
-const mapStateToProps = ({ adminReducer }) => ({
-	open: adminReducer.isOpenLoginModal,
+const mapStateToProps = ({ signInReducer }) => ({
+	open: signInReducer.open,
+	loading: signInReducer.loading,
 });
 
 const mapDispatchToProps = {
-	toggleAdminLoginModal: adminActions.toggleAdminLoginModal,
-	loginAdmin: adminActions.loginAdmin,
+	toggleSignInModal: signInActions.toggleSignInModal,
+	signIn: signInActions.signIn,
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(LoginAdminModal);
+export default compose(connect(mapStateToProps, mapDispatchToProps), memo)(SignInModal);

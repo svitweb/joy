@@ -8,5 +8,8 @@ export const adminActionTypes = keyMirror({
 	GET_ADMIN_DATA: null,
 	GET_ADMIN_DATA_SUCCESS: null,
 	GET_ADMIN_DATA_ERROR: null,
+	CREATE_USER: null,
+	CREATE_USER_SUCCESS: null,
+	CREATE_USER_ERROR: null,
 	CLEAR_ADMIN_STATE: null,
 });

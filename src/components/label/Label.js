@@ -8,7 +8,7 @@ const Label = ({ title, className, color }) => {
 };
 
 Label.propTypes = {
-	title: PropTypes.string.isRequired,
+	title: PropTypes.string,
 	className: PropTypes.string,
 	color: PropTypes.oneOf(['grey', 'orange', 'red', 'green', 'yellow', 'blue', 'white']),
 };

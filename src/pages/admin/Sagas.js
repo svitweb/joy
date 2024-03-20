@@ -17,8 +17,8 @@ export function* handleGetAdminData() {
 	try {
 		// const { data } = yield call(processRequest, '/profile/playlists');
 		yield put(
-			adminActions.getAdminDataSuccess([
-				{
+			adminActions.getAdminDataSuccess({
+				client: {
 					id: 1,
 					role: 'admin',
 					name: 'Infro',
@@ -29,14 +29,32 @@ export function* handleGetAdminData() {
 						{ id: 3, name: 'game 3', codes: ['code 1'] },
 					],
 				},
-				{
-					id: 2,
-					role: 'manager',
-					name: 'Manager',
-					email: 'manager@ukr.net',
-					games: [{ id: 1, name: 'game 1', codes: ['code 1'] }],
-				},
-			]),
+
+				managers: [
+					{
+						id: 1,
+						role: 'admin',
+						name: 'manager1',
+						email: 'manager1@ukr.net',
+						games: [
+							{
+								id: 1,
+								name: 'game 1',
+								codes: ['code 1', 'code 2', 'code 3', 'code 4'],
+							},
+							{ id: 2, name: 'game 2', codes: ['code 1', 'code 2'] },
+							{ id: 3, name: 'game 3', codes: ['code 1'] },
+						],
+					},
+					{
+						id: 2,
+						role: 'manager',
+						name: 'manager2',
+						email: 'manager2@ukr.net',
+						games: [{ id: 1, name: 'game 1', codes: ['code 1'] }],
+					},
+				],
+			}),
 		);
 	} catch (e) {
 		yield put(adminActions.getAdminDataError(e));

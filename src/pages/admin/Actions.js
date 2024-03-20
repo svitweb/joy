@@ -47,6 +47,26 @@ export function getAdminDataError() {
 	};
 }
 
+export function createUser(data) {
+	return {
+		type: adminActionTypes.CREATE_USER,
+		payload: { data },
+	};
+}
+
+export function createUserSuccess(data) {
+	return {
+		type: adminActionTypes.CREATE_USER_SUCCESS,
+		payload: { data },
+	};
+}
+
+export function createUserError() {
+	return {
+		type: adminActionTypes.CREATE_USER_ERROR,
+	};
+}
+
 export function clearState() {
 	return {
 		type: adminActionTypes.CLEAR_ADMIN_STATE,
