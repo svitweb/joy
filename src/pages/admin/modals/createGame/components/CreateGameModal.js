@@ -1,36 +1,31 @@
 import React, { useState, useEffect, useMemo, memo } from 'react';
-import { compose } from 'redux';
-import { connect } from 'react-redux';
-import * as createManagerActions from '../Actions';
 // import { renderFormInput } from '../../../components/FormFields';
 // import { createListValidate } from '../../../services/FormValidate.js';
+import { connect } from 'react-redux';
+import { compose } from 'redux';
+import * as createGameActions from '../Actions';
 import Button from '../../../../../components/button/Button';
 import FormInput from '../../../../../components/input/FormInput';
 
-const CreateManageModal = ({ open, toggleCreateManagerModal, createManager, submitLoading }) => {
+const CreateGameModal = ({ open, toggleCreateGameModal, createGame, submitLoading }) => {
 	const [name, setName] = useState('');
-	const [email, setEmail] = useState('');
-	const [password, setPassword] = useState('');
+	const [codesCount, setCodesCount] = useState(null);
 
-	const valid = useMemo(
-		() => name?.trim() && password?.trim() && email?.trim(),
-		[name, email, password],
-	);
+	const valid = useMemo(() => name?.trim(), [name]);
 
 	useEffect(() => {
 		if (!open) {
 			setName('');
-			setEmail('');
-			setPassword('');
+			setCodesCount(null);
 		}
 	}, [open]);
 
 	const onClose = () => {
-		toggleCreateManagerModal({ open: false });
+		toggleCreateGameModal({ open: false });
 	};
 
 	const handleCreate = () => {
-		createManager(name, email, password);
+		createGame(name, codesCount);
 	};
 
 	return (
@@ -42,7 +37,7 @@ const CreateManageModal = ({ open, toggleCreateManagerModal, createManager, subm
 					<div className="auth-page-form">
 						<h3 className="popup-title">
 							{/* <span className="icon icon-add" /> */}
-							<span className="text">Create manager</span>
+							<span className="text">Create game</span>
 						</h3>
 						<FormInput
 							floatingLabel
@@ -53,17 +48,10 @@ const CreateManageModal = ({ open, toggleCreateManagerModal, createManager, subm
 						/>
 						<FormInput
 							floatingLabel
-							label="Email"
-							onChange={setEmail}
-							type="text"
-							value={email}
-						/>
-						<FormInput
-							floatingLabel
-							label="Password"
-							onChange={setPassword}
-							type="text"
-							value={password}
+							label="Codes count"
+							onChange={setCodesCount}
+							type="number"
+							value={codesCount}
 						/>
 						<div className="btn-group submit-btn-group right">
 							<Button
@@ -80,14 +68,14 @@ const CreateManageModal = ({ open, toggleCreateManagerModal, createManager, subm
 	);
 };
 
-const mapStateToProps = ({ createManagerReducer }) => ({
-	open: createManagerReducer.open,
-	submitLoading: createManagerReducer.submitLoading,
+const mapStateToProps = ({ createGameReducer }) => ({
+	open: createGameReducer.open,
+	submitLoading: createGameReducer.submitLoading,
 });
 
 const mapDispatchToProps = {
-	toggleCreateManagerModal: createManagerActions.toggleCreateManagerModal,
-	createManager: createManagerActions.createManager,
+	toggleCreateGameModal: createGameActions.toggleCreateGameModal,
+	createGame: createGameActions.createGame,
 };
 
-export default compose(connect(mapStateToProps, mapDispatchToProps), memo)(CreateManageModal);
+export default compose(connect(mapStateToProps, mapDispatchToProps), memo)(CreateGameModal);

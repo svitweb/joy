@@ -1,69 +1,94 @@
 import { adminActionTypes } from './Constants';
 
-export function toggleAdminLoginModal(data) {
+export function getOverview() {
 	return {
-		type: adminActionTypes.TOGGLE_ADMIN_LOGIN_MODAL,
+		type: adminActionTypes.GET_OVERVIEW_DATA,
+	};
+}
+
+export function getOverviewSuccess(data) {
+	return {
+		type: adminActionTypes.GET_OVERVIEW_DATA_SUCCESS,
 		payload: { data },
 	};
 }
 
-export function loginAdmin(name, password) {
+export function getOverviewError() {
 	return {
-		type: adminActionTypes.LOGIN_ADMIN,
-		payload: { name, password },
+		type: adminActionTypes.GET_OVERVIEW_DATA_ERROR,
 	};
 }
 
-export function loginAdminSuccess(data) {
+export function getManagers() {
 	return {
-		type: adminActionTypes.LOGIN_ADMIN_SUCCESS,
+		type: adminActionTypes.GET_MANAGERS,
+	};
+}
+
+export function getManagersSuccess(data) {
+	return {
+		type: adminActionTypes.GET_MANAGERS_SUCCESS,
 		payload: { data },
 	};
 }
 
-export function loginAdminError() {
+export function getManagersError() {
 	return {
-		type: adminActionTypes.LOGIN_ADMIN_ERROR,
+		type: adminActionTypes.GET_MANAGERS_ERROR,
 	};
 }
 
-export function getAdminData(id) {
+export function removeManager(id) {
 	return {
-		type: adminActionTypes.GET_ADMIN_DATA,
+		type: adminActionTypes.REMOVE_MANAGER,
 		payload: { id },
 	};
 }
 
-export function getAdminDataSuccess(data) {
+export function removeManagerSuccess(id) {
 	return {
-		type: adminActionTypes.GET_ADMIN_DATA_SUCCESS,
+		type: adminActionTypes.REMOVE_MANAGER_SUCCESS,
+		payload: { id },
+	};
+}
+
+export function removeManagerError() {
+	return {
+		type: adminActionTypes.REMOVE_MANAGER_ERROR,
+	};
+}
+
+export function removeGame(id) {
+	return {
+		type: adminActionTypes.REMOVE_GAME,
+		payload: { id },
+	};
+}
+
+export function removeGameSuccess(id) {
+	return {
+		type: adminActionTypes.REMOVE_GAME_SUCCESS,
+		payload: { id },
+	};
+}
+
+export function removeGameError() {
+	return {
+		type: adminActionTypes.REMOVE_GAME_ERROR,
+	};
+}
+
+export function addGameToList(data) {
+	return {
+		type: adminActionTypes.ADD_GAME_TO_LIST,
 		payload: { data },
 	};
 }
 
-export function getAdminDataError() {
+export function addManagerToList(data) {
 	return {
-		type: adminActionTypes.GET_ADMIN_DATA_ERROR,
-	};
-}
-
-export function createUser(data) {
-	return {
-		type: adminActionTypes.CREATE_USER,
+		type: adminActionTypes.ADD_MANAGER_TO_LIST,
 		payload: { data },
-	};
-}
-
-export function createUserSuccess(data) {
-	return {
-		type: adminActionTypes.CREATE_USER_SUCCESS,
-		payload: { data },
-	};
-}
-
-export function createUserError() {
-	return {
-		type: adminActionTypes.CREATE_USER_ERROR,
 	};
 }
 

@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, memo, useMemo } from 'react';
 import classNames from 'classnames';
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 
 const SubmenuItem = ({
 	activeItem,
@@ -62,14 +63,15 @@ const SubmenuItem = ({
 	return (
 		<div className={classNames('submenu-item swiper-slide')}>
 			<div className="link-wrap" ref={itemNode}>
-				{link && customBtnWrap ? (
-					customBtnWrap({
-						onClick: handleActiveItem,
-						className: classNames('submenu-link', { active: activeItem }),
-						dataName,
-						body: btnBody,
-						link,
-					})
+				{link ? (
+					<Link
+						to={link}
+						className={classNames('submenu-link', { active: activeItem })}
+						onClick={handleActiveItem}
+						data-name={dataName}
+					>
+						{btnBody}
+					</Link>
 				) : (
 					<button
 						className={classNames('submenu-link', { active: activeItem })}

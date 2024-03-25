@@ -35,10 +35,8 @@ const FormInput = ({
 					})}
 					onBlur={onBlur}
 					onChange={handleChange}
-					type={
-						(showValue && type === 'password') || type === 'text' ? 'text' : 'password'
-					}
-					value={value || ''}
+					type={showValue && type === 'password' ? 'text' : type}
+					value={value}
 				/>
 				{floatingLabel && <label>{label}</label>}
 				{type === 'password' && value && (

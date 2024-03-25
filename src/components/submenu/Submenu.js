@@ -4,8 +4,13 @@ import classNames from 'classnames';
 import PropTypes from 'prop-types';
 import Swiper from 'swiper';
 import SubmenuItem from './SubmenuItem';
+import { useRouteMatch } from 'react-router-dom';
 
 const Submenu = ({ menuItems = [], focusItemIndex, onChange, className, customBtnWrap }) => {
+	const {
+		params: { tab },
+	} = useRouteMatch();
+
 	const submenu = useRef();
 	const submenuItems = useRef();
 	const swiper = useRef(null);
@@ -21,6 +26,13 @@ const Submenu = ({ menuItems = [], focusItemIndex, onChange, className, customBt
 	useEffect(() => {
 		initiateSwiper();
 	}, [menuItems, submenuItems]);
+
+	useEffect(() => {
+		const tabVal = tab || '';
+		const activeItem = menuItems.find((item) => item.value === tabVal);
+
+		onChange(activeItem ? activeItem.index : 0);
+	}, [tab, menuItems]);
 
 	useEffect(() => {
 		window.addEventListener('resize', initiateSwiper);

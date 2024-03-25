@@ -1,73 +1,60 @@
-// import { processRequest } from '../../services/Api';
-import { put, takeLatest, all } from 'redux-saga/effects';
+import { processRequest } from '../../services/Api';
+import { call, put, takeLatest, all } from 'redux-saga/effects';
 import { adminActionTypes } from './Constants';
 import * as adminActions from './Actions';
 // import * as notificationActions from '../../components/notification/NotificationActions';
 // import { getAdminDataSuccess, loginAdminError, loginAdminSuccess } from './Actions';
 import Cookies from 'js-cookie';
+import {
+	removeGameError,
+	removeGameSuccess,
+	removeManagerError,
+	removeManagerSuccess,
+} from './Actions';
 
 export default function* () {
 	yield all([
-		yield takeLatest(adminActionTypes.GET_ADMIN_DATA, handleGetAdminData),
-		yield takeLatest(adminActionTypes.LOGIN_ADMIN, handleLoginAdminData),
+		yield takeLatest(adminActionTypes.GET_OVERVIEW_DATA, handleGetOverviewData),
+		yield takeLatest(adminActionTypes.GET_MANAGERS, handleGetManagers),
+		yield takeLatest(adminActionTypes.REMOVE_MANAGER, handleRemoveManagers),
+		yield takeLatest(adminActionTypes.REMOVE_GAME, handleRemoveGame),
 	]);
 }
 
-export function* handleGetAdminData() {
+export function* handleGetOverviewData() {
 	try {
-		// const { data } = yield call(processRequest, '/profile/playlists');
-		yield put(
-			adminActions.getAdminDataSuccess({
-				client: {
-					id: 1,
-					role: 'admin',
-					name: 'Infro',
-					email: 'infro11+pro@ukr.net',
-					games: [
-						{ id: 1, name: 'game 1', codes: ['code 1', 'code 2', 'code 3', 'code 4'] },
-						{ id: 2, name: 'game 2', codes: ['code 1', 'code 2'] },
-						{ id: 3, name: 'game 3', codes: ['code 1'] },
-					],
-				},
-
-				managers: [
-					{
-						id: 1,
-						role: 'admin',
-						name: 'manager1',
-						email: 'manager1@ukr.net',
-						games: [
-							{
-								id: 1,
-								name: 'game 1',
-								codes: ['code 1', 'code 2', 'code 3', 'code 4'],
-							},
-							{ id: 2, name: 'game 2', codes: ['code 1', 'code 2'] },
-							{ id: 3, name: 'game 3', codes: ['code 1'] },
-						],
-					},
-					{
-						id: 2,
-						role: 'manager',
-						name: 'manager2',
-						email: 'manager2@ukr.net',
-						games: [{ id: 1, name: 'game 1', codes: ['code 1'] }],
-					},
-				],
-			}),
-		);
+		const { data } = yield call(processRequest, '/admin/games');
+		yield put(adminActions.getOverviewSuccess(data));
 	} catch (e) {
-		yield put(adminActions.getAdminDataError(e));
+		yield put(adminActions.getOverviewError(e));
 	}
 }
 
-export function* handleLoginAdminData({ payload }) {
+export function* handleGetManagers() {
 	try {
-		const { name, password } = payload || {};
-		// const { data } = yield call(processRequest, '/profile/playlists');
-		Cookies.set('adminAccess', { name, password });
-		yield put(adminActions.loginAdminSuccess());
+		const { data } = yield call(processRequest, '/admin/users');
+		yield put(adminActions.getManagersSuccess(data));
 	} catch (e) {
-		yield put(adminActions.loginAdminError(e));
+		yield put(adminActions.getManagersError(e));
+	}
+}
+
+export function* handleRemoveManagers({ payload }) {
+	try {
+		const { id } = payload || {};
+		yield call(processRequest, `/admin/users`, 'DELETE', { userId: id });
+		yield put(adminActions.removeManagerSuccess(id));
+	} catch (e) {
+		yield put(adminActions.removeManagerError(e));
+	}
+}
+
+export function* handleRemoveGame({ payload }) {
+	try {
+		const { id } = payload || {};
+		yield call(processRequest, `/admin/games`, 'DELETE', { id });
+		yield put(adminActions.removeGameSuccess(id));
+	} catch (e) {
+		yield put(adminActions.removeGameError(e));
 	}
 }

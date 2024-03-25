@@ -5,7 +5,7 @@ import { createManagerModalActionTypes } from './Constants';
 
 const initialState = {
 	open: false,
-	submitLoading: true,
+	submitLoading: false,
 };
 
 export default function createManagerReducer(state = initialState, action) {

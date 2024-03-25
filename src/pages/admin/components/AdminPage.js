@@ -1,61 +1,34 @@
 import '../styles/admin_page.scss';
 import React, { useEffect, useState } from 'react';
-import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import * as adminActions from '../Actions';
+import Cookies from 'js-cookie';
+import * as signInActions from '../modals/signIn/Actions';
+import Button from '../../../components/button/Button';
+import Label from '../../../components/label/Label';
+import Submenu from '../../../components/submenu/Submenu';
 import SignInModal from '../modals/signIn/components/SignInModal';
 import CreateManagerModal from '../modals/createManager/components/CreateManagerModal';
-import Cookies from 'js-cookie';
-import Button from '../../../components/button/Button';
-// import Accordion from '../../../components/accordion/Accordion';
-import Submenu from '../../../components/submenu/Submenu';
 import Overview from './tabs/Overview';
-import Label from '../../../components/label/Label';
-import * as createManagerActions from '../modals/createManager/Actions';
-import * as signInActions from '../modals/signIn/Actions';
+import Managers from './tabs/Managers';
 
-const AdminPage = ({
-	loading,
-	data,
-	userData,
-	getAdminData,
-	toggleAdminLoginModal,
-	toggleCreateManagerModal,
-	toggleSignInModal,
-	signOut,
-	getUserData,
-}) => {
-	const ac = Cookies.get('accessToken');
+const AdminPage = ({ userData, toggleSignInModal, signOut, getUserData }) => {
+	const accessToken = Cookies.get('accessToken');
 
-	const { id, name, email, role } = userData || {};
+	const { name, email, role } = userData || {};
 
 	const [tab, setTab] = useState(0);
 
 	useEffect(() => {
-		if (!ac) {
+		if (!accessToken) {
 			toggleSignInModal({ open: true });
 		} else {
 			getUserData();
 		}
+
+		return () => {
+			setTab(0);
+		};
 	}, []);
-
-	useEffect(() => {
-		console.log('----->>', id);
-		if (!ac) {
-			// toggleAdminLoginModal({ isOpenLoginModal: true });
-		}
-	}, [id]);
-
-	// const onSubmitDeleteList = (e, id) => {
-	// 	e.stopPropagation();
-	// 	let subm = window.confirm('Are you sure you want delete this list?');
-	// 	subm && deleteList(id);
-	// };
-
-	// const addEditForm = (e, id, name, code) => {
-	// 	e.stopPropagation();
-	// 	editListInit(name, code, id);
-	// };
 
 	return (
 		<>
@@ -79,7 +52,6 @@ const AdminPage = ({
 									onClick={() => signOut()}
 									iconName="icon-logout"
 									className="logout-btn small"
-									// title="log out"
 								/>
 							</div>
 						)}
@@ -88,23 +60,48 @@ const AdminPage = ({
 						{userData ? (
 							<>
 								<Submenu
-									menuItems={[
-										{ title: 'Overview', value: 'overview', index: 0 },
-										{ title: 'Statistic', value: 'statistic', index: 1 },
-									]}
+									menuItems={
+										role === 'admin'
+											? [
+													{
+														title: 'Overview',
+														value: 'overview',
+														index: 0,
+														link: `/admin`,
+													},
+													{
+														title: 'Managers',
+														value: 'managers',
+														index: 1,
+														link: `/admin/managers`,
+													},
+													{
+														title: 'Statistic',
+														value: 'statistic',
+														index: 2,
+														link: `/admin/statistic`,
+													},
+											  ]
+											: []
+									}
 									onChange={setTab}
 									focusItemIndex={tab}
 								/>
 								{tab === 0 && <Overview />}
-								{tab === 1 && (
-									<div>
-										<ul>
-											<li>admins: 2</li>
-											<li>managers: 5</li>
-											<li>games played: 100</li>
-											<li>codes created: 10000</li>
-										</ul>
-									</div>
+								{role === 'admin' && (
+									<>
+										{tab === 1 && <Managers />}
+										{tab === 2 && (
+											<div>
+												<ul>
+													<li>admins: 2</li>
+													<li>managers: 5</li>
+													<li>games played: 100</li>
+													<li>codes created: 10000</li>
+												</ul>
+											</div>
+										)}
+									</>
 								)}
 							</>
 						) : (
@@ -127,11 +124,6 @@ const AdminPage = ({
 	);
 };
 
-AdminPage.propTypes = {
-	loading: PropTypes.bool.isRequired,
-	data: PropTypes.object,
-};
-
 const mapStateToProps = ({ adminReducer, signInReducer }) => ({
 	loading: adminReducer.loading,
 	data: adminReducer.data,
@@ -142,8 +134,6 @@ const mapDispatchToProps = {
 	toggleSignInModal: signInActions.toggleSignInModal,
 	signOut: signInActions.signOut,
 	getUserData: signInActions.getUserData,
-	getAdminData: adminActions.getAdminData,
-	toggleCreateManagerModal: createManagerActions.toggleCreateManagerModal,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(AdminPage);

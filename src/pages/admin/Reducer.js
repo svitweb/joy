@@ -4,71 +4,75 @@ import { adminActionTypes } from './Constants';
 // import { COOKIES } from '../../services/Constants';
 
 const initialState = {
-	loading: false,
-	data: null,
-	isOpenLoginModal: false,
-	logInLoading: true,
+	loadingOverview: false,
+	overviewData: {},
+	loadingManagers: false,
+	managers: [],
 };
 
 export default function adminReducer(state = initialState, action) {
 	const { type, payload } = action;
-	const { data } = payload || {};
+	const { id, data } = payload || {};
 
 	switch (type) {
-		case adminActionTypes.TOGGLE_ADMIN_LOGIN_MODAL:
+		case adminActionTypes.GET_OVERVIEW_DATA:
 			return {
 				...state,
-				...data,
+				loadingOverview: true,
 			};
-		case adminActionTypes.LOGIN_ADMIN:
+		case adminActionTypes.GET_OVERVIEW_DATA_SUCCESS:
 			return {
 				...state,
-				logInLoading: true,
+				overviewData: data,
+				loadingOverview: false,
 			};
-		case adminActionTypes.LOGIN_ADMIN_SUCCESS:
+		case adminActionTypes.GET_OVERVIEW_DATA_ERROR:
 			return {
 				...state,
-				logInLoading: false,
-				isOpenLoginModal: false,
+				loadingOverview: false,
 			};
-		case adminActionTypes.LOGIN_ADMIN_ERROR:
+		case adminActionTypes.GET_MANAGERS:
 			return {
 				...state,
-				logInLoading: false,
+				loadingManagers: true,
 			};
-		case adminActionTypes.GET_ADMIN_DATA:
+		case adminActionTypes.GET_MANAGERS_SUCCESS:
 			return {
 				...state,
-				loading: true,
+				managers: data,
+				loadingManagers: false,
 			};
-		case adminActionTypes.GET_ADMIN_DATA_SUCCESS:
+		case adminActionTypes.GET_MANAGERS_ERROR:
 			return {
 				...state,
-				data,
-				loading: false,
+				loadingManagers: false,
 			};
-		case adminActionTypes.GET_ADMIN_DATA_ERROR:
+		case adminActionTypes.REMOVE_MANAGER_SUCCESS:
 			return {
 				...state,
-				loading: false,
-				isOpenLoginModal: true,
+				managers: state.managers.filter((el) => el._id !== id),
 			};
-		case adminActionTypes.CREATE_USER:
+
+		case adminActionTypes.REMOVE_GAME_SUCCESS:
 			return {
 				...state,
-				loadingCreateUser: true,
+				overviewData: {
+					...state.overviewData,
+					games: state.overviewData.games?.filter((el) => el._id !== id),
+				},
 			};
-		case adminActionTypes.CREATE_USER_SUCCESS:
+		case adminActionTypes.ADD_GAME_TO_LIST:
 			return {
 				...state,
-				data,
-				loadingCreateUser: false,
-				isOpenCreateUserModal: false,
+				overviewData: {
+					...state.overviewData,
+					games: [data, ...state.overviewData.games],
+				},
 			};
-		case adminActionTypes.CREATE_USER_ERROR:
+		case adminActionTypes.ADD_MANAGER_TO_LIST:
 			return {
 				...state,
-				loadingCreateUser: false,
+				managers: [...state.managers, data],
 			};
 		case adminActionTypes.CLEAR_ADMIN_STATE:
 			return initialState;
