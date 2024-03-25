@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/joy/static/css/main.c3a566c1.css",
-    "main.js": "/joy/static/js/main.e74e9e76.js",
+    "main.css": "/joy/static/css/main.a0372bbd.css",
+    "main.js": "/joy/static/js/main.83c80164.js",
     "static/media/formats-bg.png": "/joy/static/media/formats-bg.ee537f136414ffcda419.png",
     "static/media/main-bg.png": "/joy/static/media/main-bg.4dc9ecd72bfb3dd1c150.png",
     "static/media/form-bg.png": "/joy/static/media/form-bg.dda83ecc32bfc4155440.png",
@@ -40,11 +40,11 @@
     "static/media/logo.svg": "/joy/static/media/logo.6a4767a644744756662172e9d6ad8d51.svg",
     "static/media/deco-dot.svg": "/joy/static/media/deco-dot.1980cddb8f276aa41316.svg",
     "index.html": "/joy/index.html",
-    "main.c3a566c1.css.map": "/joy/static/css/main.c3a566c1.css.map",
-    "main.e74e9e76.js.map": "/joy/static/js/main.e74e9e76.js.map"
+    "main.a0372bbd.css.map": "/joy/static/css/main.a0372bbd.css.map",
+    "main.83c80164.js.map": "/joy/static/js/main.83c80164.js.map"
   },
   "entrypoints": [
-    "static/css/main.c3a566c1.css",
-    "static/js/main.e74e9e76.js"
+    "static/css/main.a0372bbd.css",
+    "static/js/main.83c80164.js"
   ]
 }
