@@ -1,9 +1,9 @@
 {
   "files": {
-    "main.css": "/joy/static/css/main.a0372bbd.css",
-    "main.js": "/joy/static/js/main.83c80164.js",
+    "main.css": "/joy/static/css/main.c85a310b.css",
+    "main.js": "/joy/static/js/main.e478b82d.js",
+    "static/media/main-bg.png": "/joy/static/media/main-bg.3e2be4a9fb7e7153ea28.png",
     "static/media/formats-bg.png": "/joy/static/media/formats-bg.ee537f136414ffcda419.png",
-    "static/media/main-bg.png": "/joy/static/media/main-bg.4dc9ecd72bfb3dd1c150.png",
     "static/media/form-bg.png": "/joy/static/media/form-bg.dda83ecc32bfc4155440.png",
     "static/media/list-img-3.png": "/joy/static/media/list-img-3.5da2199a02687bf3cc65.png",
     "static/media/way.png": "/joy/static/media/way.c30a19b3397eb055f19e.png",
@@ -40,11 +40,11 @@
     "static/media/logo.svg": "/joy/static/media/logo.6a4767a644744756662172e9d6ad8d51.svg",
     "static/media/deco-dot.svg": "/joy/static/media/deco-dot.1980cddb8f276aa41316.svg",
     "index.html": "/joy/index.html",
-    "main.a0372bbd.css.map": "/joy/static/css/main.a0372bbd.css.map",
-    "main.83c80164.js.map": "/joy/static/js/main.83c80164.js.map"
+    "main.c85a310b.css.map": "/joy/static/css/main.c85a310b.css.map",
+    "main.e478b82d.js.map": "/joy/static/js/main.e478b82d.js.map"
   },
   "entrypoints": [
-    "static/css/main.a0372bbd.css",
-    "static/js/main.83c80164.js"
+    "static/css/main.c85a310b.css",
+    "static/js/main.e478b82d.js"
   ]
 }
