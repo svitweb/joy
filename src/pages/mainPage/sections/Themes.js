@@ -8,8 +8,8 @@ import listImg4 from '../../../images/illustrations/list-img-4.png';
 import spiralImg from '../../../images/illustrations/spiral-2.svg';
 import labyrinthImg from '../../../images/illustrations/labyrinth.svg';
 
-const Themes = () => (
-	<div className="page-section themes-section">
+const Themes = ({ blockRef }) => (
+	<div ref={blockRef} className="page-section themes-section">
 		<div className="container">
 			<h2 className="section-title">ВАШ МИР ПЕРЕМЕН</h2>
 			<p className="subtitle">Эта игра поможет Вам:</p>

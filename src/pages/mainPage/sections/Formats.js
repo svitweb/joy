@@ -4,9 +4,9 @@ import themeImg1 from '../../../images/illustrations/theme-img-1.png';
 import themeImg2 from '../../../images/illustrations/theme-img-2.png';
 import themeImg3 from '../../../images/illustrations/theme-img-3.png';
 
-const Formats = () => {
+const Formats = ({ blockRef }) => {
 	return (
-		<div className="page-section formats-section">
+		<div ref={blockRef} className="page-section formats-section">
 			<h2 className="section-title">
 				Темы, с которыми
 				<br /> заходят на игру

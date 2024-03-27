@@ -6,9 +6,9 @@ import { connect } from 'react-redux';
 import Button from '../../../components/button/Button';
 import wayImg from '../../../images/illustrations/way.png';
 
-const Requests = ({}) => {
+const Requests = ({ blockRef }) => {
 	return (
-		<div className="page-section requests-section">
+		<div ref={blockRef} className="page-section requests-section">
 			<div className="container">
 				<h2 className="section-title">путь к себе</h2>
 				<div className="row">

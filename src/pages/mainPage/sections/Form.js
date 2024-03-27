@@ -41,13 +41,14 @@ const Form = ({
 	history,
 	isAddListModal,
 	toggleAddListModal,
+	blockRef,
 }) => {
 	const [name, setName] = useState('');
 	const [phone, setPhone] = useState('');
 	const [messenger, setMessenger] = useState('');
 
 	return (
-		<div className="page-section form-section">
+		<div ref={blockRef} className="page-section form-section">
 			<Spiral />
 			<LabyrinthImg />
 			<div className="container">

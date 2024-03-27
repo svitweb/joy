@@ -8,12 +8,8 @@ import Socials from '../../../components/socials/Socials';
 import Spiral from '../../../images/illustrations/spiral';
 import Labyrinth from '../../../images/illustrations/labyrinth';
 
-const Menu = ({}) => {
+const Menu = ({ scrollToRef, blocks }) => {
 	const [active, setActive] = useState(false);
-
-	const handleSwitchMenu = () => {
-		setActive((prevState) => !prevState);
-	};
 
 	useEffect(() => {
 		const html = document.getElementsByTagName('html')[0];
@@ -24,6 +20,15 @@ const Menu = ({}) => {
 		html.classList.remove('mobile-menu-active');
 	}, [active]);
 
+	const handleSwitchMenu = () => {
+		setActive((prevState) => !prevState);
+	};
+
+	const handleNavigate = (block) => {
+		if (block) scrollToRef(block);
+		setActive(false);
+	};
+
 	return (
 		<header className={classNames('menu', { active })}>
 			<div className="container menu-main">
@@ -31,16 +36,27 @@ const Menu = ({}) => {
 				<nav className="menu-nav">
 					<Spiral className="hide-s hide-m hide-l" />
 					<Labyrinth className="hide-s hide-m hide-l" />
-					<a className="menu-nav-btn">О игре</a>
-					<a className="menu-nav-btn">Темы</a>
-					<a className="menu-nav-btn">Запросы</a>
-					<a className="menu-nav-btn">Форматы</a>
-					<a className="menu-nav-btn">Создатели</a>
+					<button onClick={() => handleNavigate(blocks[0])} className="menu-nav-btn">
+						О игре
+					</button>
+					<button onClick={() => handleNavigate(blocks[1])} className="menu-nav-btn">
+						Темы
+					</button>
+					<button onClick={() => handleNavigate(blocks[2])} className="menu-nav-btn">
+						Запросы
+					</button>
+					<button onClick={() => handleNavigate(blocks[3])} className="menu-nav-btn">
+						Форматы
+					</button>
+					<button onClick={() => handleNavigate(blocks[4])} className="menu-nav-btn">
+						Создатели
+					</button>
 					<Socials className="large deco-line hide-s hide-m hide-l" />
 					<span className="divider hide-s hide-m hide-l" />
 					<Button
 						title="Форма обратной связи"
 						className="white form-btn hide-s hide-m hide-l"
+						onClick={() => handleNavigate(blocks[5])}
 					/>
 				</nav>
 				<button

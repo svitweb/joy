@@ -14,10 +14,11 @@ html,
 body {
 	@extend %noIndent;
 	height: 100%;
+	scroll-behavior: smooth;
 }
 
 body {
-	background-color: $base-bg;
+	background-color: #090d25;
 	color: $base-text;
 }
 

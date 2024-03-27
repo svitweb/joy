@@ -3,8 +3,8 @@ import React, { memo } from 'react';
 import m1 from '../../../images/illustrations/m1.png';
 import m2 from '../../../images/illustrations/m2.png';
 
-const Managers = () => (
-	<div className="page-section managers-section">
+const Managers = ({ blockRef }) => (
+	<div ref={blockRef} className="page-section managers-section">
 		<div className="container">
 			<h2 className="section-title">создатели игры</h2>
 			<div className="row">

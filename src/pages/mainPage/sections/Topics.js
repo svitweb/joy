@@ -7,7 +7,7 @@ import Swiper from 'swiper';
 import Spiral from '../../../images/illustrations/spiral';
 import Labyrinth from '../../../images/illustrations/labyrinth';
 
-const Topics = () => {
+const Topics = ({ blockRef }) => {
 	const submenu = useRef(null);
 	const submenuItems = useRef(null);
 	const swiper = useRef(null);
@@ -53,7 +53,7 @@ const Topics = () => {
 	];
 
 	return (
-		<div className="page-section topics-section">
+		<div ref={blockRef} className="page-section topics-section">
 			<Spiral className="hide-xs hide-s hide-m" />
 			<Labyrinth className="hide-xs hide-s hide-m" />
 			<div className="container">

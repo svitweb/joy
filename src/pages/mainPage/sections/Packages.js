@@ -7,9 +7,9 @@ import Button from '../../../components/button/Button';
 import cry1 from '../../../images/illustrations/crystal-1.svg';
 import cry2 from '../../../images/illustrations/crystal-2.svg';
 
-const Packages = ({}) => {
+const Packages = ({ blockRef }) => {
 	return (
-		<div className="page-section packages-section">
+		<div ref={blockRef} className="page-section packages-section">
 			<div className="container">
 				<h2 className="section-title">форматы игры</h2>
 				<div className="row">
