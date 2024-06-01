@@ -5,160 +5,160 @@
 	"titles": {},
 	"meta_descriptions": {},
 	"general": {
-		"request_btn": "Оставить заявку",
-		"send": "Отправить"
+		"request_btn": "Submit your application",
+		"send": "Send"
 	},
 	"forms": {
-		"name_field": "Ваше Имя",
-		"name_field_error": "Пожулуста введите свое имя",
-		"package_error": "Пожалуста виберете пакет",
-		"email_field": "Электронная почта",
-		"email_field_error": "Пожулуста введите свой email аддрес",
-		"email_field_invalid_error": "Пожулуста введите корректний email аддрес",
-		"phone_field_error": "Пожулуста введите номер телефона",
-		"phone_field_invalid_error": "Пожулуста введите корректний номер телефона"
+		"name_field": "Your name",
+		"name_field_error": "Please enter your name",
+		"package_error": "Please select a package",
+		"email_field": "Email",
+		"email_field_error": "Please enter your email address",
+		"email_field_invalid_error": "Please enter the correct email address",
+		"phone_field_error": "Please enter your phone number",
+		"phone_field_invalid_error": "Please enter a correct phone number"
 	},
 	"modals": {
 		"game_request_modal": {
-			"title": "ЗАПИСЬ НА ИГРУ",
-			"description": "Пожалуйста, выберите формат игры и оставьте свои контакты.",
+			"title": "REGISTER FOR THE GAME",
+			"description": "Please select the game format and leave your contacts.",
 			"submit_success": {
-				"title": "Поздравляем!",
-				"sub_title": "Ваша заявка успешно принята.",
-				"description": "Наш менеджер свяжется с Вами в ближайшее время."
+				"title": "Congratulations!",
+				"sub_title": "Your application has been successfully accepted.",
+				"description": "Our manager will contact you soon."
 			},
 			"package_1": {
-				"title": "Индивидуальный формат",
-				"info": "1-2 игроков",
+				"title": "Individual format",
+				"info": "1-2 players",
 				"price": "80 EUR"
 			},
 			"package_2": {
-				"title": "Групповой формат",
-				"info": "3-7 игроков",
-				"price": "30 EUR/чел"
+				"title": "Group format",
+				"info": "3-7 players",
+				"price": "30 EUR/person"
 			}
 		}
 	},
 	"menu": {
 		"items": {
-			"1": "О игре",
-			"2": "Темы",
-			"3": "Запросы",
-			"4": "Форматы",
-			"5": "Создатели"
+			"1": "About the game",
+			"2": "Themes",
+			"3": "Requests",
+			"4": "Formats",
+			"5": "Creators"
 		},
-		"contact_btn": "Форма обратной связи"
+		"contact_btn": "Feedback form"
 	},
 	"main_page": {
-		"main_description": "Трансформируй свое мышление",
+		"main_description": "Transform your thinking",
 		"about": {
-			"title": "Больше, чем игра",
-			"sup_description": "Наша авторская трансформационная игра помогает расширять воображение и менять мышление в игровом формате.",
-			"description": "Это инструмент по поиску ответов на свои вопросы. И не важно в какой сфере жизни они лежат - личное развитие или отношения, творчество или открытие бизнеса, карьера или деньги, планирование или разработка новой идеи, поиск смысла или просто научиться принимать мир как он есть."
+			"title": "More than a game",
+			"sup_description": "Our original transformational game helps expand imagination and change thinking in a game format.",
+			"description": "This is a tool for finding answers to your questions. And it doesn’t matter what area of ​​life they lie in - personal development or relationships, creativity or starting a business, career or money, planning or developing a new idea, searching for meaning or simply learning to accept the world as it is."
 		},
 		"themes": {
-			"title": "ВАШ МИР ПЕРЕМЕН",
-			"description": "Эта игра поможет Вам:",
+			"title": "YOUR WORLD OF CHANGE",
+			"description": "This game will help you:",
 			"options": {
-				"1": "проанализировать текущее положение дела;",
-				"2": "построить выгодную стратегию;",
-				"3": "выявить дальнейший путь",
-				"4": "принять верное решение;",
-				"5": "сделать правильный выбор;",
-				"6": "открыть свои слепые зоны;",
-				"7": "увидеть ограничения;",
-				"8": "обнаружить возможности и ресурсы;",
-				"9": "получить инсайт;",
-				"10": "зарядиться позитивной энергией;",
-				"11": "разобраться в себе;",
-				"12": "понять свои желания."
+				"1": "analyze the current state of affairs;",
+				"2": "build a profitable strategy;",
+				"3": "identify the way forward",
+				"4": "make the right decision;",
+				"5": "make the right choice;",
+				"6": "discover your blind spots;",
+				"7": "see the limitations;",
+				"8": "discover opportunities and resources;",
+				"9": "get insight;",
+				"10": "recharge with positive energy;",
+				"11": "understand themselves;",
+				"12": "understand your desires."
 			}
 		},
 		"requests": {
-			"title": "Путь к себе",
-			"description_1": "Игра {{brandName}} способствует достижению твоих целей, помогая увидеть страхии убеждения, ограничивающие тебя.",
-			"description_2": "Предоставляя возможность через игровой процесс выйти за пределы привычного и найти нестандартные решения, новые идеи и возможности.",
-			"btn": "Хочу на игру"
+			"title": "The way to yourself",
+			"description_1": "A game {{brandName}} helps you achieve your goals by helping you see the fears and beliefs that limit you.",
+			"description_2": "Providing an opportunity through the gameplay to go beyond the usual and find innovative solutions, new ideas and opportunities.",
+			"btn": "I want to go to the game"
 		},
 		"formats": {
-			"title": "Темы, с которыми <br/> заходят на игру",
+			"title": "Topics with which <br/> people come to the game",
 			"options": {
-				"1": "Самореализация",
-				"2": "Карьера",
-				"3": "Отношения"
+				"1": "Self-realization",
+				"2": "Career",
+				"3": "Relationship"
 			}
 		},
 		"topics": {
-			"title": "запросы на игру",
-			"description": "Популярные запросы, с которыми приходят на игру:",
+			"title": "GAME REQUESTS",
+			"description": "Popular queries people come to the game with:",
 			"options": {
-				"1": "<strong>- Хочу раскрыть свой потенциал:</strong><br/> Как могу развивать свои сильные стороны?",
-				"2": "<strong>- Хочу достичь успеха:</strong><br/> В каком направлении двигаться, чтобы успешно продвигаться в жизни?",
-				"3": "<strong>- Хочу подняться финансово:</strong><br/> Каким образом можно улучшить свою финансовую ситуацию?",
-				"4": "<strong>- Хочу улучшить отношения:</strong><br/> Как создать гармонию в семье или найти подходящего партнера?",
-				"5": "<strong>- Хочу радость и яркость жизни:</strong><br/> Что может приносить радость и как ее обрести?",
-				"6": "<strong>- Хочу добиваться желаемого:</strong><br/> Как проявляться в мир для достижения целей?",
-				"7": "<strong>- Хочу найти свое призвание:</strong><br/> Как определить, чем стоит заниматься для получения удовлетворения?",
-				"8": "<strong>- Хочу принимать верные решения:</strong><br/> Как разрабатывать стратегии для достижения желаемого результата?"
+				"1": "<strong>- I want to unlock my potential:</strong><br/> How can I develop my strengths?",
+				"2": "<strong>- I want to achieve success:</strong><br/> In what direction should you move to successfully move forward in life?",
+				"3": "<strong>- I want to increase my income:</strong><br/> How can you improve your financial situation?",
+				"4": "<strong>- I want to improve my relationship:</strong><br/> How to create harmony in the family or find a suitable partner?",
+				"5": "<strong>- I want joy and brightness in life:</strong><br/> What can bring joy and how to find it?",
+				"6": "<strong>- I want to achieve what I want:</strong><br/> How to manifest yourself into the world to achieve your goals?",
+				"7": "<strong>- I want to find my calling:</strong><br/> How do you determine what you should do to get satisfaction?",
+				"8": "<strong>- I want to make the right decisions:</strong><br/> How to develop strategies to achieve the desired result?"
 			}
 		},
 		"responses": {
-			"title": "Что Вы получите в результате прохождения игры?",
-			"description": "Вы погрузитесь в захватывающий мир игры UPGRADE, где каждый шаг активирует ваши размышления, переворачивает привычные представления и открывает новые горизонты в восприятии и реализации возможностей."
+			"title": "What will you get as a result of completing the game?",
+			"description": "You will be immersed in the exciting world of the UPGRADE game, where every step activates your thoughts, overturns your usual ideas and opens up new horizons in the perception and implementation of possibilities."
 		},
 		"packages": {
-			"title": "форматы игры",
+			"title": "GAME FORMATS",
 			"package_1": {
-				"title": "Индивидуальная игра",
-				"description": "Вы получаете глубокое воздействие, способствующее более эффективному росту, осознанию изменениям, учитывая именно ваши цели и стремления.",
+				"title": "Individual game",
+				"description": "You receive a deep impact that promotes more effective growth, awareness of change, taking into account your goals and aspirations.",
 				"options": {
-					"1": "Количество игроков: 1-2 человек",
-					"2": "Длительность: до 2,5 часов",
-					"3": "Форма проведения: онлайн",
-					"4": "Платформа: Zoom",
-					"5": "Стоимость: 80 EUR"
+					"1": "Number of players: 1-2 people",
+					"2": "Duration: up to 2.5 hours",
+					"3": "Conduct format: online",
+					"4": "Platform: Zoom",
+					"5": "Cost: 80 EUR"
 				}
 			},
 			"package_2": {
-				"title": "Групповая игра",
-				"description": "Вы не только индивидуально переосмысливаете свои взгляды, но и взаимодействуете с другими игроками, обогащаясь опытом друг друга.",
+				"title": "Group game",
+				"description": "You not only individually rethink your views, but also interact with other players, enriching each other's experiences.",
 				"options": {
-					"1": "Количество игроков: 3-7 человек",
-					"2": "Длительность: до 3,5 часов",
-					"3": "Форма проведения: онлайн",
-					"4": "Платформа: Zoom",
-					"5": "Стоимость: 30 EUR / чел"
+					"1": "Number of players: 3-7 people",
+					"2": "Duration: up to 3.5 hours",
+					"3": "Conduct format: online",
+					"4": "Platform: Zoom",
+					"5": "Cost: 30 EUR / person"
 				}
 			},
-			"btn": "Иду на игру"
+			"btn": "I'm going to the game"
 		},
 		"managers": {
-			"title": "создатели игры",
+			"title": "GAME CREATORS",
 			"manager_1": {
-				"name": "Елена Бурдей",
-				"subject": "Психолог, предприниматель",
+				"name": "Elena Burdey",
+				"subject": "Psychologist, entrepreneur",
 				"description": "International diploma practicing psychology, master’s degree"
 			},
 			"manager_2": {
-				"name": "Анна Грозина",
-				"subject": "Коуч, бизнес-тренер, предприниматель",
+				"name": "Anna Grozina",
+				"subject": "Coach, business trainer, entrepreneur",
 				"description": "International level Professional Coach, Business Coach, Crisis coach, International College of Business Trainers"
 			}
 		},
 		"contact_form": {
-			"title": "Появились вопросы?",
-			"sub_title": "Мы с радостью ответим на них!",
-			"description": "Пожалуйста, оставьте свои контакты и выберите удобный для Вас месенджер.",
+			"title": "Do you have any questions?",
+			"sub_title": "We will be happy to answer them!",
+			"description": "Please leave your contacts and choose a messenger convenient for you.",
 			"submit_success": {
-				"title": "Поздравляем!",
-				"sub_title": "Ваша заявка успешно принята.",
-				"description": "Наш менеджер свяжется с Вами в ближайшее время."
+				"title": "Congratulations!",
+				"sub_title": "Your application has been successfully accepted.",
+				"description": "Our manager will contact you soon."
 			}
 		}
 	},
 	"footer": {
-		"menu": "Меню",
-		"contacts": "Контакты",
-		"copyright": "© 2024 Всe права защищено"
+		"menu": "Menu",
+		"contacts": "Contacts",
+		"copyright": "© 2024 All rights reserved"
 	}
 }
