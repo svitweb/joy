@@ -1,13 +1,16 @@
 import { combineReducers } from 'redux';
 import { connectRouter } from 'connected-react-router';
 import { reducer as formReducer } from 'redux-form';
-import menuReducer from './pages/menu/Reducer';
-import mainPageReducer from './pages/mainPage/Reducer';
+import menuReducer from './components/menu/Reducer';
+import mainPageReducer from './client/mainPage/Reducer';
 import notificationReducer from './components/notification/NotificationReducer';
-import adminReducer from './pages/admin/Reducer';
-import createManagerReducer from './pages/admin/modals/createManager/Reducer';
-import signInReducer from './pages/admin/modals/signIn/Reducer';
-import createGameReducer from './pages/admin/modals/createGame/Reducer';
+import gameRequestReducer from './components/modals/gameRequest/Reducer';
+
+import adminReducer from './admin/Reducer';
+import createManagerReducer from './admin/modals/createManager/Reducer';
+import signInReducer from './admin/modals/signIn/Reducer';
+import createGameReducer from './admin/modals/createGame/Reducer';
+import connectEmailReducer from './admin/modals/connectEmail/Reducer';
 
 const createRootReducer = (history) =>
 	combineReducers({
@@ -15,12 +18,14 @@ const createRootReducer = (history) =>
 		form: formReducer,
 		menuReducer,
 		mainPageReducer,
+		gameRequestReducer,
 		notificationReducer,
 
 		adminReducer,
 		createManagerReducer,
 		signInReducer,
 		createGameReducer,
+		connectEmailReducer,
 	});
 
 export default createRootReducer;

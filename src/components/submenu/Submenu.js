@@ -114,7 +114,7 @@ Submenu.defaultProps = {
 
 Submenu.propTypes = {
 	menuItems: PropTypes.arrayOf(PropTypes.object).isRequired,
-	focusItemIndex: PropTypes.oneOfType([PropTypes.number, PropTypes.string]).isRequired,
+	// focusItemIndex: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
 	className: PropTypes.string,
 	onChange: PropTypes.func,
 	customBtnWrap: PropTypes.func,

@@ -1,22 +1,33 @@
-import React, {memo} from "react";
+import React, { memo, useEffect } from "react";
 import { Provider } from "react-redux";
-import { history, store } from "./store";
+import { Switch } from "react-router-dom";
 import { ConnectedRouter } from "connected-react-router";
-import { Route, Switch } from "react-router-dom";
-import MainPage from "./pages/mainPage/components/MainPage";
-import AdminPage from "./pages/admin/components/AdminPage";
+import { history, store } from "./store";
+import { getLocalStorageItem, getSystemLanguage, setLocalStorageItem } from "./services/Helper";
+import { LanguageProvider } from "./services/LanguageContext";
 import PrivateRoute from "./components/routeWrappers/PrivateRoute";
+import MainPage from "./client/mainPage/components/MainPage";
+import AdminPage from "./admin/components/AdminPage";
 
-const App = () => (
-	<Provider store={store}>
-		<ConnectedRouter history={history}>
-			<Switch>
-				<PrivateRoute exact path="/joy" component={MainPage} />
-				<PrivateRoute exact path={["/admin", "/admin/:tab"]} component={AdminPage} />
-				{/* <Route exact path="/sign-in" component={SignIn} /> */}
-			</Switch>
-		</ConnectedRouter>
-	</Provider>
-);
+const App = () => {
+	useEffect(() => {
+		const savedLanguage = getLocalStorageItem("language");
+		if (!savedLanguage) setLocalStorageItem("language", getSystemLanguage());
+	}, []);
+
+	return (
+		<LanguageProvider>
+			<Provider store={store}>
+				<ConnectedRouter history={history}>
+					<Switch>
+						<PrivateRoute exact path="/main" component={MainPage} />
+						<PrivateRoute exact path={["/admin", "/admin/:tab"]} component={AdminPage} />
+						{/* <Route exact path="/sign-in" component={SignIn} /> */}
+					</Switch>
+				</ConnectedRouter>
+			</Provider>
+		</LanguageProvider>
+	);
+};
 
 export default memo(App);

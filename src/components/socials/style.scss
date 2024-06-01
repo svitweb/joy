@@ -35,10 +35,8 @@
 			margin-left: 16px;
 		}
 
-		&:hover {
-			.icon {
-				color: goldenrod;
-			}
+		&:hover .icon {
+			color: #7e69c4;
 		}
 	}
 

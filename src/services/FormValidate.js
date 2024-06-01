@@ -1,18 +1,33 @@
-// import Validator from 'validator';
+import Validator from 'validator';
+import i18n from 'i18next';
 
-export const createListValidate = values => {
+export const gameRequestFormValidate = (values) => {
 	const errors = {};
 
-	!values.name && (errors.name = 'Please enter name');
-	!values.password && (errors.password = 'Please enter password');
+	if (!values.name?.trim()) errors.name = i18n.t('forms.name_filed_error');
+
+	if (!values.email?.trim()) {
+		errors.email = i18n.t('forms.email_field_error');
+	} else if (!Validator.isEmail(values.email))
+		errors.email = i18n.t('forms.email_field_invalid_error');
+
+	if (!values.phone) {
+		errors.phone = i18n.t('forms.phone_field_error');
+	} else if (!Validator.isMobilePhone(values.phone || '', 'any'))
+		errors.phone = i18n.t('forms.phone_field_invalid_error');
 
 	return errors;
 };
 
-export const joinListValidate = values => {
+export const contactRequestFormValidate = (values) => {
 	const errors = {};
 
-	!values.password && (errors.password = 'Please enter password');
+	if (!values.name?.trim()) errors.name = i18n.t('forms.name_filed_error');
+
+	if (!values.phone) {
+		errors.phone = i18n.t('forms.phone_field_error');
+	} else if (!Validator.isMobilePhone(values.phone || '', 'any'))
+		errors.phone = i18n.t('forms.phone_field_invalid_error');
 
 	return errors;
 };

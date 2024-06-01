@@ -6,9 +6,9 @@ import PropTypes from 'prop-types';
 import React, { useEffect, useRef, useState } from 'react';
 import { handleFoldoutView } from './Helper';
 import useActiveElement from './useActiveElement';
-import { Button, Scrollbar, Input, useTheme } from '..';
 import Foldout from './foldout/FoldoutOptions';
 import Header from './Header';
+import Input from '../input/Input';
 
 const Dropdown = ({
 	callbackAction,
@@ -74,7 +74,6 @@ const Dropdown = ({
 	customValue,
 	foldoutClassName,
 }) => {
-	const { theme } = useTheme();
 	const isMobileView = window.innerWidth < 768 || showDrawer;
 	const node = useRef();
 	const dropdownOptions = useRef();
@@ -251,7 +250,6 @@ const Dropdown = ({
 				className,
 				{ 'display-drawer': isMobileView },
 				{ 'visible-content': listVisible },
-				theme,
 			)}
 		>
 			{customHeader && (
@@ -301,17 +299,13 @@ const Dropdown = ({
 					})}
 				>
 					<div
-						className={classNames(
-							'wrts-dropdown-content',
-							{
-								'active ': isMobileView ? isActive : listVisible,
-								'nested-content': nested,
-								'position-left': menuPosition === 'left',
-								'position-right': menuPosition === 'right',
-								'position-top': menuPosition === 'top' || positionedOnTop,
-							},
-							theme,
-						)}
+						className={classNames('wrts-dropdown-content', {
+							'active ': isMobileView ? isActive : listVisible,
+							'nested-content': nested,
+							'position-left': menuPosition === 'left',
+							'position-right': menuPosition === 'right',
+							'position-top': menuPosition === 'top' || positionedOnTop,
+						})}
 						onClick={!withSearch ? handleListVisibility : undefined}
 					>
 						<div className="header">
@@ -344,66 +338,61 @@ const Dropdown = ({
 								/>
 							</div>
 						)}
-						<Scrollbar
-							autoHeightMax={optionsMenuHeight}
-							isMobileView={isMobileView}
-							thumbColor={theme === 'dark' ? '#240E3E' : undefined}
+
+						<div
+							ref={dropdownOptions}
+							className={classNames('body', {
+								'no-results': !options.length && fallbackOption,
+							})}
 						>
-							<div
-								ref={dropdownOptions}
-								className={classNames('body', {
-									'no-results': !options.length && fallbackOption,
-								})}
-							>
-								{sectionTitle && (
-									<span className="text section-title">{sectionTitle}</span>
-								)}
-								{resetSelectedValue && (
-									<div className="clear-btn-wrap">
-										<Button
-											className="btn"
-											title={resetSelectedValueBtnTitle}
-											type="link"
-											onClick={resetSelectedValue}
-										/>
-									</div>
-								)}
-								{nestedHeader}
-								{children || (
-									<Foldout
-										callbackAction={handleCallbackAction}
-										customElements={foldoutCustomElements}
-										fallbackOption={fallbackOption}
-										handleItem={handleItem}
-										hideSelectedOption={hideSelectedOption}
-										listVisible={listVisible}
-										nested={nested}
-										noResultsTitle={noResultsTitle}
-										optionAdditionalLabelKey={optionAdditionalLabelKey}
-										optionAdditionalSubValueKey={optionAdditionalSubValueKey}
-										optionCallbackKey={optionCallbackKey}
-										optionCheckedKey={optionCheckedKey}
-										optionTitlePostKey={optionTitlePostKey}
-										optionDescriptionKey={optionDescriptionKey}
-										optionDisabledKey={optionDisabledKey}
-										optionFlagKey={optionFlagKey}
-										optionFlagProperty={optionFlagProperty}
-										optionIconKey={optionIconKey}
-										optionImageKey={optionImageKey}
-										optionLabelKey={optionLabelKey}
-										optionSectionBodyKey={optionSectionBodyKey}
-										optionSectionKey={optionSectionKey}
-										optionSubValueKey={optionSubValueKey}
-										optionTitleKey={optionTitleKey}
-										optionTypeKey={optionTypeKey}
-										optionValueKey={optionValueKey}
-										options={options}
-										selectValue={selectValue}
-										type={type}
+							{sectionTitle && (
+								<span className="text section-title">{sectionTitle}</span>
+							)}
+							{resetSelectedValue && (
+								<div className="clear-btn-wrap">
+									<Button
+										className="btn"
+										title={resetSelectedValueBtnTitle}
+										type="link"
+										onClick={resetSelectedValue}
 									/>
-								)}
-							</div>
-						</Scrollbar>
+								</div>
+							)}
+							{nestedHeader}
+							{children || (
+								<Foldout
+									callbackAction={handleCallbackAction}
+									customElements={foldoutCustomElements}
+									fallbackOption={fallbackOption}
+									handleItem={handleItem}
+									hideSelectedOption={hideSelectedOption}
+									listVisible={listVisible}
+									nested={nested}
+									noResultsTitle={noResultsTitle}
+									optionAdditionalLabelKey={optionAdditionalLabelKey}
+									optionAdditionalSubValueKey={optionAdditionalSubValueKey}
+									optionCallbackKey={optionCallbackKey}
+									optionCheckedKey={optionCheckedKey}
+									optionTitlePostKey={optionTitlePostKey}
+									optionDescriptionKey={optionDescriptionKey}
+									optionDisabledKey={optionDisabledKey}
+									optionFlagKey={optionFlagKey}
+									optionFlagProperty={optionFlagProperty}
+									optionIconKey={optionIconKey}
+									optionImageKey={optionImageKey}
+									optionLabelKey={optionLabelKey}
+									optionSectionBodyKey={optionSectionBodyKey}
+									optionSectionKey={optionSectionKey}
+									optionSubValueKey={optionSubValueKey}
+									optionTitleKey={optionTitleKey}
+									optionTypeKey={optionTypeKey}
+									optionValueKey={optionValueKey}
+									options={options}
+									selectValue={selectValue}
+									type={type}
+								/>
+							)}
+						</div>
 					</div>
 				</div>,
 				portalSelector,

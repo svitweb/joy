@@ -1,0 +1,31 @@
+import keyMirror from 'keymirror';
+
+export const adminActionTypes = keyMirror({
+	GET_MANAGERS: null,
+	GET_MANAGERS_SUCCESS: null,
+	GET_MANAGERS_ERROR: null,
+	REMOVE_MANAGER: null,
+	REMOVE_MANAGER_SUCCESS: null,
+	REMOVE_MANAGER_ERROR: null,
+	REMOVE_GAME: null,
+	REMOVE_GAME_SUCCESS: null,
+	REMOVE_GAME_ERROR: null,
+	REMOVE_CODE: null,
+	REMOVE_CODE_SUCCESS: null,
+	REMOVE_CODE_ERROR: null,
+	ADD_GAME_TO_LIST: null,
+	UPDATE_GAME_IN_LIST: null,
+	ADD_MANAGER_TO_LIST: null,
+	CLEAR_ADMIN_STATE: null,
+
+	GET_REQUESTS: null,
+	GET_REQUESTS_SUCCESS: null,
+	GET_REQUESTS_ERROR: null,
+	CONNECT_MANAGER: null,
+	CONNECT_MANAGER_SUCCESS: null,
+	CONNECT_MANAGER_ERROR: null,
+
+	GET_GAMES: null,
+	GET_GAMES_SUCCESS: null,
+	GET_GAMES_ERROR: null,
+});

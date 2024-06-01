@@ -5,6 +5,7 @@
 input {
 	font: $base-font-size;
 }
+
 input,
 input[type='tel'],
 input[type='text'],
@@ -24,6 +25,7 @@ select {
 	//box-shadow: inset 11px 11px 26px #0f1026, inset -11px -11px 26px #212656;
 	padding: 12px 16px;
 	color: #fff;
+	font-variant-numeric: lining-nums;
 
 	&::-webkit-input-placeholder {
 		color: color('shades', 'light-grey');
@@ -42,11 +44,11 @@ select {
 	&:-webkit-autofill:focus,
 	&:-webkit-autofill:active {
 		-webkit-background-clip: text;
-		background-color: #181b3e !important;
-		box-shadow: inset 11px 11px 26px #0f1026, inset -11px -11px 26px #212656 !important;
+		//background-color: #181b3e !important;
+		//box-shadow: inset 11px 11px 26px #0f1026, inset -11px -11px 26px #212656 !important;
 		font-size: 16px !important;
 		color: $white !important;
-		-webkit-box-shadow: inset 11px 11px 26px #0f1026, inset -11px -11px 26px #212656 !important;
+		//-webkit-box-shadow: inset 11px 11px 26px #0f1026, inset -11px -11px 26px #212656 !important;
 		-webkit-text-fill-color: $white !important;
 	}
 
@@ -61,10 +63,10 @@ select {
 	}
 
 	&:-internal-autofill-selected {
-		background-color: #181b3e !important;
-		box-shadow: inset 11px 11px 26px #0f1026, inset -11px -11px 26px #212656 !important;
+		//background-color: #181b3e !important;
+		//box-shadow: inset 11px 11px 26px #0f1026, inset -11px -11px 26px #212656 !important;
 		color: $white !important;
-		-webkit-box-shadow: inset 11px 11px 26px #0f1026, inset -11px -11px 26px #212656 !important;
+		//-webkit-box-shadow: inset 11px 11px 26px #0f1026, inset -11px -11px 26px #212656 !important;
 		-webkit-text-fill-color: $white !important;
 	}
 }
@@ -94,7 +96,6 @@ label {
 
 	input {
 		@include subtitle-s();
-		//background: #FFFFFF;
 		border-radius: 8px;
 		padding: 28px 16px 8px;
 		line-height: 20px;
@@ -132,12 +133,7 @@ label {
 		}
 
 		&.error {
-			//background-color: color('opacities', 'red-20%');
-			border: 1px solid #53001f;
-
-			~ label {
-				color: $error;
-			}
+			border-color: #ff4343;
 		}
 	}
 
@@ -151,22 +147,78 @@ label {
 		}
 	}
 
+	.react-international-phone-country-selector-button {
+		background-color: transparent;
+		color: $white;
+		height: 58px;
+		padding: 8px 16px;
+
+		&:hover {
+			background-color: transparent;
+		}
+	}
+
+	.react-international-phone-input-container .react-international-phone-country-selector-button {
+		border: 1px solid $white {
+			top-left-radius: 8px;
+			bottom-left-radius: 8px;
+		}
+	}
+
+	.react-international-phone-country-selector-button__dropdown-arrow {
+		border-top-color: $white;
+	}
+
+	.react-international-phone-country-selector-dropdown {
+		z-index: 3;
+		background-color: #3f4a94;
+		padding: 8px;
+		top: 58px;
+	}
+
+	.react-international-phone-country-selector-dropdown__list-item-dial-code {
+		color: $white;
+		opacity: 0.8;
+	}
+
+	.react-international-phone-country-selector-dropdown__list-item--focused {
+		background-color: #1f2c49;
+	}
+
+	.react-international-phone-country-selector-dropdown__list-item {
+		color: $white;
+	}
+
+	.react-international-phone-input-container .react-international-phone-input {
+		background-color: transparent;
+		color: $white;
+		padding: 8px;
+		line-height: 20px;
+		height: 58px;
+		font-size: 14px;
+		border: {
+			top-right-radius: 8px;
+			bottom-right-radius: 8px;
+		}
+		border: 1px solid $white;
+	}
+
 	&.with-btn {
 		input {
 			padding-right: 54px;
 		}
 	}
-}
 
-.error-msg {
-	@include text-s();
-	display: block;
-	padding-left: 16px;
-	padding-right: 16px;
-	color: $error;
-	margin-top: 4px;
-	margin-bottom: 4px;
-	min-height: 4px;
+	&.error {
+		.react-international-phone-input-container .react-international-phone-input {
+			border-color: #ff4343;
+		}
+
+		.react-international-phone-input-container
+			.react-international-phone-country-selector-button {
+			border-color: #ff4343;
+		}
+	}
 }
 
 .form-group {
@@ -276,6 +328,17 @@ label {
 	}
 }
 
+.error-msg {
+	@include text-s();
+	display: block;
+	padding-left: 16px;
+	padding-right: 16px;
+	color: $error;
+	margin-top: 4px;
+	margin-bottom: 4px;
+	min-height: 4px;
+}
+
 %selectionControl {
 	position: relative;
 	display: inline-block;
@@ -298,9 +361,9 @@ label {
 	.visual {
 		position: relative;
 		display: inline-block;
-		border: 2px solid #b2afb6;
-		width: 24px;
-		height: 24px;
+		border: 1.5px solid #e1f3ff;
+		width: 20px;
+		height: 20px;
 		border-radius: 50%;
 
 		&::before {
@@ -309,11 +372,11 @@ label {
 			display: inline-block;
 			top: 50%;
 			left: 50%;
-			width: 40px;
-			height: 40px;
+			width: 30px;
+			height: 30px;
 			margin: {
-				left: -20px;
-				top: -20px;
+				left: -15px;
+				top: -15px;
 			}
 			border-radius: 50%;
 			opacity: 0;
@@ -374,38 +437,44 @@ label {
 
 	input {
 		&:checked ~ .visual {
-			background-color: #8952da;
-			border-color: transparent;
+			//background-color: #8952da;
+			//border-color: transparent;
 		}
 	}
 
 	.visual {
-		border-radius: 4px;
+		border-radius: 0;
 		vertical-align: middle;
 
 		&::after {
 			//content: $icon-check;
 			display: inline-block;
 			position: absolute;
-
-			border-radius: 4px;
-			//font-family: '#{$icomoon-font-family}' !important;
+			top: 40%;
+			left: 50%;
+			width: 6px;
+			height: 10px;
 			opacity: 0;
 			visibility: hidden;
+			border: {
+				bottom: 1.5px solid $white;
+				right: 1.5px solid $white;
+				radius: 0;
+			}
 			background-color: transparent;
-			width: auto;
-			height: auto;
+			//width: auto;
+			//height: auto;
 			margin: 0;
-			transform: translate(-50%, -50%);
-			speak: none;
-			font-size: 16px;
-			font-style: normal;
-			font-weight: normal;
-			font-variant: normal;
-			text-transform: none;
-			line-height: 1;
-			letter-spacing: 0;
-			color: #fff;
+			transform: translate(-50%, -50%) rotate(45deg);
+			//speak: none;
+			//font-size: 16px;
+			//font-style: normal;
+			//font-weight: normal;
+			//font-variant: normal;
+			//text-transform: none;
+			//line-height: 1;
+			//letter-spacing: 0;
+			//color: #fff;
 		}
 
 		.text {
@@ -566,6 +635,10 @@ label {
 		input {
 			@include subtitle-m();
 			line-height: 20px;
+		}
+
+		.react-international-phone-input-container .react-international-phone-input {
+			font-size: 16px;
 		}
 	}
 

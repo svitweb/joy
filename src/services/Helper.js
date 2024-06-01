@@ -1,5 +1,9 @@
+import { AVAILABLE_LANGUAGES } from './Constants';
+
 export function Timer(callback, delay) {
-	let timerId, start, remaining = delay;
+	let timerId,
+		start,
+		remaining = delay;
 
 	this.pause = () => {
 		window.clearTimeout(timerId);
@@ -14,3 +18,16 @@ export function Timer(callback, delay) {
 
 	this.resume();
 }
+
+export const setLocalStorageItem = (key, value) => {
+	window.localStorage.setItem(key, value);
+};
+
+export const getLocalStorageItem = (key) => window.localStorage.getItem(key);
+
+export const getSystemLanguage = () => {
+	const systemLanguage = navigator.language || navigator.userLanguage;
+	const languageCode = systemLanguage.split('-')[1]?.toLowerCase();
+
+	return AVAILABLE_LANGUAGES.includes(languageCode) ? languageCode : 'en';
+};

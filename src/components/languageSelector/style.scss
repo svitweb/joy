@@ -1,0 +1,54 @@
+@import '../../styles/utilities/variables';
+@import '../../styles/utilities/color';
+
+.language-selector {
+	position: relative;
+
+	&-btn {
+		position: relative;
+		font-size: 20px;
+		font-weight: 600;
+		line-height: 24px;
+		text-transform: uppercase;
+
+		&.main {
+			&::after {
+				content: '';
+				display: block;
+				position: absolute;
+				bottom: 0;
+				left: 0;
+				right: 0;
+				height: 2px;
+				background-color: #7e69c4;
+			}
+		}
+	}
+
+	&-list {
+		position: absolute;
+		top: -6px;
+		left: -6px;
+		padding: 36px 6px 6px;
+		border: 1px solid rgba(255, 255, 255, 0.6);
+		border-radius: 4px;
+		opacity: 0;
+		visibility: hidden;
+
+		&.active {
+			opacity: 1;
+			visibility: visible;
+		}
+
+		.language-selector-btn {
+			font-size: 18px;
+		}
+
+		li {
+			margin-top: 4px;
+		}
+	}
+}
+
+@media (min-width: $small-screen) {
+}

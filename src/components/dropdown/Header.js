@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
-import { Avatar, Skeleton } from '../index';
+import Spinner from '../Spinner';
 
 const Header = ({
 	color,
@@ -51,7 +51,7 @@ const Header = ({
 	return (
 		<>
 			{loading ? (
-				<Skeleton type="dropdown-form" />
+				<Spinner />
 			) : (
 				<div
 					className={classNames({

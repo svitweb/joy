@@ -1,8 +1,8 @@
-@import '../utils/styles/utilities/fonts_var';
-@import '../utils/styles/utilities/color';
-@import '../utils/styles/utilities/variables';
-@import '../utils/styles/utilities/shadows';
-@import '../utils/styles/utilities/mixins';
+@import '../../styles/utilities/fonts_var';
+@import '../../styles/utilities/color';
+@import '../../styles/utilities/variables';
+@import '../../styles/utilities/shadows';
+@import '../../styles/utilities/mixins';
 
 .wrts-dropdown {
 	position: relative;
@@ -27,7 +27,7 @@
 		bottom: 0;
 		left: 0;
 		background-color: transparent;
-		transition: background-color 0.1s $trans-func;
+		transition: background-color 0.1s ease-out;
 		z-index: 1050;
 		visibility: hidden;
 

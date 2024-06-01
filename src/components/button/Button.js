@@ -21,6 +21,7 @@ const Button = ({
 	title,
 	type,
 	active,
+	btnType,
 }) => {
 	const _className = classNames(
 		'btn',
@@ -67,7 +68,7 @@ const Button = ({
 				<button
 					className={_className}
 					onClick={disabled || loading ? undefined : onClick}
-					type="button"
+					type={btnType}
 				>
 					<Content />
 				</button>
@@ -79,6 +80,7 @@ const Button = ({
 Button.defaultProps = {
 	iconClassName: 'icon',
 	type: 'primary',
+	btnType: 'button',
 };
 
 Button.propTypes = {
@@ -93,6 +95,7 @@ Button.propTypes = {
 	small: PropTypes.bool,
 	title: PropTypes.string,
 	type: PropTypes.oneOf(['primary', 'link', 'menu', 'icon', '']),
+	btnType: PropTypes.string,
 };
 
 export default memo(Button);

@@ -4,64 +4,64 @@ $white: #fff !default;
 // -----------------------
 
 $primary-colors: (
-        'light-purple' : #8952da,
-        'purple' : #662ea3,
-        'dark-purple' : #3d1868,
-        'green' : #29b966
+	'light-purple': #8952da,
+	'purple': #662ea3,
+	'dark-purple': #3d1868,
+	'green': #29b966,
 );
 
 $secondary-colors: (
-        'red' : #FF4548,
-  //'green' : #4caf50,
-        'blue' : #6045FB,
-        'light-blue':#20B6F8,
-        //'orange' : #ff9800,
-        'yellow': #FFD600,
-        'pink': #FD6DFC
+	'red': #ff4548,
+	//'green' : #4caf50,
+	'blue': #6045fb,
+	'light-blue': #20b6f8,
+	//'orange' : #ff9800,
+	'yellow': #ffd600,
+	'pink': #fd6dfc,
 );
 
 $shades-colors: (
-        'white' : #ffffff,
-        'very-light-grey' : #f2f1f4,
-        'light-grey' : #d3d1d6,
-        'medium-grey' : #b2afb6,
-        'dark-grey' : #65616b,
-        'almost-black' : #323036
+	'white': #ffffff,
+	'very-light-grey': #f2f1f4,
+	'light-grey': #d3d1d6,
+	'medium-grey': #b2afb6,
+	'dark-grey': #65616b,
+	'almost-black': #323036,
 );
 
 $opacities-colors: (
-        'white-10%' : rgba(255, 255, 255, 0.1),
-        'white-50%' : rgba(255, 255, 255, 0.5),
-        'white-80%' : rgba(255, 255, 255, 0.8),
-        'purple-5%' : rgba(137, 82, 218, 0.05),
-        'black-5%' : rgba(0, 0, 0, 0.05),
-        'black-10%' : rgba(0, 0, 0, 0.1),
-        'black-30%' : rgba(0, 0, 0, 0.3),
-        'green-20%' : rgba(27, 186, 99, 0.2),
-        'red-20%' : rgba(255, 69, 72, 0.2)
+	'white-10%': rgba(255, 255, 255, 0.1),
+	'white-50%': rgba(255, 255, 255, 0.5),
+	'white-80%': rgba(255, 255, 255, 0.8),
+	'purple-5%': rgba(137, 82, 218, 0.05),
+	'black-5%': rgba(0, 0, 0, 0.05),
+	'black-10%': rgba(0, 0, 0, 0.1),
+	'black-30%': rgba(0, 0, 0, 0.3),
+	'black-50%': rgba(29, 41, 65, 0.8),
+	'green-20%': rgba(27, 186, 99, 0.2),
+	'red-20%': rgba(255, 69, 72, 0.2),
 );
 
 $colors: (
-        'primary' : $primary-colors,
-        'secondary' : $secondary-colors,
-        'shades' : $shades-colors,
-        'opacities' : $opacities-colors
+	'primary': $primary-colors,
+	'secondary': $secondary-colors,
+	'shades': $shades-colors,
+	'opacities': $opacities-colors,
 );
 
 // usage: color("name-of-type", "name-of-color")
 // to avoid to repeating map-get($colors, ...)
 @function color($color, $type) {
-  @if map-has-key($colors, $color) {
-    $curr-color: map-get($colors, $color);
-    @if map-has-key($curr-color, $type) {
-      @return map-get($curr-color, $type);
-    }
-  }
+	@if map-has-key($colors, $color) {
+		$curr-color: map-get($colors, $color);
+		@if map-has-key($curr-color, $type) {
+			@return map-get($curr-color, $type);
+		}
+	}
 
-  @warn "Unknown `#{$type}` in #{$color}.";
-  @return null;
+	@warn "Unknown `#{$type}` in #{$color}.";
+	@return null;
 }
-
 
 // Base ------------------
 $base-bg: #1d2941;
@@ -75,7 +75,6 @@ $error: color('secondary', 'red');
 // General ---------------
 
 // -----------------------
-
 
 // Footer ----------------
 
@@ -120,17 +119,14 @@ $btn-close-bg: $white;
 // ------------------------
 
 // Menu ----------------
-$menu-bg: #652EA3;
+$menu-bg: #652ea3;
 // ------------------------
 
 // Headers ----------------
-$submenu-text-hover: #8952DA;
-$submenu-active: #8952DA;
+$submenu-text-hover: #8952da;
+$submenu-active: #8952da;
 $submenu-border: color('opacities', 'black-10%');
-$header-desc: #65616B;
-$header-meta-desc: #65616B;
+$header-desc: #65616b;
+$header-meta-desc: #65616b;
 $header-border: 1px solid color('opacities', 'black-10%');
 // -----------------------
-
-
-

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 
@@ -12,11 +12,18 @@ const FormInput = ({
 	onChange,
 	type,
 	value,
+	focusOnMount,
 }) => {
+	const input = useRef();
+
 	const [showValue, setShowValueStatus] = useState(false);
 
 	const handleChange = (e) => onChange(e.target.value);
 	const showHideValue = () => setShowValueStatus(!showValue);
+
+	useEffect(() => {
+		if (focusOnMount) input?.current?.focus();
+	}, []);
 
 	return (
 		<div className={classNames('form-field', classname)}>
@@ -27,6 +34,7 @@ const FormInput = ({
 				})}
 			>
 				<input
+					ref={input}
 					placeholder={floatingLabel ? '*' : label}
 					className={classNames({
 						error: error,
@@ -64,10 +72,10 @@ FormInput.defaultProps = {
 
 FormInput.propTypes = {
 	color: PropTypes.oneOf(['light-gray']),
-	error: PropTypes.string,
-	label: PropTypes.string.isRequired,
-	onChange: PropTypes.func.isRequired,
-	type: PropTypes.oneOf(['text', 'password']),
+	error: PropTypes.oneOfType([PropTypes.string, PropTypes.bool]),
+	label: PropTypes.string,
+	onChange: PropTypes.func,
+	type: PropTypes.oneOf(['text', 'password', 'email', 'tel']),
 	value: PropTypes.string,
 };
 

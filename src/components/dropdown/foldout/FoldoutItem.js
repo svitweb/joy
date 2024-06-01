@@ -1,8 +1,9 @@
 import classNames from 'classnames';
 import PropTypes from 'prop-types';
 import React, { memo, useEffect, useState } from 'react';
-import { Button, RadioCheckbox } from '../../index';
 import ContentItem from './ContentItem';
+import Button from '../../button/Button';
+import RadioCheckbox from '../../radioCheckbox/RadioCheckbox';
 
 const FoldoutItem = ({
 	callbackAction,
@@ -76,7 +77,8 @@ const FoldoutItem = ({
 							disabled={item[optionDisabledKey]}
 							disabledDropdownItem={hasCallback}
 							iconClassName={item[optionFlagKey] && optionFlagProperty}
-							iconName={!item[optionImageKey] &&
+							iconName={
+								!item[optionImageKey] &&
 								(item[optionIconKey] || item[optionFlagKey]) &&
 								(item[optionIconKey] ||
 									(item[optionFlagKey] &&
