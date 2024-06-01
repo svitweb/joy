@@ -20,7 +20,7 @@ const App = () => {
 			<Provider store={store}>
 				<ConnectedRouter history={history}>
 					<Switch>
-						<PrivateRoute exact path="/main" component={MainPage} />
+						<PrivateRoute exact path={["/joy", "/main"]} component={MainPage} />
 						<PrivateRoute exact path={["/admin", "/admin/:tab"]} component={AdminPage} />
 						{/* <Route exact path="/sign-in" component={SignIn} /> */}
 					</Switch>
