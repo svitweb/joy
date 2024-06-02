@@ -1,16 +1,23 @@
 {
   "files": {
-    "main.css": "/joy/static/css/main.f9ccdf71.css",
-    "main.js": "/joy/static/js/main.cdb9ff42.js",
+    "main.css": "/joy/static/css/main.93f36642.css",
+    "main.js": "/joy/static/js/main.cf430598.js",
+    "static/media/Labyrinth1.png": "/joy/static/media/Labyrinth1.30890638fcee9e02a148.png",
     "static/media/formats-bg.png": "/joy/static/media/formats-bg.ee537f136414ffcda419.png",
+    "static/media/Lab1.png": "/joy/static/media/Lab1.45e355ecb56174a32d5c.png",
     "static/media/form-bg.png": "/joy/static/media/form-bg.dda83ecc32bfc4155440.png",
     "static/media/list-img-3.png": "/joy/static/media/list-img-3.5da2199a02687bf3cc65.png",
     "static/media/way.png": "/joy/static/media/way.c30a19b3397eb055f19e.png",
     "static/media/list-img-1-s.png": "/joy/static/media/list-img-1-s.cfc627d3ce08b2fc724c.png",
     "static/media/main-bg.jpg": "/joy/static/media/main-bg.b43e80eb02094190e769.jpg",
+    "static/media/purple_labyrinth.webp": "/joy/static/media/purple_labyrinth.07cd8f04f25f41ca3612.webp",
     "static/media/responses-bg.png": "/joy/static/media/responses-bg.bbf70feda3085f0c8d64.png",
+    "static/media/RedLab.webp": "/joy/static/media/RedLab.ab2262b38d31f1f33667.webp",
+    "static/media/GoldLab.webp": "/joy/static/media/GoldLab.48daffd42f0899768e3a.webp",
+    "static/media/RedLab1.webp": "/joy/static/media/RedLab1.9a50ec768e224477fd0d.webp",
     "static/media/list-img-1.png": "/joy/static/media/list-img-1.40da4c065c92e4127119.png",
     "static/media/list-img-2.png": "/joy/static/media/list-img-2.c8cb21100ff70aafcf22.png",
+    "static/media/Lab2.webp": "/joy/static/media/Lab2.1a2c2632b8b887090ce3.webp",
     "static/media/list-img-4.png": "/joy/static/media/list-img-4.95ce9498af8b316e545b.png",
     "static/media/responses-bg-small.png": "/joy/static/media/responses-bg-small.9829a8f037e8cb70d2d6.png",
     "static/media/m1.png": "/joy/static/media/m1.7f083f2ce8eac6eef75e.png",
@@ -37,11 +44,11 @@
     "static/media/logo.svg": "/joy/static/media/logo.6a4767a644744756662172e9d6ad8d51.svg",
     "static/media/deco-dot.svg": "/joy/static/media/deco-dot.1980cddb8f276aa41316.svg",
     "index.html": "/joy/index.html",
-    "main.f9ccdf71.css.map": "/joy/static/css/main.f9ccdf71.css.map",
-    "main.cdb9ff42.js.map": "/joy/static/js/main.cdb9ff42.js.map"
+    "main.93f36642.css.map": "/joy/static/css/main.93f36642.css.map",
+    "main.cf430598.js.map": "/joy/static/js/main.cf430598.js.map"
   },
   "entrypoints": [
-    "static/css/main.f9ccdf71.css",
-    "static/js/main.cdb9ff42.js"
+    "static/css/main.93f36642.css",
+    "static/js/main.cf430598.js"
   ]
 }
