@@ -1,0 +1,45 @@
+@import '../../../styles/utilities/variables';
+
+.game-page {
+	padding: {
+		top: 30px;
+		bottom: 80px;
+	}
+}
+
+@media (min-width: $large-screen) {
+	.game-page {
+		padding: {
+			top: 30px;
+			bottom: 80px;
+		}
+
+		.l-order-1 {
+			order: 1;
+		}
+		.l-order-2 {
+			order: 2;
+		}
+		.l-order-3 {
+			order: 3;
+		}
+		.l-order-4 {
+			order: 4;
+		}
+		.l-order-5 {
+			order: 5;
+		}
+		.l-order-6 {
+			order: 6;
+		}
+		.l-order-7 {
+			order: 7;
+		}
+		.l-order-8 {
+			order: 8;
+		}
+		.l-order-9 {
+			order: 9;
+		}
+	}
+}

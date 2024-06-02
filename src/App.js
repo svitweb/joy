@@ -8,6 +8,7 @@ import { LanguageProvider } from "./services/LanguageContext";
 import PrivateRoute from "./components/routeWrappers/PrivateRoute";
 import MainPage from "./client/mainPage/components/MainPage";
 import AdminPage from "./admin/components/AdminPage";
+import GamePage from "./client/gamePage/components/GamePage";
 
 const App = () => {
 	useEffect(() => {
@@ -21,6 +22,7 @@ const App = () => {
 				<ConnectedRouter history={history}>
 					<Switch>
 						<PrivateRoute exact path="/joy" component={MainPage} />
+						<PrivateRoute exact path="/game/:id" component={GamePage} />
 						<PrivateRoute exact path={["/admin", "/admin/:tab"]} component={AdminPage} />
 						{/* <Route exact path="/sign-in" component={SignIn} /> */}
 					</Switch>

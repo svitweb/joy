@@ -4,7 +4,7 @@ import i18n from 'i18next';
 export const gameRequestFormValidate = (values) => {
 	const errors = {};
 
-	if (!values.name?.trim()) errors.name = i18n.t('forms.name_filed_error');
+	if (!values.name?.trim()) errors.name = i18n.t('forms.name_field_error');
 
 	if (!values.email?.trim()) {
 		errors.email = i18n.t('forms.email_field_error');
@@ -22,7 +22,7 @@ export const gameRequestFormValidate = (values) => {
 export const contactRequestFormValidate = (values) => {
 	const errors = {};
 
-	if (!values.name?.trim()) errors.name = i18n.t('forms.name_filed_error');
+	if (!values.name?.trim()) errors.name = i18n.t('forms.name_field_error');
 
 	if (!values.phone) {
 		errors.phone = i18n.t('forms.phone_field_error');

@@ -26,8 +26,8 @@ export const setLocalStorageItem = (key, value) => {
 export const getLocalStorageItem = (key) => window.localStorage.getItem(key);
 
 export const getSystemLanguage = () => {
-	const systemLanguage = navigator.language || navigator.userLanguage;
-	const languageCode = systemLanguage.split('-')[1]?.toLowerCase();
+	const systemLanguage = navigator?.language || navigator?.userLanguage;
+	const languageCode = systemLanguage?.split('-')[1]?.toLowerCase();
 
 	return AVAILABLE_LANGUAGES.includes(languageCode) ? languageCode : 'en';
 };
