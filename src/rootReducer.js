@@ -5,6 +5,9 @@ import menuReducer from './components/menu/Reducer';
 import mainPageReducer from './client/mainPage/Reducer';
 import notificationReducer from './components/notification/NotificationReducer';
 import gameRequestReducer from './components/modals/gameRequest/Reducer';
+import cardModalReducer from './components/modals/card/Reducer';
+import labyrinthQuestionModalReducer from './components/modals/labyrinthQuestion/Reducer';
+import gamePageReducer from './client/gamePage/Reducer';
 
 import adminReducer from './admin/Reducer';
 import createManagerReducer from './admin/modals/createManager/Reducer';
@@ -20,6 +23,9 @@ const createRootReducer = (history) =>
 		mainPageReducer,
 		gameRequestReducer,
 		notificationReducer,
+		cardModalReducer,
+		labyrinthQuestionModalReducer,
+		gamePageReducer,
 
 		adminReducer,
 		createManagerReducer,

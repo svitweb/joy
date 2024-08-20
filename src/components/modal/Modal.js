@@ -11,6 +11,7 @@ const Modal = ({
 	title,
 	preventOutsideClose,
 	customHeader,
+	clearState,
 }) => {
 	const modalNode = useRef();
 
@@ -29,6 +30,7 @@ const Modal = ({
 			setActivate(false);
 
 			setTimeout(() => {
+				if (clearState && opened) clearState();
 				setOpened(false);
 			}, 200);
 		}

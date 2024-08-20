@@ -1,0 +1,154 @@
+@import '../../../styles/utilities/variables';
+@import '../../../styles/utilities/color';
+
+@keyframes showDown {
+	0% {
+		top: -10px;
+	}
+	100% {
+		top: 0;
+	}
+}
+
+.cards-menu {
+	position: fixed;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	height: 120px;
+	padding-bottom: 16px;
+	background: linear-gradient(to top, black 46%, transparent);
+	z-index: 10;
+
+	&-list {
+		//display: flex;
+		//align-items: center;
+		//margin: {
+		//	right: auto;
+		//	left: auto;
+		//}
+
+		&.swiper {
+			padding: {
+				top: 16px;
+				right: 16px;
+			}
+			margin-left: 0;
+			//
+			.swiper-slide {
+				//	transition: all 0.2s ease-out;
+				//
+				//	+ .swiper-slide {
+				//		margin-left: -10px;
+				//	}
+
+				&:hover,
+				&:active,
+				&:focus {
+					z-index: 1;
+
+					.menu-card {
+						transform: translate(0, -8px) scale(1.1);
+					}
+					//padding: {
+					//	left: 12px;
+					//	right: 12px;
+					//}
+				}
+
+				&:last-child {
+					.menu-card {
+						&:hover,
+						&:active {
+							transform: translate(-6px, -8px) scale(1.1);
+						}
+					}
+				}
+
+				&:first-child {
+					.menu-card {
+						&:hover,
+						&:active {
+							transform: translate(6px, -8px) scale(1.1);
+						}
+					}
+				}
+			}
+		}
+
+		.menu-card {
+			position: relative;
+			flex: 0 0 auto;
+			transition: all 0.2s ease-out;
+			animation: showDown 0.2s ease-out forwards;
+			cursor: pointer;
+			filter: brightness(160%);
+
+			&-inner {
+				width: 58px;
+				height: 80px;
+				border-radius: 8px;
+				background: {
+					color: #2a87d0;
+					repeat: no-repeat;
+					position: center;
+					size: cover;
+				}
+				pointer-events: none;
+				user-select: none;
+				box-shadow: 0 6px 3px 3px $black;
+			}
+
+			&.purple .menu-card-inner {
+				background-image: url('../../../images/gameIllustrations/bg/purpleBg.jpg');
+			}
+
+			&.red .menu-card-inner {
+				background-image: url('../../../images/gameIllustrations/bg/redBg.jpg');
+			}
+
+			&.gold .menu-card-inner {
+				background-image: url('../../../images/gameIllustrations/bg/goldBg.jpg');
+			}
+
+			&.blue .menu-card-inner {
+				background-image: url('../../../images/gameIllustrations/bg/blueBg.jpg');
+			}
+
+			&:hover,
+			&:active {
+				//transform: translate(0, -8px) scale(1.1);
+				//padding: {
+				//	left: 12px;
+				//	right: 12px;
+				//}
+			}
+		}
+	}
+
+	.container {
+		display: flex;
+	}
+}
+
+.meta-cards {
+	flex: 0 0 auto;
+	padding: {
+		top: 12px;
+		left: 12px;
+		right: 8px;
+	}
+
+	.cards {
+		position: relative;
+		//top: -10px;
+		width: 96px;
+		height: 96px;
+		transition: all 0.2s ease-out;
+		cursor: pointer;
+
+		&:hover {
+			transform: translateY(-5px);
+		}
+	}
+}

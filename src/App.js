@@ -18,16 +18,18 @@ const App = () => {
 
 	return (
 		<LanguageProvider>
-			<Provider store={store}>
-				<ConnectedRouter history={history}>
+			{/* <Provider store={store}> */}
+			{/* 	<ConnectedRouter history={history}> */}
 					<Switch>
+						<PrivateRoute exact path="/" component={null} />
+
 						<PrivateRoute exact path="/joy" component={MainPage} />
 						<PrivateRoute exact path="/game/:id" component={GamePage} />
 						<PrivateRoute exact path={["/admin", "/admin/:tab"]} component={AdminPage} />
 						{/* <Route exact path="/sign-in" component={SignIn} /> */}
 					</Switch>
-				</ConnectedRouter>
-			</Provider>
+				{/* </ConnectedRouter> */}
+			{/* </Provider> */}
 		</LanguageProvider>
 	);
 };

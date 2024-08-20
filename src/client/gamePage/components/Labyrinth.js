@@ -1,18 +1,26 @@
 import '../styles/labyrinth.scss';
-import React, { memo, useEffect, useRef, useState } from 'react';
+import React, { memo, useCallback, useEffect, useRef, useState } from 'react';
+import { connect } from 'react-redux';
 import classNames from 'classnames';
-import purpleLabyrinth from '../images/purple_labyrinth.webp';
-import purpleLabyrinth1 from '../images/Lab1.png';
-import purpleLabyrinth2 from '../images/Labyrinth1.png';
-import blueLabImg from '../images/Lab2.webp';
-import goldLabImg from '../images/GoldLab.webp';
-import redLabImg from '../images/RedLab.webp';
-import redLabImg1 from '../images/RedLab1.webp';
+import goldLabImg from '../images/goldLab.png';
+// import goldLabImg from '../images/g1.png';
+import purpleLabImg from '../images/purpleLab.png';
+// import purpleLabImg from '../images/p1.png';
+// import blueLabImg from '../images/Lab2.webp';
+import blueLabImg from '../images/b1.png';
+// import redLabImg1 from '../images/RedLab1.webp';
+import redLabImg1 from '../images/r1.png';
+import { getQuestionsByType } from '../Helpers';
+import * as gameActions from '../Actions';
+import * as labyrinthQuestionModalActions from '../../../components/modals/labyrinthQuestion/Actions';
+import LabyrinthOverlay from './LabyrinthOverlay';
 
-const GamePage = ({ type }) => {
+const Labyrinth = ({ type, toggleLabyrinthQuestionModal, changeData, gameData = {} }) => {
 	const node = useRef();
 
 	const [active, setActive] = useState(false);
+	const [objectActive, setObjectActive] = useState(false);
+	const [objectBottomActive, setObjectBottomActive] = useState(false);
 
 	useEffect(() => {
 		document.addEventListener('click', clickOutside);
@@ -22,18 +30,10 @@ const GamePage = ({ type }) => {
 		};
 	}, []);
 
-	const clickOutside = (e) => {
-		setActive(!!node.current?.contains(e.target));
-	};
-
-	const handleClickOnObject = (e) => {
-		e.stopPropagation();
-	};
-
-	const getImgByType = () => {
+	const getImgByType = useCallback(() => {
 		switch (type) {
 			case 'purple':
-				return purpleLabyrinth2;
+				return purpleLabImg;
 			case 'blue':
 				return blueLabImg;
 			case 'gold':
@@ -41,24 +41,84 @@ const GamePage = ({ type }) => {
 			case 'red':
 				return redLabImg1;
 			default:
-				return purpleLabyrinth2;
+				return purpleLabImg;
 		}
+	}, [type]);
+
+	const clickOutside = (e) => {
+		setActive(!!node.current?.contains(e.target));
+	};
+
+	const handleClickOnLab = () => {
+		setActive(true);
+
+		let labStore = gameData[`${type}Lab`]?.questions || [];
+
+		const cards = getQuestionsByType(type);
+
+		if (labStore.length === cards.length) {
+			labStore = [];
+		}
+
+		let cardData;
+
+		do {
+			cardData = cards[Math.floor(Math.random() * cards.length)];
+		} while (labStore.includes(cardData.id));
+
+		labStore.push(cardData.id);
+
+		changeData({
+			...gameData,
+			[`${type}Lab`]: { ...gameData[`${type}Lab`], questions: labStore },
+		});
+
+		toggleLabyrinthQuestionModal({ open: true, type, data: cardData });
+	};
+
+	const handleClickOnObject = (e, objType) => {
+		e.stopPropagation();
+		toggleLabyrinthQuestionModal({ open: true, type, objType });
 	};
 
 	return (
 		<div className="labyrinth-section">
-			<div ref={node} className={classNames('labyrinth-wrap', { active })}>
-				{/* <div className="labyrinth-figure" onClick={() => setActive(true)} /> */}
+			<div ref={node} className={classNames('labyrinth-wrap', type, { active })}>
 				<img
 					src={getImgByType()}
 					className="labyrinth-figure"
 					alt="labyrinth"
-					onClick={() => setActive(true)}
+					onClick={handleClickOnLab}
 				/>
-				<div className="labyrinth-object" onClick={handleClickOnObject} />
+				<LabyrinthOverlay
+					type={type}
+					objectActive={objectActive}
+					objectBottomActive={objectBottomActive}
+				/>
+				<div
+					className="labyrinth-object"
+					onClick={(e) => handleClickOnObject(e, 'top')}
+					onMouseOver={() => setObjectActive(true)}
+					onMouseLeave={() => setObjectActive(false)}
+				/>
+				<div
+					className="labyrinth-object bottom"
+					onClick={(e) => handleClickOnObject(e, 'main')}
+					onMouseOver={() => setObjectBottomActive(true)}
+					onMouseLeave={() => setObjectBottomActive(false)}
+				/>
 			</div>
 		</div>
 	);
 };
 
-export default memo(GamePage);
+const mapStateToProps = ({ gamePageReducer }) => ({
+	gameData: gamePageReducer.gameData,
+});
+
+const mapDispatchToProps = {
+	toggleLabyrinthQuestionModal: labyrinthQuestionModalActions.toggleLabyrinthQuestionModal,
+	changeData: gameActions.changeData,
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(memo(Labyrinth));

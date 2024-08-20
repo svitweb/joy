@@ -1,48 +1,38 @@
 import '../styles/style.scss';
-import React, { memo, useRef } from 'react';
+import React, { memo } from 'react';
 import Labyrinth from './Labyrinth';
-import Tree from './Tree';
 import Tower from './Tower';
+import CardsMenu from './CardsMenu';
+import CardModal from '../../../components/modals/card/components/CardModal';
+import LabyrinthQuestionModal from '../../../components/modals/labyrinthQuestion/components/LabyrinthQuestionModal';
 
 const GamePage = () => {
 	return (
 		<>
-			{/* <Menu scrollToRef={scrollToRef} blocks={blocks} /> */}
 			<main className="page-content game-page">
-				<div className="container-full">
+				<div className="container">
 					<div className="row">
-						<div className="col l-5 l-order-1">
+						<div className="col l-4">
 							<Labyrinth type="purple" />
 						</div>
-						<div className="col l-2 l-order-2">
-							<Tree />
-						</div>
-						<div className="col l-5 l-order-3">
-							<Labyrinth type="red" />
-						</div>
-						<div className="col l-3 l-order-4">
-							<Tree />
-						</div>
-						<div className="col l-5 l-order-7">
+						<div className="col l-4 l-offset-4">
 							<Labyrinth type="gold" />
 						</div>
-						<div className="col l-2 l-order-8">
-							<Tree />
+						<div className="col l-4 ">
+							<Labyrinth type="red" />
 						</div>
-						<div className="col l-5 l-order-9">
+						<div className="col l-4 l-offset-4">
 							<Labyrinth type="blue" />
 						</div>
-						<div className="col l-3 l-order-6">
-							<Tree />
-						</div>
-						<div className="col l-6 l-order-5">
+						<div className="col l-4 l-offset-4 tower-col">
 							<Tower />
 						</div>
 					</div>
 				</div>
+				<CardsMenu />
 			</main>
-			{/* <Footer scrollToRef={scrollToRef} blocks={blocks} /> */}
-			{/* <GameRequestModal /> */}
+			<CardModal />
+			<LabyrinthQuestionModal />
 		</>
 	);
 };

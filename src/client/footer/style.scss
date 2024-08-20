@@ -1,10 +1,12 @@
 @import '../../styles/utilities/variables';
+@import '../../styles/utilities/color';
 
 .main-footer {
 	padding: {
 		top: 30px;
 		bottom: 30px;
 	}
+	background-color: $base-bg;
 	overflow: hidden;
 
 	&-logo {

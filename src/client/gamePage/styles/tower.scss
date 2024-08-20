@@ -1,0 +1,19 @@
+@import '../../../styles/utilities/variables';
+
+//@keyframes showDown {
+//	0% {
+//		top: -10px;
+//	}
+//	100% {
+//		top: 0;
+//	}
+//}
+
+.tower {
+}
+
+@media (min-width: $large-screen) {
+	.tower {
+		margin-top: -150%;
+	}
+}

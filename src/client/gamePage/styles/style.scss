@@ -3,43 +3,27 @@
 .game-page {
 	padding: {
 		top: 30px;
-		bottom: 80px;
+		bottom: 140px;
 	}
+	background: {
+		image: url('../images/bg.webp');
+		repeat: no-repeat;
+		position: center;
+		size: cover;
+	}
+	min-height: 100vh;
 }
 
 @media (min-width: $large-screen) {
 	.game-page {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		height: 100vh;
 		padding: {
-			top: 30px;
-			bottom: 80px;
+			//top: 30px;
+			//bottom: 96px;
 		}
-
-		.l-order-1 {
-			order: 1;
-		}
-		.l-order-2 {
-			order: 2;
-		}
-		.l-order-3 {
-			order: 3;
-		}
-		.l-order-4 {
-			order: 4;
-		}
-		.l-order-5 {
-			order: 5;
-		}
-		.l-order-6 {
-			order: 6;
-		}
-		.l-order-7 {
-			order: 7;
-		}
-		.l-order-8 {
-			order: 8;
-		}
-		.l-order-9 {
-			order: 9;
-		}
+		overflow: hidden;
 	}
 }
