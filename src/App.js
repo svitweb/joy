@@ -24,8 +24,8 @@ const App = () => {
 						<PrivateRoute exact path="/" component={null} />
 
 						<PrivateRoute exact path="/joy" component={MainPage} />
-						<PrivateRoute exact path="/game/:id" component={GamePage} />
-						<PrivateRoute exact path={["/admin", "/admin/:tab"]} component={AdminPage} />
+						<PrivateRoute exact path="/joy/game/:id" component={GamePage} />
+						<PrivateRoute exact path={["/joy/admin", "/joy/admin/:tab"]} component={AdminPage} />
 						{/* <Route exact path="/sign-in" component={SignIn} /> */}
 					</Switch>
 				{/* </ConnectedRouter> */}
