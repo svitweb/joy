@@ -6,12 +6,24 @@
 		bottom: 140px;
 	}
 	background: {
-		image: url('../images/bg.webp');
+		image: url('../images/bg.png');
 		repeat: no-repeat;
 		position: center;
 		size: cover;
 	}
 	min-height: 100vh;
+
+	.container {
+		max-height: 100%;
+	}
+
+	.row {
+		position: relative;
+	}
+
+	.tower-col {
+		position: static;
+	}
 }
 
 @media (min-width: $large-screen) {

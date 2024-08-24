@@ -1,4 +1,3 @@
-import { getLocalStorageItem, setLocalStorageItem } from '../../services/Helper';
 import i18n from 'i18next';
 
 import img1 from '../../images/gameIllustrations/metaCards/1.jpg';
@@ -100,5 +99,5 @@ export const getMetaCards = () =>
 			id: `meta${index + 1}`,
 			img: cardImages[index],
 			type: 'meta',
-			desc: i18n.t(`meta_questions.${index + 1}`),
+			desc: i18n.t(`meta_cards.${index + 1}`),
 		}));

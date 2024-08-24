@@ -2,199 +2,8 @@
 	"403": {},
 	"404": {},
 	"500": {},
-	"titles": {},
-	"meta_descriptions": {},
-	"general": {
-		"request_btn": "Submit your application",
-		"send": "Send"
-	},
-	"forms": {
-		"name_field": "Your name",
-		"name_field_error": "Please enter your name",
-		"package_error": "Please select a package",
-		"email_field": "Email",
-		"email_field_error": "Please enter your email address",
-		"email_field_invalid_error": "Please enter the correct email address",
-		"phone_field_error": "Please enter your phone number",
-		"phone_field_invalid_error": "Please enter a correct phone number"
-	},
-	"modals": {
-		"game_request_modal": {
-			"title": "REGISTER FOR THE GAME",
-			"description": "Please select the game format and leave your contacts.",
-			"submit_success": {
-				"title": "Congratulations!",
-				"sub_title": "Your application has been successfully accepted.",
-				"description": "Our manager will contact you soon."
-			},
-			"package_1": {
-				"title": "Individual format",
-				"info": "1-2 players",
-				"price": "80 EUR"
-			},
-			"package_2": {
-				"title": "Group format",
-				"info": "3-7 players",
-				"price": "30 EUR/person"
-			}
-		}
-	},
-	"menu": {
-		"items": {
-			"1": "About",
-			"2": "Themes",
-			"3": "Requests",
-			"4": "Formats",
-			"5": "Creators"
-		},
-		"contact_btn": "Feedback form"
-	},
-	"main_page": {
-		"main_description": "Transform your thinking",
-		"about": {
-			"title": "More than a game",
-			"sup_description": "Our original transformational game helps expand imagination and change thinking in a game format.",
-			"description": "This is a tool for finding answers to your questions. And it doesn’t matter what area of ​​life they lie in - personal development or relationships, creativity or starting a business, career or money, planning or developing a new idea, searching for meaning or simply learning to accept the world as it is."
-		},
-		"themes": {
-			"title": "YOUR WORLD OF CHANGE",
-			"description": "This game will help you:",
-			"options": {
-				"1": "analyze the current state of affairs;",
-				"2": "build a profitable strategy;",
-				"3": "identify the way forward",
-				"4": "make the right decision;",
-				"5": "make the right choice;",
-				"6": "discover your blind spots;",
-				"7": "see the limitations;",
-				"8": "discover opportunities and resources;",
-				"9": "get insight;",
-				"10": "recharge with positive energy;",
-				"11": "understand themselves;",
-				"12": "understand your desires."
-			}
-		},
-		"requests": {
-			"title": "The way to yourself",
-			"description_1": "A game {{brandName}} helps you achieve your goals by helping you see the fears and beliefs that limit you.",
-			"description_2": "Providing an opportunity through the gameplay to go beyond the usual and find innovative solutions, new ideas and opportunities.",
-			"btn": "I want to go to the game"
-		},
-		"formats": {
-			"title": "Topics with which <br/> people come to the game",
-			"options": {
-				"1": "Self-realization",
-				"2": "Career",
-				"3": "Relationship"
-			}
-		},
-		"topics": {
-			"title": "GAME REQUESTS",
-			"description": "Popular queries people come to the game with:",
-			"options": {
-				"1": "<strong>- I want to unlock my potential:</strong><br/> How can I develop my strengths?",
-				"2": "<strong>- I want to achieve success:</strong><br/> In what direction should you move to successfully move forward in life?",
-				"3": "<strong>- I want to increase my income:</strong><br/> How can you improve your financial situation?",
-				"4": "<strong>- I want to improve my relationship:</strong><br/> How to create harmony in the family or find a suitable partner?",
-				"5": "<strong>- I want joy and brightness in life:</strong><br/> What can bring joy and how to find it?",
-				"6": "<strong>- I want to achieve what I want:</strong><br/> How to manifest yourself into the world to achieve your goals?",
-				"7": "<strong>- I want to find my calling:</strong><br/> How do you determine what you should do to get satisfaction?",
-				"8": "<strong>- I want to make the right decisions:</strong><br/> How to develop strategies to achieve the desired result?"
-			}
-		},
-		"responses": {
-			"title": "What will you get as a result of completing the game?",
-			"description": "You will be immersed in the exciting world of the UPGRADE game, where every step activates your thoughts, overturns your usual ideas and opens up new horizons in the perception and implementation of possibilities."
-		},
-		"packages": {
-			"title": "GAME FORMATS",
-			"package_1": {
-				"title": "Individual game",
-				"description": "You receive a deep impact that promotes more effective growth, awareness of change, taking into account your goals and aspirations.",
-				"options": {
-					"1": "Number of players: 1-2 people",
-					"2": "Duration: up to 2.5 hours",
-					"3": "Conduct format: online",
-					"4": "Platform: Zoom",
-					"5": "Cost: 80 EUR"
-				}
-			},
-			"package_2": {
-				"title": "Group game",
-				"description": "You not only individually rethink your views, but also interact with other players, enriching each other's experiences.",
-				"options": {
-					"1": "Number of players: 3-7 people",
-					"2": "Duration: up to 3.5 hours",
-					"3": "Conduct format: online",
-					"4": "Platform: Zoom",
-					"5": "Cost: 30 EUR / person"
-				}
-			},
-			"btn": "I'm going to the game"
-		},
-		"managers": {
-			"title": "GAME CREATORS",
-			"manager_1": {
-				"name": "Elena Burdey",
-				"subject": "Psychologist, entrepreneur",
-				"description": "International diploma practicing psychology, master’s degree"
-			},
-			"manager_2": {
-				"name": "Anna Grozina",
-				"subject": "Coach, business trainer, entrepreneur",
-				"description": "International level Professional Coach, Business Coach, Crisis coach, International College of Business Trainers"
-			}
-		},
-		"contact_form": {
-			"title": "Do you have any questions?",
-			"sub_title": "We will be happy to answer them!",
-			"description": "Please leave your contacts and choose a messenger convenient for you.",
-			"submit_success": {
-				"title": "Congratulations!",
-				"sub_title": "Your application has been successfully accepted.",
-				"description": "Our manager will contact you soon."
-			}
-		}
-	},
-	"footer": {
-		"menu": "Menu",
-		"contacts": "Contacts",
-		"copyright": "© 2024 All rights reserved"
-	},
 	"cards_questions": {
-		"purple": {
-			"1": "purple1",
-			"2": "purple2",
-			"3": "purple3",
-			"4": "purple4",
-			"5": "purple5",
-			"6": "purple6",
-			"7": "purple7",
-			"8": "purple8",
-			"9": "purple9",
-			"10": "purple10",
-			"11": "purple11",
-			"12": "purple12",
-			"13": "purple13",
-			"14": "purple14",
-			"15": "purple15",
-			"16": "purple16",
-			"17": "purple17",
-			"18": "purple18",
-			"19": "purple19",
-			"20": "purple20",
-			"21": "purple21",
-			"22": "purple22",
-			"23": "purple23",
-			"24": "purple24",
-			"25": "purple25",
-			"26": "purple26",
-			"27": "purple27",
-			"28": "purple28",
-			"29": "purple29",
-			"30": "purple30"
-		},
-		"red": {
+		"blue": {
 			"1": "",
 			"2": "",
 			"3": "",
@@ -258,7 +67,39 @@
 			"29": "",
 			"30": ""
 		},
-		"blue": {
+		"purple": {
+			"1": "purple1",
+			"2": "purple2",
+			"3": "purple3",
+			"4": "purple4",
+			"5": "purple5",
+			"6": "purple6",
+			"7": "purple7",
+			"8": "purple8",
+			"9": "purple9",
+			"10": "purple10",
+			"11": "purple11",
+			"12": "purple12",
+			"13": "purple13",
+			"14": "purple14",
+			"15": "purple15",
+			"16": "purple16",
+			"17": "purple17",
+			"18": "purple18",
+			"19": "purple19",
+			"20": "purple20",
+			"21": "purple21",
+			"22": "purple22",
+			"23": "purple23",
+			"24": "purple24",
+			"25": "purple25",
+			"26": "purple26",
+			"27": "purple27",
+			"28": "purple28",
+			"29": "purple29",
+			"30": "purple30"
+		},
+		"red": {
 			"1": "",
 			"2": "",
 			"3": "",
@@ -289,6 +130,213 @@
 			"28": "",
 			"29": "",
 			"30": ""
+		}
+	},
+	"footer": {
+		"contacts": "Contacts",
+		"copyright": "© 2024 All rights reserved",
+		"menu": "Menu"
+	},
+	"forms": {
+		"email_field": "Email",
+		"email_field_error": "Please enter your email address",
+		"email_field_invalid_error": "Please enter the correct email address",
+		"name_field": "Your name",
+		"name_field_error": "Please enter your name",
+		"package_error": "Please select a package",
+		"phone_field_error": "Please enter your phone number",
+		"phone_field_invalid_error": "Please enter a correct phone number"
+	},
+	"general": {
+		"request_btn": "Submit your application",
+		"send": "Send"
+	},
+	"main_page": {
+		"about": {
+			"description": "This is a tool for finding answers to your questions. And it doesn’t matter what area of ​​life they lie in - personal development or relationships, creativity or starting a business, career or money, planning or developing a new idea, searching for meaning or simply learning to accept the world as it is.",
+			"sup_description": "Our original transformational game helps expand imagination and change thinking in a game format.",
+			"title": "More than a game"
+		},
+		"contact_form": {
+			"description": "Please leave your contacts and choose a messenger convenient for you.",
+			"sub_title": "We will be happy to answer them!",
+			"submit_success": {
+				"description": "Our manager will contact you soon.",
+				"sub_title": "Your application has been successfully accepted.",
+				"title": "Congratulations!"
+			},
+			"title": "Do you have any questions?"
+		},
+		"formats": {
+			"options": {
+				"1": "Self-realization",
+				"2": "Career",
+				"3": "Relationship"
+			},
+			"title": "Topics with which <br/> people come to the game"
+		},
+		"main_description": "Transform your thinking",
+		"managers": {
+			"manager_1": {
+				"description": "International diploma practicing psychology, master’s degree",
+				"name": "Elena Burdey",
+				"subject": "Psychologist, entrepreneur"
+			},
+			"manager_2": {
+				"description": "International level Professional Coach, Business Coach, Crisis coach, International College of Business Trainers",
+				"name": "Anna Grozina",
+				"subject": "Coach, business trainer, entrepreneur"
+			},
+			"title": "GAME CREATORS"
+		},
+		"packages": {
+			"btn": "I'm going to the game",
+			"package_1": {
+				"description": "You receive a deep impact that promotes more effective growth, awareness of change, taking into account your goals and aspirations.",
+				"options": {
+					"1": "Number of players: 1-2 people",
+					"2": "Duration: up to 2.5 hours",
+					"3": "Conduct format: online",
+					"4": "Platform: Zoom",
+					"5": "Cost: 80 EUR"
+				},
+				"title": "Individual game"
+			},
+			"package_2": {
+				"description": "You not only individually rethink your views, but also interact with other players, enriching each other's experiences.",
+				"options": {
+					"1": "Number of players: 3-7 people",
+					"2": "Duration: up to 3.5 hours",
+					"3": "Conduct format: online",
+					"4": "Platform: Zoom",
+					"5": "Cost: 30 EUR / person"
+				},
+				"title": "Group game"
+			},
+			"title": "GAME FORMATS"
+		},
+		"requests": {
+			"btn": "I want to go to the game",
+			"description_1": "A game {{brandName}} helps you achieve your goals by helping you see the fears and beliefs that limit you.",
+			"description_2": "Providing an opportunity through the gameplay to go beyond the usual and find innovative solutions, new ideas and opportunities.",
+			"title": "The way to yourself"
+		},
+		"responses": {
+			"description": "You will be immersed in the exciting world of the UPGRADE game, where every step activates your thoughts, overturns your usual ideas and opens up new horizons in the perception and implementation of possibilities.",
+			"title": "What will you get as a result of completing the game?"
+		},
+		"themes": {
+			"description": "This game will help you:",
+			"options": {
+				"1": "analyze the current state of affairs;",
+				"2": "build a profitable strategy;",
+				"3": "identify the way forward",
+				"4": "make the right decision;",
+				"5": "make the right choice;",
+				"6": "discover your blind spots;",
+				"7": "see the limitations;",
+				"8": "discover opportunities and resources;",
+				"9": "get insight;",
+				"10": "recharge with positive energy;",
+				"11": "understand themselves;",
+				"12": "understand your desires."
+			},
+			"title": "YOUR WORLD OF CHANGE"
+		},
+		"topics": {
+			"description": "Popular queries people come to the game with:",
+			"options": {
+				"1": "<strong>- I want to unlock my potential:</strong><br/> How can I develop my strengths?",
+				"2": "<strong>- I want to achieve success:</strong><br/> In what direction should you move to successfully move forward in life?",
+				"3": "<strong>- I want to increase my income:</strong><br/> How can you improve your financial situation?",
+				"4": "<strong>- I want to improve my relationship:</strong><br/> How to create harmony in the family or find a suitable partner?",
+				"5": "<strong>- I want joy and brightness in life:</strong><br/> What can bring joy and how to find it?",
+				"6": "<strong>- I want to achieve what I want:</strong><br/> How to manifest yourself into the world to achieve your goals?",
+				"7": "<strong>- I want to find my calling:</strong><br/> How do you determine what you should do to get satisfaction?",
+				"8": "<strong>- I want to make the right decisions:</strong><br/> How to develop strategies to achieve the desired result?"
+			},
+			"title": "GAME REQUESTS"
+		}
+	},
+	"menu": {
+		"contact_btn": "Feedback form",
+		"items": {
+			"1": "About",
+			"2": "Themes",
+			"3": "Requests",
+			"4": "Formats",
+			"5": "Creators"
+		}
+	},
+	"meta_cards": {
+		"1": "",
+		"2": "",
+		"3": "",
+		"4": "",
+		"5": "",
+		"6": "",
+		"7": "",
+		"8": "",
+		"9": "",
+		"10": "",
+		"11": ""
+	},
+	"meta_descriptions": {},
+	"modals": {
+		"game_request_modal": {
+			"description": "Please select the game format and leave your contacts.",
+			"package_1": {
+				"info": "1-2 players",
+				"price": "80 EUR",
+				"title": "Individual format"
+			},
+			"package_2": {
+				"info": "3-7 players",
+				"price": "30 EUR/person",
+				"title": "Group format"
+			},
+			"submit_success": {
+				"description": "Our manager will contact you soon.",
+				"sub_title": "Your application has been successfully accepted.",
+				"title": "Congratulations!"
+			},
+			"title": "REGISTER FOR THE GAME"
+		}
+	},
+	"object": {
+		"blue_question": "",
+		"gold_question": "",
+		"purple_question": "",
+		"ready_question": "Are you ready?",
+		"red_question": ""
+	},
+	"titles": {},
+	"tower": {
+		"ready_question": "Are you ready?",
+		"response": {
+			"1": "",
+			"2": "",
+			"3": "",
+			"4": "",
+			"5": ""
+		}
+	},
+	"tree": {
+		"blue": {
+			"1": "",
+			"2": ""
+		},
+		"gold": {
+			"1": "",
+			"2": ""
+		},
+		"purple": {
+			"1": "",
+			"2": ""
+		},
+		"red": {
+			"1": "",
+			"2": ""
 		}
 	}
 }

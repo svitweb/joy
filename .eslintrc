@@ -7,7 +7,13 @@
 		"jest": true
 	},
 	"extends": [
-		"eslint:recommended"
+		"airbnb",
+		"eslint:recommended",
+		"plugin:react/recommended",
+		"plugin:prettier/recommended",
+		"plugin:react-hooks/recommended",
+		"plugin:jsx-a11y/recommended",
+		"plugin:cypress/recommended"
 	],
 	"plugins": ["import", "prettier", "cypress", "jsx"],
 	"parser": "@babel/eslint-parser",

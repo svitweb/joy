@@ -5,6 +5,7 @@ import Tower from './Tower';
 import CardsMenu from './CardsMenu';
 import CardModal from '../../../components/modals/card/components/CardModal';
 import LabyrinthQuestionModal from '../../../components/modals/labyrinthQuestion/components/LabyrinthQuestionModal';
+import TowerModal from '../../../components/modals/tower/components/TowerModal';
 
 const GamePage = () => {
 	return (
@@ -16,13 +17,13 @@ const GamePage = () => {
 							<Labyrinth type="purple" />
 						</div>
 						<div className="col l-4 l-offset-4">
-							<Labyrinth type="gold" />
+							<Labyrinth type="blue" />
 						</div>
 						<div className="col l-4 ">
-							<Labyrinth type="red" />
+							<Labyrinth type="gold" />
 						</div>
 						<div className="col l-4 l-offset-4">
-							<Labyrinth type="blue" />
+							<Labyrinth type="red" />
 						</div>
 						<div className="col l-4 l-offset-4 tower-col">
 							<Tower />
@@ -33,6 +34,7 @@ const GamePage = () => {
 			</main>
 			<CardModal />
 			<LabyrinthQuestionModal />
+			<TowerModal />
 		</>
 	);
 };

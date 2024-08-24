@@ -15,7 +15,7 @@ export default function labyrinthQuestionModalReducer(state = initialState, acti
 				...state,
 				...data,
 			};
-		case labyrinthQuestionModalActionTypes.CLEAR_LABYRINTH_QUESTION_MODA_STATE:
+		case labyrinthQuestionModalActionTypes.CLEAR_LABYRINTH_QUESTION_MODAL_STATE:
 			return initialState;
 		default:
 			return state;

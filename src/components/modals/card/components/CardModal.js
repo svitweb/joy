@@ -22,29 +22,15 @@ const LabyrinthQuestionModal = ({
 	const { id, img, desc, selected } = cardData || {};
 
 	const [flipped, setFlipped] = useState(false);
-	// const [canClose, setClose] = useState(false);
 
 	useEffect(() => {
-		if (open) {
-			setTimeout(() => {
-				setFlipped(true);
-				// setClose(true);
-			}, 1500);
-		} else {
-			setTimeout(() => {
-				setFlipped(false);
-				// setClose(false);
-			}, 400);
-		}
+		setTimeout(
+			() => {
+				setFlipped(!!open);
+			},
+			open ? 1500 : 400,
+		);
 	}, [open]);
-
-	// useEffect(() => {
-	// 	if (!open) {
-	// 		setTimeout(() => {
-	// 			// clearState();
-	// 		}, 200);
-	// 	}
-	// }, [open]);
 
 	const handleOnClose = () => {
 		if (!selected) {
@@ -57,17 +43,14 @@ const LabyrinthQuestionModal = ({
 	};
 
 	return (
-		<Modal
-			isOpen={open}
-			className={classNames('card-modal', type, { submitted: true, flipped, selected })}
-		>
+		<Modal isOpen={open} className={classNames('card-modal', type, { flipped, selected })}>
 			<div className={classNames('card', { flipped })}>
 				<div className="card-inner">
 					<div className="card-front">
 						<img src={img} alt="illustration" />
 					</div>
 					<div className="card-back">
-						{desc}
+						<p className="desc">{desc}</p>
 						<Button title={'✔'} onClick={handleOnClose} />
 					</div>
 				</div>

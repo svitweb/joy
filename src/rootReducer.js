@@ -7,6 +7,7 @@ import notificationReducer from './components/notification/NotificationReducer';
 import gameRequestReducer from './components/modals/gameRequest/Reducer';
 import cardModalReducer from './components/modals/card/Reducer';
 import labyrinthQuestionModalReducer from './components/modals/labyrinthQuestion/Reducer';
+import towerModalReducer from './components/modals/tower/Reducer';
 import gamePageReducer from './client/gamePage/Reducer';
 
 import adminReducer from './admin/Reducer';
@@ -25,6 +26,7 @@ const createRootReducer = (history) =>
 		notificationReducer,
 		cardModalReducer,
 		labyrinthQuestionModalReducer,
+		towerModalReducer,
 		gamePageReducer,
 
 		adminReducer,

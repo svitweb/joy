@@ -1,5 +1,5 @@
 import '../styles/style.scss';
-import React, { memo, useState } from 'react';
+import React, { memo, useState, useEffect } from 'react';
 import { connect } from 'react-redux';
 import { useTranslation } from 'react-i18next';
 import classNames from 'classnames';
@@ -25,6 +25,13 @@ const LabyrinthQuestionModal = ({
 	const tree = gameData[`${type}Lab`]?.tree || [];
 
 	const [step, setStep] = useState(1);
+	const [visible, setVisible] = useState(false);
+
+	useEffect(() => {
+		setTimeout(() => {
+			setVisible(!!open);
+		}, 200);
+	}, [open]);
 
 	const handleOnClose = () => {
 		if (objType === 'top') {
@@ -55,8 +62,8 @@ const LabyrinthQuestionModal = ({
 		<Modal
 			isOpen={open}
 			className={classNames('labyrinth-question-modal', type, {
-				submitted: true,
 				selected,
+				visible,
 			})}
 			clearState={() => {
 				if (objType === 'top') {
@@ -81,15 +88,20 @@ const LabyrinthQuestionModal = ({
 			}}
 		>
 			{objType === 'top' && (
-				<p className="desc">{`tree ${
-					!tree.length ? 1 : tree.length === 1 ? 2 : tree[tree.length - 1]
-				}`}</p>
+				<p className="desc">
+					{t(
+						`tree.${type}.${
+							!tree.length ? 1 : tree.length === 1 ? 2 : tree[tree.length - 1]
+						}`,
+					)}
+				</p>
 			)}
 			{objType === 'main' && (
-				<p className="desc">{step === 1 ? 'Are you ready' : 'WTF you want? '}</p>
+				<p className="desc">
+					{step === 1 ? t('object.ready_question') : t(`object.${type}_question`)}
+				</p>
 			)}
 			{!!desc && <p className="desc">{desc}</p>}
-
 			<Button title={desc ? '✔' : 'Yes'} onClick={handleOnClose} />
 		</Modal>
 	);

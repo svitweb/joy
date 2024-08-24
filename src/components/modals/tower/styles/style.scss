@@ -1,6 +1,6 @@
 @import '../../../../styles/utilities/variables';
 
-.labyrinth-question-modal {
+.tower-modal {
 	overflow: hidden;
 
 	&.modal {
@@ -41,31 +41,15 @@
 		}
 	}
 
-	&.purple .modal-wrap {
-		background-image: url('../../../../images/gameIllustrations/bg/purpleBg.jpg');
-	}
-
-	&.red .modal-wrap {
-		background-image: url('../../../../images/gameIllustrations/bg/redBg.jpg');
-	}
-
-	&.gold .modal-wrap {
-		background-image: url('../../../../images/gameIllustrations/bg/goldBg.jpg');
-	}
-
-	&.blue .modal-wrap {
-		background-image: url('../../../../images/gameIllustrations/bg/blueBg.jpg');
-	}
-
-	&.visible:not(.active),
-	&.selected:not(.active) {
-		.modal-wrap {
-			transform: translateY(100%) scale(0);
-		}
-	}
+	//&.visible:not(.active),
+	//&.selected:not(.active) {
+	//	.modal-wrap {
+	//		transform: translateY(100%) scale(0);
+	//	}
+	//}
 }
 
 @media (min-width: $small-screen) {
-	.labyrinth-question-modal {
+	.tower-modal {
 	}
 }

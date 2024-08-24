@@ -3,13 +3,9 @@ import React, { memo, useCallback, useEffect, useRef, useState } from 'react';
 import { connect } from 'react-redux';
 import classNames from 'classnames';
 import goldLabImg from '../images/goldLab.png';
-// import goldLabImg from '../images/g1.png';
 import purpleLabImg from '../images/purpleLab.png';
-// import purpleLabImg from '../images/p1.png';
-// import blueLabImg from '../images/Lab2.webp';
-import blueLabImg from '../images/b1.png';
-// import redLabImg1 from '../images/RedLab1.webp';
-import redLabImg1 from '../images/r1.png';
+import blueLabImg from '../images/blueLab.webp';
+import redLabImg from '../images/redLab.webp';
 import { getQuestionsByType } from '../Helpers';
 import * as gameActions from '../Actions';
 import * as labyrinthQuestionModalActions from '../../../components/modals/labyrinthQuestion/Actions';
@@ -39,7 +35,7 @@ const Labyrinth = ({ type, toggleLabyrinthQuestionModal, changeData, gameData = 
 			case 'gold':
 				return goldLabImg;
 			case 'red':
-				return redLabImg1;
+				return redLabImg;
 			default:
 				return purpleLabImg;
 		}

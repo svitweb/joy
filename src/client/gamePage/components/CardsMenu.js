@@ -107,7 +107,7 @@ const CardsMenu = ({ toggleCardModal, toggleLabyrinthQuestionModal, gameData, ch
 							/>
 						</div>
 					))}
-					spaceBetween={-6}
+					spaceBetween={-14}
 					swiperRef={swiperRef}
 				/>
 			</div>

@@ -9,6 +9,6 @@ export function toggleLabyrinthQuestionModal(data) {
 
 export function clearState() {
 	return {
-		type: labyrinthQuestionModalActionTypes.CLEAR_LABYRINTH_QUESTION_MODA_STATE,
+		type: labyrinthQuestionModalActionTypes.CLEAR_LABYRINTH_QUESTION_MODAL_STATE,
 	};
 }

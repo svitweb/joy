@@ -1,8 +1,5 @@
 import React, { memo, useEffect } from "react";
-import { Provider } from "react-redux";
 import { Switch } from "react-router-dom";
-import { ConnectedRouter } from "connected-react-router";
-import { history, store } from "./store";
 import { getLocalStorageItem, getSystemLanguage, setLocalStorageItem } from "./services/Helper";
 import { LanguageProvider } from "./services/LanguageContext";
 import PrivateRoute from "./components/routeWrappers/PrivateRoute";
@@ -18,18 +15,12 @@ const App = () => {
 
 	return (
 		<LanguageProvider>
-			{/* <Provider store={store}> */}
-			{/* 	<ConnectedRouter history={history}> */}
-					<Switch>
-						<PrivateRoute exact path="/" component={null} />
-
-						<PrivateRoute exact path="/joy" component={MainPage} />
-						<PrivateRoute exact path="/joy/game/:id" component={GamePage} />
-						<PrivateRoute exact path={["/joy/admin", "/joy/admin/:tab"]} component={AdminPage} />
-						{/* <Route exact path="/sign-in" component={SignIn} /> */}
-					</Switch>
-				{/* </ConnectedRouter> */}
-			{/* </Provider> */}
+			<Switch>
+				<PrivateRoute exact path="/" component={MainPage} />
+				<PrivateRoute exact path="/game/:id" component={GamePage} />
+				<PrivateRoute exact path={["/admin", "/admin/:tab"]} component={AdminPage} />
+				{/* <Route exact path="/sign-in" component={SignIn} /> */}
+			</Switch>
 		</LanguageProvider>
 	);
 };
