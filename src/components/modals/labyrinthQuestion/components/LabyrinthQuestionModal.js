@@ -28,9 +28,10 @@ const LabyrinthQuestionModal = ({
 	const [visible, setVisible] = useState(false);
 
 	useEffect(() => {
-		setTimeout(() => {
-			setVisible(!!open);
-		}, 200);
+		if (!objType)
+			setTimeout(() => {
+				setVisible(!!open);
+			}, 200);
 	}, [open]);
 
 	const handleOnClose = () => {

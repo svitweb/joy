@@ -10,7 +10,8 @@ import * as locales from 'date-fns/locale';
 // import { DEFAULT_LANGUAGE_LOCALE } from '../../services/Constants';
 
 const systemLanguage = navigator.language || '';
-const locale = systemLanguage.split('-')[1].toLowerCase();
+const localeFormatted = systemLanguage.split('-')[1];
+const locale = localeFormatted ? localeFormatted.toLowerCase() : systemLanguage;
 registerLocale(locale, locales[locale]);
 
 const DatePickerField = ({

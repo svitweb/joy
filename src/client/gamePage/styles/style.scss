@@ -1,6 +1,8 @@
 @import '../../../styles/utilities/variables';
 
 .game-page {
+	display: flex;
+	align-items: center;
 	padding: {
 		top: 30px;
 		bottom: 140px;
@@ -10,6 +12,7 @@
 		repeat: no-repeat;
 		position: center;
 		size: cover;
+		attachment: fixed;
 	}
 	min-height: 100vh;
 

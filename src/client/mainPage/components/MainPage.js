@@ -40,7 +40,7 @@ const MainPage = () => {
 				<Topics blockRef={b3} />
 				<Responses />
 				<Packages blockRef={b4} />
-				<Managers blockRef={b5} />
+				{/* <Managers blockRef={b5} /> */}
 				<Contact blockRef={b6} />
 			</main>
 			<Footer scrollToRef={scrollToRef} blocks={blocks} />

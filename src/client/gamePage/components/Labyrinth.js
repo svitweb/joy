@@ -2,10 +2,14 @@ import '../styles/labyrinth.scss';
 import React, { memo, useCallback, useEffect, useRef, useState } from 'react';
 import { connect } from 'react-redux';
 import classNames from 'classnames';
-import goldLabImg from '../images/goldLab.png';
-import purpleLabImg from '../images/purpleLab.png';
-import blueLabImg from '../images/blueLab.webp';
-import redLabImg from '../images/redLab.webp';
+// import goldLabImg from '../images/goldLab.png';
+import goldLabImg from '../images/g11.png';
+// import purpleLabImg from '../images/purpleLab.png';
+import purpleLabImg from '../images/p1111.png';
+// import blueLabImg from '../images/blueLab.webp';
+import blueLabImg from '../images/b111111.png';
+// import redLabImg from '../images/redLab.webp';
+import redLabImg from '../images/r11.png';
 import { getQuestionsByType } from '../Helpers';
 import * as gameActions from '../Actions';
 import * as labyrinthQuestionModalActions from '../../../components/modals/labyrinthQuestion/Actions';
@@ -13,6 +17,8 @@ import LabyrinthOverlay from './LabyrinthOverlay';
 
 const Labyrinth = ({ type, toggleLabyrinthQuestionModal, changeData, gameData = {} }) => {
 	const node = useRef();
+
+	const { tower } = gameData;
 
 	const [active, setActive] = useState(false);
 	const [objectActive, setObjectActive] = useState(false);
@@ -78,7 +84,7 @@ const Labyrinth = ({ type, toggleLabyrinthQuestionModal, changeData, gameData = 
 	};
 
 	return (
-		<div className="labyrinth-section">
+		<div className={classNames('labyrinth-section', { hide: tower?.active })}>
 			<div ref={node} className={classNames('labyrinth-wrap', type, { active })}>
 				<img
 					src={getImgByType()}

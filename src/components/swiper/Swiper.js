@@ -20,6 +20,7 @@ const Swiper = ({ items, className, spaceBetween, swiperRef }) => {
 			// navigation
 			loop={false}
 			mousewheel={true}
+			centerInsufficientSlides
 		>
 			{items.map((el, index) => (
 				<SwiperSlide key={el?.key || index}>{el}</SwiperSlide>

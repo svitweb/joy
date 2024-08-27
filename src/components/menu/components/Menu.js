@@ -39,7 +39,7 @@ const Menu = ({ scrollToRef, blocks }) => {
 				<nav className="menu-nav">
 					<Spiral className="hide-s hide-m hide-l" />
 					<Labyrinth className="hide-s hide-m hide-l" />
-					{Array(5)
+					{Array(4)
 						.fill('')
 						.map((el, index) => (
 							<button

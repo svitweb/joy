@@ -10,7 +10,7 @@ import * as gameActions from '../Actions.js';
 import { getMetaCards, getQuestionsByType } from '../Helpers.js';
 
 const CardsMenu = ({ toggleCardModal, toggleLabyrinthQuestionModal, gameData, changeData }) => {
-	const { selectedCards = [] } = gameData || {};
+	const { selectedCards = [], tower } = gameData || {};
 
 	const swiperRef = useRef();
 
@@ -19,8 +19,6 @@ const CardsMenu = ({ toggleCardModal, toggleLabyrinthQuestionModal, gameData, ch
 	}, [gameData]);
 
 	const handleClickOnCard = (cardData) => {
-		console.log('-------CARD', cardData);
-
 		if (cardData.type === 'meta') {
 			toggleCardModal({ open: true, type: cardData.type, cardData });
 		} else {
@@ -81,35 +79,38 @@ const CardsMenu = ({ toggleCardModal, toggleLabyrinthQuestionModal, gameData, ch
 	return (
 		<aside className="cards-menu">
 			<div className="container">
-				<div className="meta-cards">
-					<img
-						className="cards"
-						src={metaCardsImg}
-						alt="meta"
-						onClick={handleClickOnMetaCards}
+				{!tower?.active && (
+					<div className="meta-cards">
+						<img
+							className="cards"
+							src={metaCardsImg}
+							alt="meta"
+							onClick={handleClickOnMetaCards}
+						/>
+					</div>
+				)}
+				<div className="cards-menu-list">
+					<Swiper
+						items={selectedCards.map((card, index) => (
+							<div
+								key={index}
+								className={classNames('menu-card', card.type)}
+								onClick={() => handleClickOnCard(card)}
+							>
+								<div
+									className="menu-card-inner"
+									style={
+										card.type === 'meta'
+											? { backgroundImage: `url(${card.img})` }
+											: undefined
+									}
+								/>
+							</div>
+						))}
+						spaceBetween={-14}
+						swiperRef={swiperRef}
 					/>
 				</div>
-				<Swiper
-					className="cards-menu-list"
-					items={selectedCards.map((card, index) => (
-						<div
-							key={index}
-							className={classNames('menu-card', card.type)}
-							onClick={() => handleClickOnCard(card)}
-						>
-							<div
-								className="menu-card-inner"
-								style={
-									card.type === 'meta'
-										? { backgroundImage: `url(${card.img})` }
-										: undefined
-								}
-							/>
-						</div>
-					))}
-					spaceBetween={-14}
-					swiperRef={swiperRef}
-				/>
 			</div>
 		</aside>
 	);

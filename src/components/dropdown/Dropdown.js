@@ -150,8 +150,8 @@ const Dropdown = ({
 				copiedOptions.forEach((item) => {
 					const nestedResult = item[optionSectionBodyKey].filter((nestedItem) =>
 						nestedItem[optionTitleKey]
-							.toLowerCase()
-							.includes(searchValue.trim().toLowerCase()),
+							?.toLowerCase()
+							.includes(searchValue?.trim()?.toLowerCase()),
 					);
 
 					if (nestedResult.length) {
@@ -166,7 +166,7 @@ const Dropdown = ({
 			} else {
 				const copiedOptions = [...initOptions];
 				const filteredData = copiedOptions.filter((item) =>
-					item[optionTitleKey].toLowerCase().includes(searchValue.trim().toLowerCase()),
+					item[optionTitleKey]?.toLowerCase().includes(searchValue.trim().toLowerCase()),
 				);
 				setOptions(filteredData);
 			}

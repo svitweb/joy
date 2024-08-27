@@ -15,6 +15,7 @@ const TowerModal = ({ open, toggleTowerModal, changeData, gameData = {} }) => {
 	const { active, completed } = tower || {};
 
 	const [response, setResponse] = useState(null);
+	const [reject, setReject] = useState(false);
 
 	useEffect(() => {
 		if (open && active) {
@@ -22,7 +23,8 @@ const TowerModal = ({ open, toggleTowerModal, changeData, gameData = {} }) => {
 		}
 	}, [open]);
 
-	const handleOnClose = () => {
+	const handleOnClose = (isRejected) => {
+		if (isRejected) setReject(true);
 		toggleTowerModal({ open: false });
 	};
 
@@ -33,16 +35,21 @@ const TowerModal = ({ open, toggleTowerModal, changeData, gameData = {} }) => {
 				active,
 			})}
 			clearState={() => {
-				changeData({
-					...gameData,
-					tower: { active: !active || true, completed: active ? response : false },
-				});
+				if (!reject)
+					changeData({
+						...gameData,
+						tower: { active: !active || true, completed: active ? response : false },
+					});
+				setReject(false);
 			}}
 		>
 			<p className="desc">
 				{!active ? t('tower.ready_question') : t(`tower.response.${response}`)}
 			</p>
-			<Button title={active ? '✔' : 'Yes'} onClick={handleOnClose} />
+			<div className="btn-group">
+				{!active && <Button title={'No'} onClick={() => handleOnClose(true)} />}
+				<Button title={active ? '✔' : 'Yes'} onClick={() => handleOnClose(false)} />
+			</div>
 		</Modal>
 	);
 };
