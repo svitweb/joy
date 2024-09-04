@@ -1,16 +1,8 @@
 @import '../../../styles/utilities/variables';
 
-//@keyframes showDown {
-//	0% {
-//		top: -10px;
-//	}
-//	100% {
-//		top: 0;
-//	}
-//}
 @keyframes rotateLight {
 	0% {
-		transform: rotate3d(0);
+		transform: rotate3d(0, 0, 0, 0);
 	}
 	100% {
 		transform: rotate3d(0, 1, 0.05, 360deg);
@@ -26,6 +18,7 @@
 		opacity: 1;
 	}
 }
+
 .tower {
 	position: relative;
 	max-width: 512px;
@@ -40,7 +33,7 @@
 		width: 50px;
 		height: 200px;
 		border-radius: 24px;
-		box-shadow: 0 0 120px 120px rgba(255, 255, 255, 0.6);
+		box-shadow: 0 0 120px 120px rgba(255, 202, 100, 0.6);
 		top: 50%;
 		left: 50%;
 		opacity: 0;
@@ -56,15 +49,13 @@
 		height: 10%;
 		border-radius: 24px;
 		box-shadow: 0 8px 9px 12px #69abff;
-		/* top: 50%; */
 		left: 50.5%;
 		bottom: 12%;
 		opacity: 0;
 		visibility: hidden;
-		transform: translate(-50%, -50%);
-		/* background-color: red; */
-		z-index: 2;
 		transition: all 0.2s ease-out;
+		transform: translate(-50%, -50%);
+		z-index: 2;
 	}
 
 	&-figure {
@@ -86,8 +77,6 @@
 	&-light {
 		position: absolute;
 		top: 16%;
-		//left: 50%;
-		//transform: tra;
 		width: 100%;
 		z-index: 3;
 		perspective: 1000px;
@@ -120,7 +109,6 @@
 
 @media (min-width: $large-screen) {
 	.tower {
-		//margin-top: -150%;
 		position: absolute;
 		top: 50%;
 		left: 50%;

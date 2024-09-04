@@ -65,6 +65,7 @@ const LabyrinthQuestionModal = ({
 			className={classNames('labyrinth-question-modal', type, {
 				selected,
 				visible,
+				objType,
 			})}
 			clearState={() => {
 				if (objType === 'top') {
@@ -88,6 +89,7 @@ const LabyrinthQuestionModal = ({
 				clearState();
 			}}
 		>
+			<div className={classNames('bg', type, objType)} />
 			{objType === 'top' && (
 				<p className="desc">
 					{t(

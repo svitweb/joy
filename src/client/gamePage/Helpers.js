@@ -85,7 +85,7 @@ const cardImages = [
 ];
 
 export const getQuestionsByType = (type) =>
-	Array(3)
+	Array(30)
 		.fill('')
 		.map((val, index) => ({
 			id: `${type}${index + 1}`,

@@ -9,16 +9,12 @@
 	}
 
 	.modal-wrap {
+		position: relative;
 		padding: 16px;
 		min-height: 480px;
 		max-height: 100%;
 		max-width: 360px;
 		border-radius: 24px;
-		background: {
-			position: center;
-			repeat: no-repeat;
-			size: cover;
-		}
 		transform: translateY(0) scale(0);
 		box-shadow: 0 0 20px rgba(0, 0, 0, 0.5), 0 5px 10px rgba(0, 0, 0, 0.8);
 	}
@@ -35,26 +31,79 @@
 	}
 
 	.desc {
+		position: relative;
 		margin: {
 			top: auto;
 			bottom: auto;
 		}
+		z-index: 1;
 	}
 
-	&.purple .modal-wrap {
-		background-image: url('../../../../images/gameIllustrations/bg/purpleBg.jpg');
-	}
+	.bg {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		border-radius: 24px;
+		background: {
+			position: center;
+			repeat: no-repeat;
+			size: cover;
+		}
+		filter: brightness(50%);
 
-	&.red .modal-wrap {
-		background-image: url('../../../../images/gameIllustrations/bg/redBg.jpg');
-	}
+		&.purple {
+			background-image: url('../../../../images/gameIllustrations/bg/purpleBg.jpg');
 
-	&.gold .modal-wrap {
-		background-image: url('../../../../images/gameIllustrations/bg/goldBg.jpg');
-	}
+			&.top {
+				background-image: url('../../../../images/gameIllustrations/bg/purpleBgTree.jpg');
+			}
 
-	&.blue .modal-wrap {
-		background-image: url('../../../../images/gameIllustrations/bg/blueBg.jpg');
+			&.main {
+				background-image: url('../../../../images/gameIllustrations/bg/purpleBgMain.jpg');
+			}
+		}
+
+		&.red {
+			background-image: url('../../../../images/gameIllustrations/bg/redBg.jpg');
+
+			&.top {
+				background-image: url('../../../../images/gameIllustrations/bg/redBgTree.jpg');
+			}
+
+			&.main {
+				background-image: url('../../../../images/gameIllustrations/bg/redBgMain.jpg');
+			}
+		}
+
+		&.gold {
+			background-image: url('../../../../images/gameIllustrations/bg/goldBg.jpg');
+
+			&.top {
+				background-image: url('../../../../images/gameIllustrations/bg/goldBgTree.jpg');
+			}
+
+			&.main {
+				background-image: url('../../../../images/gameIllustrations/bg/goldBgMain.jpg');
+			}
+		}
+
+		&.blue {
+			background-image: url('../../../../images/gameIllustrations/bg/blueBg.jpg');
+
+			&.top {
+				background-image: url('../../../../images/gameIllustrations/bg/blueBgTree.jpg');
+			}
+
+			&.main {
+				background-image: url('../../../../images/gameIllustrations/bg/blueBgMain.jpg');
+			}
+		}
+
+		&.main {
+			filter: brightness(30%);
+		}
 	}
 
 	&.visible:not(.active),
@@ -62,10 +111,5 @@
 		.modal-wrap {
 			transform: translateY(100%) scale(0);
 		}
-	}
-}
-
-@media (min-width: $small-screen) {
-	.labyrinth-question-modal {
 	}
 }

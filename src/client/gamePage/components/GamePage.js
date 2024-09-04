@@ -25,9 +25,7 @@ const GamePage = () => {
 						<div className="col l-4 l-offset-4">
 							<Labyrinth type="red" />
 						</div>
-						<div className="col l-4 l-offset-4 tower-col">
-							<Tower />
-						</div>
+						<Tower />
 					</div>
 				</div>
 				<CardsMenu />
