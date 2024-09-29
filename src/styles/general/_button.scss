@@ -3,147 +3,143 @@
 @import '../utilities/shadows';
 
 %btnBase {
-  position: relative;
-  display: inline-block;
-  padding: 16px 30px;
-  border-radius: 8px;
-  color: transparent;
-  text-align: center;
-  overflow: visible;
-  vertical-align: middle;
-  transition: all .25s ease-out;
-  font-size: 0;
+	position: relative;
+	display: inline-block;
+	padding: 16px 30px;
+	border-radius: 8px;
+	color: transparent;
+	text-align: center;
+	overflow: visible;
+	vertical-align: middle;
+	transition: all 0.25s ease-out;
+	font-size: 0;
 
-  .text {
-    display: inline-block;
-    line-height: 24px;
-    vertical-align: middle;
-    user-select: none;
-    font-size: 16px;
-  }
+	.text {
+		display: inline-block;
+		line-height: 24px;
+		vertical-align: middle;
+		user-select: none;
+		font-size: 16px;
+	}
 
-  .icon {
-    font-size: 16px;
-  }
+	.icon {
+		font-size: 16px;
+	}
 
-  .icon + .text {
-    margin-left: 8px;
-  }
+	.icon + .text {
+		margin-left: 8px;
+	}
 
-  &.circle {
-    border-radius: 25%;
-    padding: 10px;
-  }
+	&.circle {
+		border-radius: 25%;
+		padding: 10px;
+	}
 
-  &.disabled {
-    pointer-events: none;
-  }
+	&.disabled {
+		pointer-events: none;
+	}
 }
 
 .btn {
-  @extend %btnBase;
-  background: #181b3e;
-  box-shadow: 3px 3px 5px #000, -3px -3px 5px #2e326a;
-  color: #fff;
+	@extend %btnBase;
+	background: #181b3e;
+	box-shadow: 3px 3px 5px #000, -3px -3px 5px #2e326a;
+	color: #fff;
 
-  &:hover {
-    background: linear-gradient(145deg, #1a1d42, #161838);
-  }
+	&:hover {
+		background: linear-gradient(145deg, #1a1d42, #161838);
+	}
 
-  &:active,
-  &.active {
-    background: #11132b;
-    box-shadow: inset 5px 5px 10px #070811,
-    inset -5px -5px 10px #1b1e45;
-  }
+	&:active,
+	&.active {
+		background: #11132b;
+		box-shadow: inset 5px 5px 10px #070811, inset -5px -5px 10px #1b1e45;
+	}
 
-  &.active {
-    pointer-events: none;
-  }
+	&.active {
+		pointer-events: none;
+	}
 
-  &.disabled {
-    background: linear-gradient(145deg, #161838, #1a1d42);
-  }
+	&.disabled {
+		background: linear-gradient(145deg, #161838, #1a1d42);
+	}
 
-  &.red {
-    .icon {
-      color: #bb4d4d;
-    }
-  }
+	&.red {
+		.icon {
+			color: #bb4d4d;
+		}
+	}
 
-  &.loading {
-    &::before {
-
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      z-index: -1;
-      //background: linear-gradient(to right, red 20%, black 20%, red 20%, black 20%, red 20%);
-    }
-  }
+	&.loading {
+		&::before {
+			content: '';
+			position: absolute;
+			top: 0;
+			left: 0;
+			right: 0;
+			bottom: 0;
+			z-index: -1;
+			//background: linear-gradient(to right, red 20%, black 20%, red 20%, black 20%, red 20%);
+		}
+	}
 }
-
 
 .btn-close {
-  padding: 8px;
-  //position: relative;
-  //display: inline-block;
-  //flex: 0 0 auto;
-  //margin: 0;
-  //padding: 20px;
-  //border: 0 none;
-  //background-color: color('shades', 'white');
-  //outline: none 0;
-  //vertical-align: middle;
-  //transition: all .08s ease-out 0s;
-  //overflow: visible;
-  //user-select: none;
-  //cursor: pointer;
-  //font-size: 0;
-  //border-radius: 50%;
-  //height: min-content;
-  //
-  //.icon {
-  //  color: $btn-close-icon;
-  //}
-  //
-  //&.small {
-  //  padding: 8px;
-  //}
-  //
-  //&:hover {
-  //  @include elevation4();
-  //}
+	padding: 8px;
+	//position: relative;
+	//display: inline-block;
+	//flex: 0 0 auto;
+	//margin: 0;
+	//padding: 20px;
+	//border: 0 none;
+	//background-color: color('shades', 'white');
+	//outline: none 0;
+	//vertical-align: middle;
+	//transition: all .08s ease-out 0s;
+	//overflow: visible;
+	//user-select: none;
+	//cursor: pointer;
+	//font-size: 0;
+	//border-radius: 50%;
+	//height: min-content;
+	//
+	//.icon {
+	//  color: $btn-close-icon;
+	//}
+	//
+	//&.small {
+	//  padding: 8px;
+	//}
+	//
+	//&:hover {
+	//  @include elevation4();
+	//}
 }
-
 
 //Group -------------
 .btn-group {
-  display: flex;
-  //margin: -4px;
-  align-items: center;
+	display: flex;
+	//margin: -4px;
+	align-items: center;
 
-  .btn {
-    margin: 4px;
-  }
+	.btn {
+		margin: 4px;
+	}
 
-  .full-width {
-    flex: 1 1 auto;
-    max-width: 100%;
-  }
+	.full-width {
+		flex: 1 1 auto;
+		max-width: 100%;
+	}
 
-  &.wrap {
-    flex-wrap: wrap;
-  }
+	&.wrap {
+		flex-wrap: wrap;
+	}
 
-  &.center {
-    justify-content: center;
-  }
+	&.center {
+		justify-content: center;
+	}
 
-  &.right {
-    justify-content: flex-end;
-  }
+	&.right {
+		justify-content: flex-end;
+	}
 }

@@ -21,7 +21,7 @@
 
 .tower {
 	position: relative;
-	max-width: 512px;
+	max-width: 700px;
 	margin: {
 		left: auto;
 		right: auto;
@@ -109,14 +109,16 @@
 
 @media (min-width: $large-screen) {
 	.tower {
-		position: absolute;
-		top: 50%;
-		left: 50%;
-		transform: translate(-50%, -50%);
-		max-width: 512px;
-		width: 40%;
-		max-height: 80vh;
-
+		&-col {
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%, -50%);
+			max-width: 512px;
+			width: 40%;
+			max-height: 80vh;
+			margin: 0;
+		}
 		&-figure {
 			max-height: 80vh;
 			margin-left: auto;

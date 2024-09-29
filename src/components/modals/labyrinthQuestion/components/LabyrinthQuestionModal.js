@@ -7,6 +7,8 @@ import * as labyrinthQuestionModalActions from '../Actions';
 import * as gameActions from '../../../../client/gamePage/Actions';
 import Button from '../../../button/Button';
 import Modal from '../../../modal/Modal';
+import * as audioVisualizationActions from '../../../audioVisualization/Actions';
+import { audioVisualizationTypes } from '../../../audioVisualization/Constants';
 
 const LabyrinthQuestionModal = ({
 	open,
@@ -17,6 +19,7 @@ const LabyrinthQuestionModal = ({
 	gameData = {},
 	clearState,
 	objType,
+	setAudioVisualization,
 }) => {
 	const { t } = useTranslation();
 
@@ -34,14 +37,18 @@ const LabyrinthQuestionModal = ({
 			}, 200);
 	}, [open]);
 
-	const handleOnClose = () => {
+	const handleOnClose = (status) => {
 		if (objType === 'top') {
 			toggleLabyrinthQuestionModal({ open: false });
+
+			if (tree?.length === 1) {
+				setAudioVisualization({ audioFileName: audioVisualizationTypes.FULL_TREE_LOAD });
+			}
 			return;
 		}
 
 		if (objType === 'main') {
-			if (step === 1) {
+			if (step === 1 && status) {
 				setStep(2);
 				return;
 			}
@@ -89,7 +96,10 @@ const LabyrinthQuestionModal = ({
 				clearState();
 			}}
 		>
-			<div className={classNames('bg', type, objType)} />
+			<div
+				className={classNames('bg', type, objType, { active: objType !== 'main' })}
+				onClick={objType === 'main' ? undefined : handleOnClose}
+			/>
 			{objType === 'top' && (
 				<p className="desc">
 					{t(
@@ -105,7 +115,22 @@ const LabyrinthQuestionModal = ({
 				</p>
 			)}
 			{!!desc && <p className="desc">{desc}</p>}
-			<Button title={desc ? '✔' : 'Yes'} onClick={handleOnClose} />
+			{objType === 'main' && (
+				<div className="btn-group center">
+					<Button
+						type="icon"
+						className="action-btn no"
+						iconName="icon-no"
+						onClick={() => handleOnClose(false)}
+					/>
+					<Button
+						type="icon"
+						className="action-btn yes"
+						iconName="icon-yes"
+						onClick={() => handleOnClose(true)}
+					/>
+				</div>
+			)}
 		</Modal>
 	);
 };
@@ -122,6 +147,7 @@ const mapDispatchToProps = {
 	toggleLabyrinthQuestionModal: labyrinthQuestionModalActions.toggleLabyrinthQuestionModal,
 	clearState: labyrinthQuestionModalActions.clearState,
 	changeData: gameActions.changeData,
+	setAudioVisualization: audioVisualizationActions.setAudioVisualization,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(memo(LabyrinthQuestionModal));

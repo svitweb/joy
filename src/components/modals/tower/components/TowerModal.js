@@ -7,8 +7,16 @@ import * as towerModalActions from '../Actions';
 import * as gameActions from '../../../../client/gamePage/Actions';
 import Button from '../../../button/Button';
 import Modal from '../../../modal/Modal';
+import * as audioVisualizationActions from '../../../audioVisualization/Actions';
+import { audioVisualizationTypes } from '../../../audioVisualization/Constants';
 
-const TowerModal = ({ open, toggleTowerModal, changeData, gameData = {} }) => {
+const TowerModal = ({
+	open,
+	toggleTowerModal,
+	changeData,
+	setAudioVisualization,
+	gameData = {},
+}) => {
 	const { t } = useTranslation();
 
 	const { tower } = gameData || {};
@@ -25,6 +33,9 @@ const TowerModal = ({ open, toggleTowerModal, changeData, gameData = {} }) => {
 
 	const handleOnClose = (isRejected) => {
 		if (isRejected) setReject(true);
+
+		if (!active) setAudioVisualization({ audioFileName: audioVisualizationTypes.TOWER_ACTIVE });
+
 		toggleTowerModal({ open: false });
 	};
 
@@ -43,12 +54,25 @@ const TowerModal = ({ open, toggleTowerModal, changeData, gameData = {} }) => {
 				setReject(false);
 			}}
 		>
+			<div className="bg" />
 			<p className="desc">
 				{!active ? t('tower.ready_question') : t(`tower.response.${response}`)}
 			</p>
-			<div className="btn-group">
-				{!active && <Button title={'No'} onClick={() => handleOnClose(true)} />}
-				<Button title={active ? '✔' : 'Yes'} onClick={() => handleOnClose(false)} />
+			<div className="btn-group center">
+				{!active && (
+					<Button
+						className="action-btn"
+						type="icon"
+						iconName="icon-no"
+						onClick={() => handleOnClose(true)}
+					/>
+				)}
+				<Button
+					className="action-btn"
+					type="icon"
+					iconName="icon-yes"
+					onClick={() => handleOnClose(false)}
+				/>
 			</div>
 		</Modal>
 	);
@@ -63,6 +87,7 @@ const mapDispatchToProps = {
 	toggleTowerModal: towerModalActions.toggleTowerModal,
 	clearState: towerModalActions.clearState,
 	changeData: gameActions.changeData,
+	setAudioVisualization: audioVisualizationActions.setAudioVisualization,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(memo(TowerModal));

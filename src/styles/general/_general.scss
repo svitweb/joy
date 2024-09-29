@@ -22,12 +22,6 @@ html {
 
 // General classes for project
 
-.page-content {
-	//padding-top: $menuHeightMobile;
-	//overflow: hidden;
-	//height: 100%;
-}
-
 .swiper {
 	&-container {
 		position: relative;
@@ -66,10 +60,6 @@ html {
 		-ms-flex-align: center;
 		-webkit-align-items: center;
 		align-items: center;
-
-		.active {
-			//color: var(--content-purple);
-		}
 	}
 }
 

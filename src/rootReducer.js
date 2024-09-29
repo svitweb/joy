@@ -9,6 +9,7 @@ import cardModalReducer from './components/modals/card/Reducer';
 import labyrinthQuestionModalReducer from './components/modals/labyrinthQuestion/Reducer';
 import towerModalReducer from './components/modals/tower/Reducer';
 import gamePageReducer from './client/gamePage/Reducer';
+import audioVisualizationReducer from './components/audioVisualization/Reducer';
 
 import adminReducer from './admin/Reducer';
 import createManagerReducer from './admin/modals/createManager/Reducer';
@@ -28,6 +29,7 @@ const createRootReducer = (history) =>
 		labyrinthQuestionModalReducer,
 		towerModalReducer,
 		gamePageReducer,
+		audioVisualizationReducer,
 
 		adminReducer,
 		createManagerReducer,

@@ -1,4 +1,5 @@
 @import '../../../../styles/utilities/variables';
+@import '../../../../styles/utilities/color';
 
 .labyrinth-question-modal {
 	overflow: hidden;
@@ -36,6 +37,10 @@
 			top: auto;
 			bottom: auto;
 		}
+		padding: 16px;
+		font-size: 21px;
+		line-height: 32px;
+		pointer-events: none;
 		z-index: 1;
 	}
 
@@ -103,6 +108,43 @@
 
 		&.main {
 			filter: brightness(30%);
+		}
+
+		&.active {
+			cursor: pointer;
+		}
+	}
+
+	.btn-group {
+		position: relative;
+		z-index: 2;
+		background-color: rgba(0, 0, 0, 0.7);
+		box-shadow: 0 0 20px 20px rgba(0, 0, 0, 0.7);
+	}
+
+	.action-btn {
+		position: relative;
+		z-index: 2;
+		color: $btn-add-text;
+
+		.icon {
+			font-size: 40px;
+
+			&-no {
+				color: #c24040;
+			}
+
+			&-yes {
+				color: #38934f;
+			}
+
+			&-fold {
+				font-size: 80px;
+			}
+		}
+
+		+ .action-btn {
+			margin-left: 33%;
 		}
 	}
 

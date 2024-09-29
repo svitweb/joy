@@ -1,18 +1,20 @@
 import '../styles/style.scss';
-import React, { memo, useRef } from 'react';
-import Main from '../sections/Main';
-import About from '../sections/About';
-import Themes from '../sections/Themes';
-import Requests from '../sections/Requests';
-import Formats from '../sections/Formats';
-import Footer from '../../footer/Footer';
-import Contact from '../sections/Contact';
-import Managers from '../sections/Managers';
-import Packages from '../sections/Packages';
-import Responses from '../sections/Responses';
-import Topics from '../sections/Topics';
-import GameRequestModal from '../../../components/modals/gameRequest/components/GameRequestModal';
-import Menu from '../../../components/menu/components/Menu';
+import React, { memo, useRef, lazy } from 'react';
+const Main = lazy(() => import('../sections/Main'));
+const About = lazy(() => import('../sections/About'));
+const Themes = lazy(() => import('../sections/Themes'));
+const Requests = lazy(() => import('../sections/Requests'));
+const Formats = lazy(() => import('../sections/Formats'));
+const Contact = lazy(() => import('../sections/Contact'));
+const Packages = lazy(() => import('../sections/Packages'));
+const Responses = lazy(() => import('../sections/Responses'));
+const Topics = lazy(() => import('../sections/Topics'));
+const Footer = lazy(() => import('../../footer/Footer'));
+const GameRequestModal = lazy(() =>
+	import('../../../components/modals/gameRequest/components/GameRequestModal'),
+);
+const Menu = lazy(() => import('../../../components/menu/components/Menu'));
+// import Managers from '../sections/Managers';
 
 const MainPage = () => {
 	const scrollToRef = (ref) => {

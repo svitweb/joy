@@ -4748,8 +4748,8 @@ const LabyrinthOverlay = ({ type, gameData }) => {
 							clipRule="evenodd"
 							d="M519.5 361C590.469 361 648 303.469 648 232.5C648 161.531 590.469 104 519.5 104C448.531 104 391 161.531 391 232.5C391 303.469 448.531 361 519.5 361ZM519.5 363C591.573 363 650 304.573 650 232.5C650 160.427 591.573 102 519.5 102C447.427 102 389 160.427 389 232.5C389 304.573 447.427 363 519.5 363Z"
 							fill="#FFDACE"
-							fill-opacity="0.6"
-							shape-rendering="crispEdges"
+							fillOpacity="0.6"
+							shapeRendering="crispEdges"
 						/>
 					</g>
 					<g
@@ -4772,8 +4772,8 @@ const LabyrinthOverlay = ({ type, gameData }) => {
 							clipRule="evenodd"
 							d="M519.5 409C616.978 409 696 329.978 696 232.5C696 135.022 616.978 56 519.5 56C422.022 56 343 135.022 343 232.5C343 329.978 422.022 409 519.5 409ZM519.5 411C618.083 411 698 331.083 698 232.5C698 133.917 618.083 54 519.5 54C420.917 54 341 133.917 341 232.5C341 331.083 420.917 411 519.5 411Z"
 							fill="#FFDACE"
-							fill-opacity="0.6"
-							shape-rendering="crispEdges"
+							fillOpacity="0.6"
+							shapeRendering="crispEdges"
 						/>
 					</g>
 					<g
@@ -4998,9 +4998,9 @@ const LabyrinthOverlay = ({ type, gameData }) => {
 							width="321"
 							height="321"
 							filterUnits="userSpaceOnUse"
-							color-interpolation-filters="sRGB"
+							colorInterpolationFilters="sRGB"
 						>
-							<feFlood flood-opacity="0" result="BackgroundImageFix" />
+							<feFlood floodOpacity="0" result="BackgroundImageFix" />
 							<feColorMatrix
 								in="SourceAlpha"
 								type="matrix"
@@ -5033,9 +5033,9 @@ const LabyrinthOverlay = ({ type, gameData }) => {
 							width="400"
 							height="400"
 							filterUnits="userSpaceOnUse"
-							color-interpolation-filters="sRGB"
+							colorInterpolationFilters="sRGB"
 						>
-							<feFlood flood-opacity="0" result="BackgroundImageFix" />
+							<feFlood floodOpacity="0" result="BackgroundImageFix" />
 							<feColorMatrix
 								in="SourceAlpha"
 								type="matrix"
@@ -5086,9 +5086,9 @@ const LabyrinthOverlay = ({ type, gameData }) => {
 							width="417"
 							height="417"
 							filterUnits="userSpaceOnUse"
-							color-interpolation-filters="sRGB"
+							colorInterpolationFilters="sRGB"
 						>
-							<feFlood flood-opacity="0" result="BackgroundImageFix" />
+							<feFlood floodOpacity="0" result="BackgroundImageFix" />
 							<feColorMatrix
 								in="SourceAlpha"
 								type="matrix"
@@ -5121,9 +5121,9 @@ const LabyrinthOverlay = ({ type, gameData }) => {
 							width="237"
 							height="195.5"
 							filterUnits="userSpaceOnUse"
-							color-interpolation-filters="sRGB"
+							colorInterpolationFilters="sRGB"
 						>
-							<feFlood flood-opacity="0" result="BackgroundImageFix" />
+							<feFlood floodOpacity="0" result="BackgroundImageFix" />
 							<feColorMatrix
 								in="SourceAlpha"
 								type="matrix"
@@ -5192,9 +5192,9 @@ const LabyrinthOverlay = ({ type, gameData }) => {
 							width="237"
 							height="199.533"
 							filterUnits="userSpaceOnUse"
-							color-interpolation-filters="sRGB"
+							colorInterpolationFilters="sRGB"
 						>
-							<feFlood flood-opacity="0" result="BackgroundImageFix" />
+							<feFlood floodOpacity="0" result="BackgroundImageFix" />
 							<feColorMatrix
 								in="SourceAlpha"
 								type="matrix"
@@ -5263,9 +5263,9 @@ const LabyrinthOverlay = ({ type, gameData }) => {
 							width="332"
 							height="332"
 							filterUnits="userSpaceOnUse"
-							color-interpolation-filters="sRGB"
+							colorInterpolationFilters="sRGB"
 						>
-							<feFlood flood-opacity="0" result="BackgroundImageFix" />
+							<feFlood floodOpacity="0" result="BackgroundImageFix" />
 							<feColorMatrix
 								in="SourceAlpha"
 								type="matrix"
@@ -5334,9 +5334,9 @@ const LabyrinthOverlay = ({ type, gameData }) => {
 							width="22"
 							height="22"
 							filterUnits="userSpaceOnUse"
-							color-interpolation-filters="sRGB"
+							colorInterpolationFilters="sRGB"
 						>
-							<feFlood flood-opacity="0" result="BackgroundImageFix" />
+							<feFlood floodOpacity="0" result="BackgroundImageFix" />
 							<feColorMatrix
 								in="SourceAlpha"
 								type="matrix"
@@ -5375,9 +5375,9 @@ const LabyrinthOverlay = ({ type, gameData }) => {
 							width="22"
 							height="22"
 							filterUnits="userSpaceOnUse"
-							color-interpolation-filters="sRGB"
+							colorInterpolationFilters="sRGB"
 						>
-							<feFlood flood-opacity="0" result="BackgroundImageFix" />
+							<feFlood floodOpacity="0" result="BackgroundImageFix" />
 							<feColorMatrix
 								in="SourceAlpha"
 								type="matrix"
@@ -5416,9 +5416,9 @@ const LabyrinthOverlay = ({ type, gameData }) => {
 							width="22"
 							height="22"
 							filterUnits="userSpaceOnUse"
-							color-interpolation-filters="sRGB"
+							colorInterpolationFilters="sRGB"
 						>
-							<feFlood flood-opacity="0" result="BackgroundImageFix" />
+							<feFlood floodOpacity="0" result="BackgroundImageFix" />
 							<feColorMatrix
 								in="SourceAlpha"
 								type="matrix"
@@ -5457,9 +5457,9 @@ const LabyrinthOverlay = ({ type, gameData }) => {
 							width="22"
 							height="22"
 							filterUnits="userSpaceOnUse"
-							color-interpolation-filters="sRGB"
+							colorInterpolationFilters="sRGB"
 						>
-							<feFlood flood-opacity="0" result="BackgroundImageFix" />
+							<feFlood floodOpacity="0" result="BackgroundImageFix" />
 							<feColorMatrix
 								in="SourceAlpha"
 								type="matrix"
@@ -5498,9 +5498,9 @@ const LabyrinthOverlay = ({ type, gameData }) => {
 							width="22"
 							height="22"
 							filterUnits="userSpaceOnUse"
-							color-interpolation-filters="sRGB"
+							colorInterpolationFilters="sRGB"
 						>
-							<feFlood flood-opacity="0" result="BackgroundImageFix" />
+							<feFlood floodOpacity="0" result="BackgroundImageFix" />
 							<feColorMatrix
 								in="SourceAlpha"
 								type="matrix"
@@ -5539,9 +5539,9 @@ const LabyrinthOverlay = ({ type, gameData }) => {
 							width="24"
 							height="24"
 							filterUnits="userSpaceOnUse"
-							color-interpolation-filters="sRGB"
+							colorInterpolationFilters="sRGB"
 						>
-							<feFlood flood-opacity="0" result="BackgroundImageFix" />
+							<feFlood floodOpacity="0" result="BackgroundImageFix" />
 							<feColorMatrix
 								in="SourceAlpha"
 								type="matrix"
@@ -5580,9 +5580,9 @@ const LabyrinthOverlay = ({ type, gameData }) => {
 							width="24"
 							height="24"
 							filterUnits="userSpaceOnUse"
-							color-interpolation-filters="sRGB"
+							colorInterpolationFilters="sRGB"
 						>
-							<feFlood flood-opacity="0" result="BackgroundImageFix" />
+							<feFlood floodOpacity="0" result="BackgroundImageFix" />
 							<feColorMatrix
 								in="SourceAlpha"
 								type="matrix"
@@ -5621,9 +5621,9 @@ const LabyrinthOverlay = ({ type, gameData }) => {
 							width="26"
 							height="26"
 							filterUnits="userSpaceOnUse"
-							color-interpolation-filters="sRGB"
+							colorInterpolationFilters="sRGB"
 						>
-							<feFlood flood-opacity="0" result="BackgroundImageFix" />
+							<feFlood floodOpacity="0" result="BackgroundImageFix" />
 							<feColorMatrix
 								in="SourceAlpha"
 								type="matrix"
@@ -5662,9 +5662,9 @@ const LabyrinthOverlay = ({ type, gameData }) => {
 							width="24"
 							height="24"
 							filterUnits="userSpaceOnUse"
-							color-interpolation-filters="sRGB"
+							colorInterpolationFilters="sRGB"
 						>
-							<feFlood flood-opacity="0" result="BackgroundImageFix" />
+							<feFlood floodOpacity="0" result="BackgroundImageFix" />
 							<feColorMatrix
 								in="SourceAlpha"
 								type="matrix"
@@ -5703,9 +5703,9 @@ const LabyrinthOverlay = ({ type, gameData }) => {
 							width="24"
 							height="24"
 							filterUnits="userSpaceOnUse"
-							color-interpolation-filters="sRGB"
+							colorInterpolationFilters="sRGB"
 						>
-							<feFlood flood-opacity="0" result="BackgroundImageFix" />
+							<feFlood floodOpacity="0" result="BackgroundImageFix" />
 							<feColorMatrix
 								in="SourceAlpha"
 								type="matrix"
@@ -5744,9 +5744,9 @@ const LabyrinthOverlay = ({ type, gameData }) => {
 							width="24"
 							height="24"
 							filterUnits="userSpaceOnUse"
-							color-interpolation-filters="sRGB"
+							colorInterpolationFilters="sRGB"
 						>
-							<feFlood flood-opacity="0" result="BackgroundImageFix" />
+							<feFlood floodOpacity="0" result="BackgroundImageFix" />
 							<feColorMatrix
 								in="SourceAlpha"
 								type="matrix"
@@ -5785,9 +5785,9 @@ const LabyrinthOverlay = ({ type, gameData }) => {
 							width="24"
 							height="24"
 							filterUnits="userSpaceOnUse"
-							color-interpolation-filters="sRGB"
+							colorInterpolationFilters="sRGB"
 						>
-							<feFlood flood-opacity="0" result="BackgroundImageFix" />
+							<feFlood floodOpacity="0" result="BackgroundImageFix" />
 							<feColorMatrix
 								in="SourceAlpha"
 								type="matrix"
@@ -5826,9 +5826,9 @@ const LabyrinthOverlay = ({ type, gameData }) => {
 							width="24"
 							height="24"
 							filterUnits="userSpaceOnUse"
-							color-interpolation-filters="sRGB"
+							colorInterpolationFilters="sRGB"
 						>
-							<feFlood flood-opacity="0" result="BackgroundImageFix" />
+							<feFlood floodOpacity="0" result="BackgroundImageFix" />
 							<feColorMatrix
 								in="SourceAlpha"
 								type="matrix"
@@ -5867,9 +5867,9 @@ const LabyrinthOverlay = ({ type, gameData }) => {
 							width="22"
 							height="22"
 							filterUnits="userSpaceOnUse"
-							color-interpolation-filters="sRGB"
+							colorInterpolationFilters="sRGB"
 						>
-							<feFlood flood-opacity="0" result="BackgroundImageFix" />
+							<feFlood floodOpacity="0" result="BackgroundImageFix" />
 							<feColorMatrix
 								in="SourceAlpha"
 								type="matrix"
@@ -5908,9 +5908,9 @@ const LabyrinthOverlay = ({ type, gameData }) => {
 							width="22"
 							height="22"
 							filterUnits="userSpaceOnUse"
-							color-interpolation-filters="sRGB"
+							colorInterpolationFilters="sRGB"
 						>
-							<feFlood flood-opacity="0" result="BackgroundImageFix" />
+							<feFlood floodOpacity="0" result="BackgroundImageFix" />
 							<feColorMatrix
 								in="SourceAlpha"
 								type="matrix"
@@ -5949,9 +5949,9 @@ const LabyrinthOverlay = ({ type, gameData }) => {
 							width="32"
 							height="32"
 							filterUnits="userSpaceOnUse"
-							color-interpolation-filters="sRGB"
+							colorInterpolationFilters="sRGB"
 						>
-							<feFlood flood-opacity="0" result="BackgroundImageFix" />
+							<feFlood floodOpacity="0" result="BackgroundImageFix" />
 							<feColorMatrix
 								in="SourceAlpha"
 								type="matrix"
@@ -5990,9 +5990,9 @@ const LabyrinthOverlay = ({ type, gameData }) => {
 							width="32"
 							height="32"
 							filterUnits="userSpaceOnUse"
-							color-interpolation-filters="sRGB"
+							colorInterpolationFilters="sRGB"
 						>
-							<feFlood flood-opacity="0" result="BackgroundImageFix" />
+							<feFlood floodOpacity="0" result="BackgroundImageFix" />
 							<feColorMatrix
 								in="SourceAlpha"
 								type="matrix"
@@ -6031,9 +6031,9 @@ const LabyrinthOverlay = ({ type, gameData }) => {
 							width="30"
 							height="30"
 							filterUnits="userSpaceOnUse"
-							color-interpolation-filters="sRGB"
+							colorInterpolationFilters="sRGB"
 						>
-							<feFlood flood-opacity="0" result="BackgroundImageFix" />
+							<feFlood floodOpacity="0" result="BackgroundImageFix" />
 							<feColorMatrix
 								in="SourceAlpha"
 								type="matrix"
@@ -6072,9 +6072,9 @@ const LabyrinthOverlay = ({ type, gameData }) => {
 							width="30"
 							height="30"
 							filterUnits="userSpaceOnUse"
-							color-interpolation-filters="sRGB"
+							colorInterpolationFilters="sRGB"
 						>
-							<feFlood flood-opacity="0" result="BackgroundImageFix" />
+							<feFlood floodOpacity="0" result="BackgroundImageFix" />
 							<feColorMatrix
 								in="SourceAlpha"
 								type="matrix"
@@ -6113,9 +6113,9 @@ const LabyrinthOverlay = ({ type, gameData }) => {
 							width="30"
 							height="30"
 							filterUnits="userSpaceOnUse"
-							color-interpolation-filters="sRGB"
+							colorInterpolationFilters="sRGB"
 						>
-							<feFlood flood-opacity="0" result="BackgroundImageFix" />
+							<feFlood floodOpacity="0" result="BackgroundImageFix" />
 							<feColorMatrix
 								in="SourceAlpha"
 								type="matrix"
@@ -6154,9 +6154,9 @@ const LabyrinthOverlay = ({ type, gameData }) => {
 							width="30"
 							height="30"
 							filterUnits="userSpaceOnUse"
-							color-interpolation-filters="sRGB"
+							colorInterpolationFilters="sRGB"
 						>
-							<feFlood flood-opacity="0" result="BackgroundImageFix" />
+							<feFlood floodOpacity="0" result="BackgroundImageFix" />
 							<feColorMatrix
 								in="SourceAlpha"
 								type="matrix"
@@ -6195,9 +6195,9 @@ const LabyrinthOverlay = ({ type, gameData }) => {
 							width="28"
 							height="28"
 							filterUnits="userSpaceOnUse"
-							color-interpolation-filters="sRGB"
+							colorInterpolationFilters="sRGB"
 						>
-							<feFlood flood-opacity="0" result="BackgroundImageFix" />
+							<feFlood floodOpacity="0" result="BackgroundImageFix" />
 							<feColorMatrix
 								in="SourceAlpha"
 								type="matrix"
@@ -6236,9 +6236,9 @@ const LabyrinthOverlay = ({ type, gameData }) => {
 							width="30"
 							height="30"
 							filterUnits="userSpaceOnUse"
-							color-interpolation-filters="sRGB"
+							colorInterpolationFilters="sRGB"
 						>
-							<feFlood flood-opacity="0" result="BackgroundImageFix" />
+							<feFlood floodOpacity="0" result="BackgroundImageFix" />
 							<feColorMatrix
 								in="SourceAlpha"
 								type="matrix"
@@ -6277,9 +6277,9 @@ const LabyrinthOverlay = ({ type, gameData }) => {
 							width="26"
 							height="26"
 							filterUnits="userSpaceOnUse"
-							color-interpolation-filters="sRGB"
+							colorInterpolationFilters="sRGB"
 						>
-							<feFlood flood-opacity="0" result="BackgroundImageFix" />
+							<feFlood floodOpacity="0" result="BackgroundImageFix" />
 							<feColorMatrix
 								in="SourceAlpha"
 								type="matrix"
@@ -6318,9 +6318,9 @@ const LabyrinthOverlay = ({ type, gameData }) => {
 							width="26"
 							height="26"
 							filterUnits="userSpaceOnUse"
-							color-interpolation-filters="sRGB"
+							colorInterpolationFilters="sRGB"
 						>
-							<feFlood flood-opacity="0" result="BackgroundImageFix" />
+							<feFlood floodOpacity="0" result="BackgroundImageFix" />
 							<feColorMatrix
 								in="SourceAlpha"
 								type="matrix"
@@ -6359,9 +6359,9 @@ const LabyrinthOverlay = ({ type, gameData }) => {
 							width="26"
 							height="26"
 							filterUnits="userSpaceOnUse"
-							color-interpolation-filters="sRGB"
+							colorInterpolationFilters="sRGB"
 						>
-							<feFlood flood-opacity="0" result="BackgroundImageFix" />
+							<feFlood floodOpacity="0" result="BackgroundImageFix" />
 							<feColorMatrix
 								in="SourceAlpha"
 								type="matrix"
@@ -6400,9 +6400,9 @@ const LabyrinthOverlay = ({ type, gameData }) => {
 							width="26"
 							height="26"
 							filterUnits="userSpaceOnUse"
-							color-interpolation-filters="sRGB"
+							colorInterpolationFilters="sRGB"
 						>
-							<feFlood flood-opacity="0" result="BackgroundImageFix" />
+							<feFlood floodOpacity="0" result="BackgroundImageFix" />
 							<feColorMatrix
 								in="SourceAlpha"
 								type="matrix"
@@ -6441,9 +6441,9 @@ const LabyrinthOverlay = ({ type, gameData }) => {
 							width="28"
 							height="28"
 							filterUnits="userSpaceOnUse"
-							color-interpolation-filters="sRGB"
+							colorInterpolationFilters="sRGB"
 						>
-							<feFlood flood-opacity="0" result="BackgroundImageFix" />
+							<feFlood floodOpacity="0" result="BackgroundImageFix" />
 							<feColorMatrix
 								in="SourceAlpha"
 								type="matrix"
@@ -6482,9 +6482,9 @@ const LabyrinthOverlay = ({ type, gameData }) => {
 							width="28"
 							height="28"
 							filterUnits="userSpaceOnUse"
-							color-interpolation-filters="sRGB"
+							colorInterpolationFilters="sRGB"
 						>
-							<feFlood flood-opacity="0" result="BackgroundImageFix" />
+							<feFlood floodOpacity="0" result="BackgroundImageFix" />
 							<feColorMatrix
 								in="SourceAlpha"
 								type="matrix"
@@ -6523,9 +6523,9 @@ const LabyrinthOverlay = ({ type, gameData }) => {
 							width="28"
 							height="28"
 							filterUnits="userSpaceOnUse"
-							color-interpolation-filters="sRGB"
+							colorInterpolationFilters="sRGB"
 						>
-							<feFlood flood-opacity="0" result="BackgroundImageFix" />
+							<feFlood floodOpacity="0" result="BackgroundImageFix" />
 							<feColorMatrix
 								in="SourceAlpha"
 								type="matrix"

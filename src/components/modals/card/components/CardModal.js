@@ -1,13 +1,10 @@
 import '../styles/style.scss';
 import React, { memo, useEffect, useState } from 'react';
 import { connect } from 'react-redux';
-import { useTranslation } from 'react-i18next';
 import classNames from 'classnames';
 import * as cardModalActions from '../Actions';
-import Button from '../../../button/Button';
-import Modal from '../../../modal/Modal';
-import { getLocalStorageItem } from '../../../../services/Helper';
 import * as gameActions from '../../../../client/gamePage/Actions';
+import Modal from '../../../modal/Modal';
 
 const LabyrinthQuestionModal = ({
 	open,
@@ -17,19 +14,11 @@ const LabyrinthQuestionModal = ({
 	changeData,
 	gameData,
 }) => {
-	const { t } = useTranslation();
-
-	const { id, img, desc, selected } = cardData || {};
-
-	const [flipped, setFlipped] = useState(false);
+	const { img, selected } = cardData || {};
+	const [opened, setOpened] = useState(false);
 
 	useEffect(() => {
-		setTimeout(
-			() => {
-				setFlipped(!!open);
-			},
-			open ? 1500 : 400,
-		);
+		if (open) setTimeout(() => setOpened(true), 300);
 	}, [open]);
 
 	const handleOnClose = () => {
@@ -43,17 +32,15 @@ const LabyrinthQuestionModal = ({
 	};
 
 	return (
-		<Modal isOpen={open} className={classNames('card-modal', type, { flipped, selected })}>
-			<div className={classNames('card', { flipped })}>
-				<div className="card-inner">
-					<div className="card-front">
-						<img src={img} alt="illustration" />
-					</div>
-					<div className="card-back">
-						<p className="desc">{desc}</p>
-						<Button title={'✔'} onClick={handleOnClose} />
-					</div>
-				</div>
+		<Modal
+			isOpen={open}
+			className={classNames('card-modal', type, { opened, selected })}
+			clearState={() => {
+				setOpened(false);
+			}}
+		>
+			<div className={classNames('card')} onClick={handleOnClose}>
+				<img src={img} alt="illustration" width={360} height={512} />
 			</div>
 		</Modal>
 	);

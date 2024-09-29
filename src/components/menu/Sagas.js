@@ -10,7 +10,7 @@ import * as notificationActions from '../../components/notification/Notification
 
 export default function* () {
 	yield all([
-		yield takeLatest(menuActionTypes.LOG_OUT, handleLogOut),
+		takeLatest(menuActionTypes.LOG_OUT, handleLogOut),
 		// yield takeLatest(menuActionTypes.CREATE_LIST, handleCreateList),
 		// yield takeLatest(menuActionTypes.JOIN_LIST, handleJoinList),
 	]);

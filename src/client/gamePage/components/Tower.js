@@ -9,8 +9,11 @@ import * as gameActions from '../Actions.js';
 import * as towerModalActions from '../../../components/modals/tower/Actions.js';
 import Button from '../../../components/button/Button';
 import { useTranslation } from 'react-i18next';
+import { Parallax, ParallaxBanner, ParallaxBannerLayer } from 'react-scroll-parallax';
+import tBg from '../images/bg.jpg';
+import * as audioVisualizationActions from '../../../components/audioVisualization/Actions';
 
-const Tower = ({ gameData, changeData, toggleTowerModal }) => {
+const Tower = ({ gameData, changeData, toggleTowerModal, disabledParallax }) => {
 	const { t } = useTranslation();
 
 	const { tower } = gameData || {};
@@ -28,27 +31,46 @@ const Tower = ({ gameData, changeData, toggleTowerModal }) => {
 	};
 
 	return completed ? (
-		<div className="col">
-			<div className="final-block">
-				<h1 className="title">{t(`tower.response.${completed}`)}</h1>
-				<Button onClick={() => changeData({})} title="RESET" />
-			</div>
+		// <div className="col">
+		<div className="final-block">
+			<h1 className="title">{t(`tower.response.${completed}`)}</h1>
+			<Button onClick={() => changeData({})} title="RESET" />
 		</div>
 	) : (
-		<div className="col l-4 l-offset-4 tower-col">
-			<div className="tower">
-				<img src={towerImg} className="tower-figure" alt="tower" onClick={handleClick} />
-				<div className="tower-light">
-					{!!active && (
-						<>
-							<img src={towerLightImg} className="tower-light-img" alt="light" />
-							<img src={towerLightBg} className="tower-light-bg" alt="light" />
-						</>
+		<ParallaxBanner className="parallax-banner" disabled={disabledParallax}>
+			<ParallaxBannerLayer
+				image={disabledParallax ? undefined : tBg}
+				speed={10}
+				className="parallax-bg"
+				disabled={disabledParallax}
+			/>
+			<Parallax
+				speed={-100}
+				translateY={[50, -50]}
+				className="labyrinth-section-parallax"
+				disabled={disabledParallax}
+			>
+				<div className="tower">
+					<img
+						src={towerImg}
+						className="tower-figure"
+						alt="tower"
+						onClick={handleClick}
+					/>
+					<div className="tower-light">
+						{!!active && (
+							<>
+								<img src={towerLightImg} className="tower-light-img" alt="light" />
+								<img src={towerLightBg} className="tower-light-bg" alt="light" />
+							</>
+						)}
+					</div>
+					{!active && (
+						<img src={towerShadow} className="tower-figure-shadow" alt="light" />
 					)}
 				</div>
-				{!active && <img src={towerShadow} className="tower-figure-shadow" alt="light" />}
-			</div>
-		</div>
+			</Parallax>
+		</ParallaxBanner>
 	);
 };
 

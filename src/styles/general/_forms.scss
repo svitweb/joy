@@ -17,12 +17,10 @@ textarea,
 select {
 	box-sizing: border-box;
 	width: 100%;
-	//border: 0 none;
 	outline: none;
 	border-radius: 8px;
 	background-color: transparent;
 	border: 1px solid $white;
-	//box-shadow: inset 11px 11px 26px #0f1026, inset -11px -11px 26px #212656;
 	padding: 12px 16px;
 	color: #fff;
 	font-variant-numeric: lining-nums;
@@ -44,11 +42,8 @@ select {
 	&:-webkit-autofill:focus,
 	&:-webkit-autofill:active {
 		-webkit-background-clip: text;
-		//background-color: #181b3e !important;
-		//box-shadow: inset 11px 11px 26px #0f1026, inset -11px -11px 26px #212656 !important;
 		font-size: 16px !important;
 		color: $white !important;
-		//-webkit-box-shadow: inset 11px 11px 26px #0f1026, inset -11px -11px 26px #212656 !important;
 		-webkit-text-fill-color: $white !important;
 	}
 
@@ -63,10 +58,7 @@ select {
 	}
 
 	&:-internal-autofill-selected {
-		//background-color: #181b3e !important;
-		//box-shadow: inset 11px 11px 26px #0f1026, inset -11px -11px 26px #212656 !important;
 		color: $white !important;
-		//-webkit-box-shadow: inset 11px 11px 26px #0f1026, inset -11px -11px 26px #212656 !important;
 		-webkit-text-fill-color: $white !important;
 	}
 }
@@ -435,19 +427,11 @@ label {
 .checkbox {
 	@extend %selectionControl;
 
-	input {
-		&:checked ~ .visual {
-			//background-color: #8952da;
-			//border-color: transparent;
-		}
-	}
-
 	.visual {
 		border-radius: 0;
 		vertical-align: middle;
 
 		&::after {
-			//content: $icon-check;
 			display: inline-block;
 			position: absolute;
 			top: 40%;
@@ -462,19 +446,8 @@ label {
 				radius: 0;
 			}
 			background-color: transparent;
-			//width: auto;
-			//height: auto;
 			margin: 0;
 			transform: translate(-50%, -50%) rotate(45deg);
-			//speak: none;
-			//font-size: 16px;
-			//font-style: normal;
-			//font-weight: normal;
-			//font-variant: normal;
-			//text-transform: none;
-			//line-height: 1;
-			//letter-spacing: 0;
-			//color: #fff;
 		}
 
 		.text {
@@ -517,7 +490,6 @@ label {
 	&-field {
 		display: flex;
 		align-items: center;
-		//justify-content: space-between;
 
 		.toggle {
 			margin-left: auto;

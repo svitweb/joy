@@ -5,7 +5,7 @@ import * as mainPageActions from './Actions';
 import * as notificationActions from '../../components/notification/NotificationActions';
 
 export default function* () {
-	yield all([yield takeLatest(mainPageActionTypes.CONTACT_REQUEST, handleContactRequest)]);
+	yield all([takeLatest(mainPageActionTypes.CONTACT_REQUEST, handleContactRequest)]);
 }
 
 export function* handleContactRequest({ payload }) {
