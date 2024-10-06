@@ -48,10 +48,10 @@ const LabyrinthQuestionModal = ({
 		}
 
 		if (objType === 'main') {
-			if (step === 1 && status) {
-				setStep(2);
-				return;
-			}
+			// if (step === 1 && status) {
+			// 	setStep(2);
+			// 	return;
+			// }
 
 			toggleLabyrinthQuestionModal({ open: false });
 			return;

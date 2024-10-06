@@ -117,6 +117,15 @@
 			&.blue .menu-card-inner {
 				background-image: url('../../../images/gameIllustrations/bg/blueBg.jpg');
 			}
+
+			&.response {
+				filter: none;
+
+				.menu-card-inner {
+					width: 110px;
+					background-image: url('../../../images/gameIllustrations/bg/finalBg.jpg');
+				}
+			}
 		}
 	}
 

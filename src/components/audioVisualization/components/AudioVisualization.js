@@ -1,11 +1,11 @@
-// import '../styles/style.scss';
+import '../styles/style.scss';
 import React, { memo, useEffect, useRef, useState } from 'react';
 import { connect } from 'react-redux';
 import ReactPlayer from 'react-player/lazy';
 import * as audioVisualizationActions from '../Actions';
-import labOpenSound from '../../../music/visualization/labOpen.mp3';
-import fullTreeLoadSound from '../../../music/visualization/fullTreeLoad.mp3';
-import towerActiveSound from '../../../music/visualization/towerActive.mp3';
+// import labOpenSound from '../../../music/visualization/labOpen.mp3';
+// import fullTreeLoadSound from '../../../music/visualization/fullTreeLoad.mp3';
+// import towerActiveSound from '../../../music/visualization/towerActive.mp3';
 import { audioVisualizationTypes } from '../Constants';
 
 const AudioVisualization = ({ audioFileName, setAudioVisualization }) => {
@@ -13,7 +13,7 @@ const AudioVisualization = ({ audioFileName, setAudioVisualization }) => {
 	const playerRef = useRef(null);
 
 	useEffect(() => {
-		switch (audioFileName) {
+		/* switch (audioFileName) {
 			case audioVisualizationTypes.LAB_OPEN:
 				setFile(labOpenSound);
 				break;
@@ -26,16 +26,19 @@ const AudioVisualization = ({ audioFileName, setAudioVisualization }) => {
 			default:
 				setFile('');
 				break;
-		}
+		} */
 	}, [audioFileName]);
 
 	return (
 		<div className="audio-visualization">
 			<ReactPlayer
 				ref={playerRef}
-				className="hidden"
+				width={0}
+				height={0}
+				className="audio-visualization-player"
 				url={file}
 				playing={true}
+				controls={false}
 				volume={1}
 				onEnded={() => {
 					setAudioVisualization({ audioFileName: '' });

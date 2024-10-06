@@ -1,6 +1,7 @@
 import React, { memo } from 'react';
+import Button from '../../../components/button/Button';
 
-const CircularProgress = ({ progress, size = 100, strokeWidth = 10 }) => {
+const CircularProgress = ({ progress, isLoaded, onStart, size = 100, strokeWidth = 10 }) => {
 	const radius = (size - strokeWidth) / 2;
 	const circumference = 2 * Math.PI * radius;
 	const offset = circumference - (progress / 100) * circumference;
@@ -33,7 +34,17 @@ const CircularProgress = ({ progress, size = 100, strokeWidth = 10 }) => {
 					}}
 				/>
 			</svg>
-			<span className="circle-progress-counter">{progress}%</span>
+			{isLoaded ? (
+				<Button
+					className="circle-progress-btn"
+					type="icon"
+					onClick={onStart}
+					title="PLAY"
+					iconName="icon-play"
+				/>
+			) : (
+				<span className="circle-progress-counter">{progress}%</span>
+			)}
 		</div>
 	);
 };

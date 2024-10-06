@@ -20,14 +20,14 @@ const TowerModal = ({
 	const { t } = useTranslation();
 
 	const { tower } = gameData || {};
-	const { active, completed } = tower || {};
+	const { active, response, completed } = tower || {};
 
-	const [response, setResponse] = useState(null);
+	const [isResponse, setIsResponse] = useState(false);
 	const [reject, setReject] = useState(false);
 
 	useEffect(() => {
-		if (open && active) {
-			setResponse(completed ? completed : Math.floor(Math.random() * 30));
+		if (!open && !!response) {
+			setIsResponse(true);
 		}
 	}, [open]);
 
@@ -37,43 +37,115 @@ const TowerModal = ({
 		if (!active) setAudioVisualization({ audioFileName: audioVisualizationTypes.TOWER_ACTIVE });
 
 		toggleTowerModal({ open: false });
+
+		if (!active || completed) return;
+
+		if (isRejected) {
+			setTimeout(() => {
+				changeData({
+					...gameData,
+					tower: {
+						...tower,
+						completed: true,
+					},
+				});
+			}, 200);
+			return;
+		}
+
+		if (!response) {
+			setTimeout(() => {
+				changeData({
+					...gameData,
+					tower: {
+						...tower,
+						response: Math.floor(Math.random() * 30),
+					},
+				});
+			}, 200);
+
+			setTimeout(() => {
+				toggleTowerModal({ open: true });
+			}, 400);
+			return;
+		}
+
+		if (!completed) {
+			const selectedCards = gameData.selectedCards || [];
+			selectedCards.push({
+				id: 'response-card',
+				type: 'response',
+				desc: t(`tower.response.${response}`),
+			});
+
+			changeData({
+				...gameData,
+				tower: {
+					...tower,
+					completed: true,
+				},
+				selectedCards,
+			});
+		}
 	};
 
 	return (
 		<Modal
 			isOpen={open}
 			className={classNames('tower-modal', {
-				active,
+				response: !!response,
+				completed: isResponse || completed,
 			})}
 			clearState={() => {
-				if (!reject)
+				if (!reject && !active)
 					changeData({
 						...gameData,
-						tower: { active: !active || true, completed: active ? response : false },
+						tower: {
+							active: true,
+						},
 					});
+
 				setReject(false);
+				setIsResponse(false);
 			}}
 		>
-			<div className="bg" />
+			<div
+				className="bg"
+				onClick={completed ? () => toggleTowerModal({ open: false }) : undefined}
+			/>
 			<p className="desc">
-				{!active ? t('tower.ready_question') : t(`tower.response.${response}`)}
+				{!active && t('tower.ready_question')}
+				{!!active && !response && t('Ready for Game response?')}
+				{!!active && !!response && t(`tower.response.${response}`)}
 			</p>
-			<div className="btn-group center">
-				{!active && (
-					<Button
-						className="action-btn"
-						type="icon"
-						iconName="icon-no"
-						onClick={() => handleOnClose(true)}
-					/>
-				)}
-				<Button
-					className="action-btn"
-					type="icon"
-					iconName="icon-yes"
-					onClick={() => handleOnClose(false)}
-				/>
-			</div>
+			{!completed && (
+				<div className="btn-group center">
+					{!response ? (
+						<>
+							<Button
+								className="action-btn"
+								type="icon"
+								iconName="icon-no"
+								onClick={() => handleOnClose(true)}
+							/>
+							<Button
+								className="action-btn"
+								type="icon"
+								iconName="icon-yes"
+								onClick={() => handleOnClose(false)}
+							/>
+						</>
+					) : (
+						<Button
+							// className="action-btn"
+							// type="icon"
+							// iconName="icon-yes"
+							title="Accept"
+							onClick={() => handleOnClose(false)}
+						/>
+					)}
+				</div>
+			)}
 		</Modal>
 	);
 };

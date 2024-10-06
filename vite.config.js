@@ -1,8 +1,9 @@
 import { defineConfig, transformWithEsbuild, splitVendorChunkPlugin } from 'vite';
 import react from '@vitejs/plugin-react';
 import legacy from '@vitejs/plugin-legacy';
-import { ViteMinifyPlugin } from 'vite-plugin-minify';
-import { terser } from 'rollup-plugin-terser';
+// import { ViteMinifyPlugin } from 'vite-plugin-minify';
+// import { terser } from 'rollup-plugin-terser';
+
 export default defineConfig({
 	plugins: [
 		{
@@ -23,7 +24,7 @@ export default defineConfig({
 			targets: ['defaults', 'not IE 11'],
 		}),
 		splitVendorChunkPlugin(),
-		ViteMinifyPlugin(),
+		// ViteMinifyPlugin(),
 	],
 	optimizeDeps: {
 		force: true,
@@ -40,20 +41,6 @@ export default defineConfig({
 		sourcemap: true,
 		minify: 'esbuild',
 		cssMinify: true,
-		rollupOptions: {
-			plugins: [
-				terser({
-					compress: {
-						passes: 2,
-						drop_console: true,
-						drop_debugger: true,
-					},
-					output: {
-						comments: false,
-					},
-				}),
-			],
-		},
 	},
 	test: {
 		environment: 'jsdom',

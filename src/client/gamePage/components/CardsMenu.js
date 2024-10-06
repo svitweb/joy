@@ -1,15 +1,22 @@
 import '../styles/cards_menu.scss';
 import React, { memo, useEffect, useRef, useState } from 'react';
-import Swiper from '../../../components/swiper/Swiper';
-import * as cardModalActions from '../../../components/modals/card/Actions';
 import { connect } from 'react-redux';
 import classNames from 'classnames';
 import metaCardsImg from '../images/metaCards.png';
+import { getMetaCards } from '../Helpers.js';
+import * as cardModalActions from '../../../components/modals/card/Actions';
 import * as labyrinthQuestionModalActions from '../../../components/modals/labyrinthQuestion/Actions.js';
 import * as gameActions from '../Actions.js';
-import { getMetaCards } from '../Helpers.js';
+import * as towerModalActions from '../../../components/modals/tower/Actions';
+import Swiper from '../../../components/swiper/Swiper';
 
-const CardsMenu = ({ toggleCardModal, toggleLabyrinthQuestionModal, gameData, changeData }) => {
+const CardsMenu = ({
+	toggleCardModal,
+	toggleLabyrinthQuestionModal,
+	toggleTowerModal,
+	gameData,
+	changeData,
+}) => {
 	const { selectedCards = [], tower } = gameData || {};
 	const { active } = tower || {};
 
@@ -26,13 +33,20 @@ const CardsMenu = ({ toggleCardModal, toggleLabyrinthQuestionModal, gameData, ch
 	const handleClickOnCard = (cardData) => {
 		if (cardData.type === 'meta') {
 			toggleCardModal({ open: true, type: cardData.type, cardData });
-		} else {
-			toggleLabyrinthQuestionModal({
-				open: true,
-				type: cardData.type,
-				data: cardData,
-			});
+			return;
 		}
+
+		if (cardData.type === 'response') {
+			toggleTowerModal({ open: true });
+
+			return;
+		}
+
+		toggleLabyrinthQuestionModal({
+			open: true,
+			type: cardData.type,
+			data: cardData,
+		});
 	};
 
 	const handleClickOnMetaCards = () => {
@@ -61,37 +75,39 @@ const CardsMenu = ({ toggleCardModal, toggleLabyrinthQuestionModal, gameData, ch
 	};
 
 	const onCubeClick = () => {
+		const cubeNode = cube.current;
+
 		if (cubeActive) {
 			setCubeActive(false);
-			cube.current.style.animation = 'rotate 15s infinite linear';
+			cubeNode.style.animation = 'rotate 15s infinite linear';
 			return;
 		}
 		setCubeActive(true);
 
-		cube.current.style.animation = 'rotate .8s infinite linear';
+		cubeNode.style.animation = 'rotate .8s infinite linear';
 
 		setTimeout(() => {
 			const randomFace = Math.floor(Math.random() * 6) + 1;
-			cube.current.style.animation = 'none';
+			cubeNode.style.animation = 'none';
 
 			switch (randomFace) {
 				case 1:
-					cube.current.style.transform = 'rotateX(-5deg) rotateY(-5deg)';
+					cubeNode.style.transform = 'rotateX(-5deg) rotateY(-5deg)';
 					break;
 				case 2:
-					cube.current.style.transform = 'rotateX(-5deg) rotateY(175deg)';
+					cubeNode.style.transform = 'rotateX(-5deg) rotateY(175deg)';
 					break;
 				case 3:
-					cube.current.style.transform = 'rotateX(-5deg) rotateY(85deg)';
+					cubeNode.style.transform = 'rotateX(-5deg) rotateY(85deg)';
 					break;
 				case 4:
-					cube.current.style.transform = 'rotateX(-5deg) rotateY(-95deg)';
+					cubeNode.style.transform = 'rotateX(-5deg) rotateY(-95deg)';
 					break;
 				case 5:
-					cube.current.style.transform = 'rotateX(83deg) rotateY(-1deg) rotateZ(5deg)';
+					cubeNode.style.transform = 'rotateX(83deg) rotateY(-1deg) rotateZ(5deg)';
 					break;
 				case 6:
-					cube.current.style.transform = 'rotateX(-95deg) rotateY(-180deg) rotateZ(6deg)';
+					cubeNode.style.transform = 'rotateX(-95deg) rotateY(-180deg) rotateZ(6deg)';
 					break;
 			}
 		}, 1500);
@@ -193,6 +209,7 @@ const mapStateToProps = ({ gamePageReducer }) => ({
 const mapDispatchToProps = {
 	toggleCardModal: cardModalActions.toggleCardModal,
 	toggleLabyrinthQuestionModal: labyrinthQuestionModalActions.toggleLabyrinthQuestionModal,
+	toggleTowerModal: towerModalActions.toggleTowerModal,
 	changeData: gameActions.changeData,
 };
 

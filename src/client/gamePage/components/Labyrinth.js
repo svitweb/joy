@@ -2,7 +2,6 @@ import '../styles/labyrinth.scss';
 import React, { memo, useCallback, useEffect, useRef, useState, lazy } from 'react';
 import { connect } from 'react-redux';
 import classNames from 'classnames';
-import { Parallax, ParallaxBanner, ParallaxBannerLayer } from 'react-scroll-parallax';
 import goldLabImg from '../images/goldLab.png';
 import purpleLabImg from '../images/purpleLab.png';
 import blueLabImg from '../images/blueLab.png';
@@ -63,7 +62,7 @@ const Labyrinth = ({
 	};
 
 	const handleClickOnLab = () => {
-		if (window.innerWidth >= 1200 && !focus) {
+		if (!focus) {
 			setFocus(true);
 			setAudioVisualization({ audioFileName: audioVisualizationTypes.LAB_OPEN });
 			return;
@@ -96,7 +95,7 @@ const Labyrinth = ({
 	};
 
 	const handleClickOnObject = (e, objType) => {
-		if (window.innerWidth >= 1200 && !focus) {
+		if (!focus) {
 			setFocus(true);
 			setAudioVisualization({ audioFileName: audioVisualizationTypes.LAB_OPEN });
 			return;
@@ -107,23 +106,8 @@ const Labyrinth = ({
 	};
 
 	return (
-		<ParallaxBanner
-			className={classNames('parallax-banner', { focus })}
-			disabled={disabledParallax && !focus}
-		>
-			<ParallaxBannerLayer
-				image={disabledParallax && !focus ? undefined : getImgByType()?.bg}
-				speed={10}
-				className="parallax-bg"
-				disabled={disabledParallax && !focus}
-			/>
-			<Parallax
-				speed={-20}
-				translateY={[30, -30]}
-				// scale={[1.2, 0.5, 'easeInQuad']}
-				className="labyrinth-section-parallax container"
-				disabled={disabledParallax}
-			>
+		<div className={classNames('labyrinth-section-wrap', type, { focus })}>
+			<div className="container">
 				{focus && (
 					<button className="back-btn" onClick={() => setFocus(false)}>
 						<span className="icon icon-exit" />
@@ -170,8 +154,8 @@ const Labyrinth = ({
 						/>
 					</div>
 				</div>
-			</Parallax>
-		</ParallaxBanner>
+			</div>
+		</div>
 	);
 };
 

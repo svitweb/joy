@@ -150,7 +150,6 @@
 			right: auto;
 			//bottom: 30px;
 		}
-		transition: all 0.2s ease-out;
 		flex: 1 1 auto;
 
 		.svg-layer {
@@ -461,12 +460,12 @@
 	}
 }
 
-@media (min-width: $large-screen) {
+@media (min-width: $small-screen) {
 	.labyrinth {
 		&-section {
-			max-width: 40vh;
+			max-width: 36vh;
 			margin-bottom: 10px;
-			max-width: 700px;
+			//max-width: 700px;
 		}
 
 		&-wrap {
