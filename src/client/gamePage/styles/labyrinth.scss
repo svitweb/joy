@@ -144,13 +144,82 @@
 
 .labyrinth {
 	&-section {
+		flex: 1 1 auto;
 		max-width: 512px;
 		margin: {
 			left: auto;
 			right: auto;
-			//bottom: 30px;
 		}
-		flex: 1 1 auto;
+
+		&-wrap {
+			.back-btn {
+				display: inline-block;
+				position: absolute;
+				top: 32px;
+				left: 32px;
+				border-radius: 50%;
+				background-color: rgba(0, 0, 0, 0.7);
+				box-shadow: 0 0 10px 10px rgba(0, 0, 0, 0.7);
+
+				.icon {
+					font-size: 32px;
+					color: #9d9d9d;
+					transition: all 0.2s ease-out;
+				}
+
+				&:hover .icon {
+					color: white;
+				}
+			}
+
+			&.focus {
+				overflow: hidden !important;
+				position: fixed !important;
+				top: 0;
+				left: 0;
+				right: 0;
+				bottom: 0;
+				padding-bottom: 140px;
+				z-index: 10;
+				background: {
+					repeat: no-repeat;
+					position: center;
+					size: cover;
+					attachment: fixed;
+					color: black;
+				}
+
+				.container {
+					position: relative;
+					height: 100%;
+					display: flex;
+					align-items: center;
+					justify-content: center;
+				}
+
+				.labyrinth-section {
+					transition: all 0.2s ease-out;
+					max-width: 700px;
+					margin-bottom: 0;
+				}
+
+				&.purple {
+					background-image: url('../../../images/gameIllustrations/bg/purpleBgOverlay.jpg');
+				}
+
+				&.blue {
+					background-image: url('../../../images/gameIllustrations/bg/blueBgOverlay.jpg');
+				}
+
+				&.gold {
+					background-image: url('../../../images/gameIllustrations/bg/goldBgOverlay.jpg');
+				}
+
+				&.red {
+					background-image: url('../../../images/gameIllustrations/bg/redBgOverlay.jpg');
+				}
+			}
+		}
 
 		.svg-layer {
 			position: absolute;
@@ -161,6 +230,25 @@
 			z-index: 1;
 			pointer-events: none;
 			user-select: none;
+		}
+
+		.amin-rotate {
+			transform-origin: center;
+			animation: rotateAnim 20s linear infinite;
+
+			&.medium {
+				animation: rotateAnimMedium 20s linear infinite;
+			}
+
+			&.on-hover {
+				animation: rotateAnimHover 10s linear infinite;
+			}
+
+			&.main-object {
+				animation-duration: 15s;
+				animation-direction: reverse;
+				transform-origin: center;
+			}
 		}
 	}
 
@@ -180,7 +268,6 @@
 			transition: all 0.3s ease-out;
 			z-index: 0;
 			transform: translateX(-50%);
-			//animation: opacityBlur ease-in-out 2s infinite 0.2s;
 		}
 
 		&:hover,
@@ -193,52 +280,44 @@
 			}
 		}
 
-		&.purple {
-			&::before {
-				color: rgba(142, 29, 223, 0.3);
-				box-shadow: 0 4px 20px 20px currentColor;
-				background-color: currentColor;
-				border: {
-					top-left-radius: 50%;
-					top-right-radius: 50%;
-					bottom-left-radius: 80%;
-					bottom-right-radius: 80%;
-				}
+		&.purple::before {
+			color: rgba(142, 29, 223, 0.3);
+			box-shadow: 0 4px 20px 20px currentColor;
+			background-color: currentColor;
+			border: {
+				top-left-radius: 50%;
+				top-right-radius: 50%;
+				bottom-left-radius: 80%;
+				bottom-right-radius: 80%;
 			}
 		}
 
-		&.gold {
-			&::before {
-				height: 38%;
-				color: rgba(255, 157, 17, 0.3);
-				box-shadow: 0 4px 20px 20px currentColor;
-				background-color: currentColor;
-				border: {
-					top-left-radius: 70%;
-					top-right-radius: 70%;
-					bottom-left-radius: 80%;
-					bottom-right-radius: 80%;
-				}
+		&.gold::before {
+			height: 38%;
+			color: rgba(255, 157, 17, 0.3);
+			box-shadow: 0 4px 20px 20px currentColor;
+			background-color: currentColor;
+			border: {
+				top-left-radius: 70%;
+				top-right-radius: 70%;
+				bottom-left-radius: 80%;
+				bottom-right-radius: 80%;
 			}
 		}
 
-		&.blue {
-			&::before {
-				height: 50%;
-				color: rgba(85, 149, 215, 0.3);
-				box-shadow: 0 4px 20px 20px currentColor;
-				background-color: currentColor;
-				border-radius: 50%;
-			}
+		&.blue::before {
+			height: 50%;
+			color: rgba(85, 149, 215, 0.3);
+			box-shadow: 0 4px 20px 20px currentColor;
+			background-color: currentColor;
+			border-radius: 50%;
 		}
 
-		&.red {
-			&::before {
-				color: rgba(247, 130, 98, 0.3);
-				box-shadow: 0 4px 20px 20px currentColor;
-				background-color: currentColor;
-				border-radius: 50%;
-			}
+		&.red::before {
+			color: rgba(247, 130, 98, 0.3);
+			box-shadow: 0 4px 20px 20px currentColor;
+			background-color: currentColor;
+			border-radius: 50%;
 		}
 	}
 
@@ -259,8 +338,6 @@
 		top: 7%;
 		left: 36%;
 		border-radius: 50%;
-		//opacity: 0.5;
-		//visibility: hidden;
 		z-index: 2;
 		cursor: pointer;
 
@@ -328,11 +405,6 @@
 				background-image: url('../../../images/gameIllustrations/labs/treeObjects/redTreeObj.png');
 			}
 		}
-
-		&:hover {
-			//opacity: 1;
-			//visibility: visible;
-		}
 	}
 
 	&-object {
@@ -399,10 +471,6 @@
 				background-image: url('../../../images/gameIllustrations/labs/mainObjects/redMainObj.png');
 			}
 		}
-
-		&:hover {
-			//opacity: 1;
-		}
 	}
 
 	&-area {
@@ -433,48 +501,15 @@
 	}
 }
 
-.amin-rotate {
-	transform-origin: center;
-	animation: rotateAnim 20s linear infinite;
-
-	&.medium {
-		animation: rotateAnimMedium 20s linear infinite;
-		//opacity: 0;
-		//visibility: hidden;
-	}
-
-	&.on-hover {
-		//opacity: 0;
-		//visibility: hidden;
-		animation: rotateAnimHover 10s linear infinite;
-	}
-
-	&.main-object {
-		animation-duration: 15s;
-		animation-direction: reverse;
-		transform-origin: center;
-
-		//&.on-hover {
-		//	animation: rotateAnimMediumHover 10s linear infinite;
-		//}
+@media (max-width: $small-screen-down) {
+	.labyrinth-section-wrap:not(.focus) .container {
+		padding: 0;
 	}
 }
 
 @media (min-width: $small-screen) {
-	.labyrinth {
-		&-section {
-			max-width: 36vh;
-			margin-bottom: 10px;
-			//max-width: 700px;
-		}
-
-		&-wrap {
-		}
-
-		&-figure {
-		}
-
-		&-object {
-		}
+	.labyrinth-section {
+		max-width: 36vh;
+		margin-bottom: 10px;
 	}
 }

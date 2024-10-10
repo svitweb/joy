@@ -136,13 +136,7 @@ const TowerModal = ({
 							/>
 						</>
 					) : (
-						<Button
-							// className="action-btn"
-							// type="icon"
-							// iconName="icon-yes"
-							title="Accept"
-							onClick={() => handleOnClose(false)}
-						/>
+						<Button title="Accept" onClick={() => handleOnClose(false)} />
 					)}
 				</div>
 			)}

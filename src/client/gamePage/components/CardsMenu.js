@@ -25,6 +25,7 @@ const CardsMenu = ({
 	const cube = useRef();
 
 	const [cubeActive, setCubeActive] = useState(false);
+	const [cubeInProgress, setCubeInProgress] = useState(false);
 
 	useEffect(() => {
 		if (swiperRef.current) swiperRef.current.slideTo(selectedCards.length - 1);
@@ -82,6 +83,8 @@ const CardsMenu = ({
 			cubeNode.style.animation = 'rotate 15s infinite linear';
 			return;
 		}
+
+		setCubeInProgress(true);
 		setCubeActive(true);
 
 		cubeNode.style.animation = 'rotate .8s infinite linear';
@@ -110,6 +113,7 @@ const CardsMenu = ({
 					cubeNode.style.transform = 'rotateX(-95deg) rotateY(-180deg) rotateZ(6deg)';
 					break;
 			}
+			setCubeInProgress(false);
 		}, 1500);
 	};
 
@@ -152,7 +156,7 @@ const CardsMenu = ({
 					<div className="cube-section">
 						<div
 							className={classNames('cube-wrap', { active: cubeActive })}
-							onClick={onCubeClick}
+							onClick={cubeInProgress ? undefined : onCubeClick}
 						>
 							<div
 								ref={cubeScene}

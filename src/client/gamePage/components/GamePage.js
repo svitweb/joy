@@ -18,7 +18,8 @@ import pBg from '../../../images/gameIllustrations/bg/purpleBg.jpg';
 import bBg from '../../../images/gameIllustrations/bg/blueBg.jpg';
 import gBg from '../../../images/gameIllustrations/bg/goldBg.jpg';
 import rBg from '../../../images/gameIllustrations/bg/redBg.jpg';
-import tBg from '../images/bg.jpg';
+// import tBg from '../images/bg.jpg';
+import tBg from '../images/bg.png';
 import pBgO from '../../../images/gameIllustrations/bg/purpleBgOverlay.jpg';
 import bBgO from '../../../images/gameIllustrations/bg/blueBgOverlay.jpg';
 import gBgO from '../../../images/gameIllustrations/bg/goldBgOverlay.jpg';
@@ -167,7 +168,7 @@ const GamePage = ({ gameData }) => {
 				</div>
 			) : (
 				<>
-					<main className="page-content game-page">
+					<main className={classNames('page-content game-page', { active })}>
 						<div className="container game-page-container">
 							<div className={classNames('row', { 'hide-xs': active })}>
 								<div className="col xs-6 s-4">

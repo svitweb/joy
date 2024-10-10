@@ -1,139 +1,61 @@
 @import '../../../styles/utilities/variables';
-
-.audio-player {
-	position: absolute;
-}
+@import '../../../styles/utilities/color';
 
 html,
 body {
 	overflow: hidden;
 }
 
+.audio-player {
+	position: absolute;
+}
+
 .game-page {
-	//display: flex;
-	//align-items: center;
+	position: relative;
+	height: 100vh;
 	padding: {
 		top: 30px;
 		bottom: 140px;
 	}
-	background: {
-		image: url('../images/bg.jpg');
-		repeat: no-repeat;
-		position: center;
-		size: cover;
-		attachment: fixed;
-		color: black;
+	background-color: $black;
+	overflow: auto;
+
+	&-container {
+		position: relative;
+		z-index: 2;
 	}
 
-	height: 100vh;
-	overflow: auto;
+	&::before {
+		content: '';
+		position: fixed;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		background: {
+			image: url('../images/bg.png');
+			repeat: no-repeat;
+			position: center;
+			size: cover;
+			attachment: fixed;
+		}
+		opacity: 0.5;
+	}
 
 	.row {
 		position: relative;
 	}
 
-	.tower-col {
-		//position: static;
-	}
-
-	/*.parallax-banner {
-		height: 100%;
-		padding-bottom: 100px;
-	}
-
-	.parallax-bg {
-		&::before {
-			content: '';
-			position: absolute;
-			top: 0;
-			left: 0;
-			width: 100%;
-			height: 100%;
-			background-color: rgba(0, 0, 0, 0.6);
-		}
-	}*/
-
-	/*.labyrinth-section-parallax {
-		height: 100%;
-		display: flex;
-		align-items: center;
-		justify-content: center;
-
-		.back-btn {
-			display: none;
-		}
-	}*/
-}
-
-.transit-bg {
-	position: relative;
-	z-index: 2;
-	width: 100%;
-	display: none;
-
-	&::before {
-		content: '';
-		position: absolute;
-		top: 0;
-		left: 0;
-		right: 0;
-		width: 100%;
-		height: 200px;
-		transform: translateY(-50%);
-		background: linear-gradient(0, transparent, black 50%, transparent);
-		z-index: 2;
-	}
-
-	&.p-b::before {
-		background: linear-gradient(0, transparent, #080d11, transparent);
-	}
-
-	&.b-g::before {
-		background: linear-gradient(0, transparent, #0e0d03, transparent);
-	}
-
-	&.g-r::before {
-		background: linear-gradient(0, transparent, #110606, transparent);
-	}
-
-	&.r-t::before {
-		background: linear-gradient(0, transparent, #43344e, transparent);
+	&.active::before {
+		opacity: 0.8;
 	}
 }
 
 .final-block {
-	//position: relative;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
 	justify-content: center;
-	//max-width: 700px;
-	//min-height: 30vh;
-	//padding: 16px;
-	//margin: {
-	//	left: auto;
-	//	right: auto;
-	//}
-	//border-radius: 24px;
-	//box-shadow: 0 0 10px 5px rgba(0, 0, 0, 0.5);
-	//background: {
-	//	image: url('../../../images/gameIllustrations/bg/finalBg.jpg');
-	//	repeat: no-repeat;
-	//	position: center;
-	//	size: cover;
-	//}
-
-	//&::before {
-	//	content: '';
-	//	position: absolute;
-	//	top: 0;
-	//	left: 0;
-	//	width: 100%;
-	//	height: 100%;
-	//	border-radius: 24px;
-	//	background-color: rgba(0, 0, 0, 0.5);
-	//	backdrop-filter: blur(2px);
-	//}
 
 	.title {
 		position: relative;
@@ -142,22 +64,6 @@ body {
 		z-index: 1;
 	}
 }
-
-/*.swiper-row {
-	&.swiper {
-		margin-right: -0.8rem;
-		margin-left: -0.8rem;
-		height: 100vh;
-		.swiper-wrapper {
-			display: block;
-		}
-
-		.swiper-slide {
-			height: 100%;
-			display: block;
-		}
-	}
-}*/
 
 .loading-section {
 	height: 100vh;
@@ -190,164 +96,6 @@ body {
 	}
 }
 
-@media (max-width: $large-screen-down) {
-	//.game-page {
-	//	padding: 0;
-	//	background-image: none;
-	//
-	//	.game-page-container {
-	//		width: 100%;
-	//		padding: 0;
-	//		margin: 0;
-	//	}
-	//
-	//	.col {
-	//		height: 100vh;
-	//	}
-	//}
-
-	/*.transit-bg {
-		display: block;
-	}*/
-
-	//.parallax-container {
-	//height: 500vh;
-	//}
-
-	//.parallax-section {
-	//	position: relative;
-	//	height: 100vh;
-	//	display: flex;
-	//	justify-content: center;
-	//	align-items: center;
-	//	font-size: 3rem;
-	//	color: white;
-	//	text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
-	//	transition: transform 0.2s ease-out;
-	//}
-}
-
-//@media (min-width: $large-screen) {
-.game-page {
-	//display: flex;
-	//align-items: center;
-	//justify-content: center;
-	//height: 100vh;
-	//overflow: hidden;
-
-	/*.parallax-banner {
-		overflow: visible !important;
-		padding-bottom: 0;
-
-		.parallax-bg {
-			display: block;
-			opacity: 0;
-			visibility: hidden;
-			transition: opacity 0.3s ease-out;
-		}
-
-		&.focus {
-			overflow: hidden !important;
-			position: fixed !important;
-			top: 0;
-			left: 0;
-			right: 0;
-			bottom: 0;
-			padding-bottom: 140px;
-			z-index: 10;
-
-			.parallax-bg {
-				display: block;
-				visibility: visible;
-				opacity: 1;
-			}
-
-			.labyrinth-section {
-				max-width: 700px;
-				margin-bottom: 0;
-			}
-		}
-	}*/
-
-	.labyrinth-section-wrap {
-		//height: 100%;
-		//display: flex;
-		//align-items: center;
-		//justify-content: center;
-
-		.back-btn {
-			display: inline-block;
-			position: absolute;
-			top: 32px;
-			left: 32px;
-			border-radius: 50%;
-			background-color: rgba(0, 0, 0, 0.7);
-			box-shadow: 0 0 10px 10px rgba(0, 0, 0, 0.7);
-
-			.icon {
-				font-size: 32px;
-				color: #9d9d9d;
-				transition: all 0.2s ease-out;
-			}
-
-			&:hover {
-				.icon {
-					color: white;
-				}
-			}
-		}
-
-		&.focus {
-			overflow: hidden !important;
-			position: fixed !important;
-			top: 0;
-			left: 0;
-			right: 0;
-			bottom: 0;
-			padding-bottom: 140px;
-			z-index: 10;
-			background: {
-				repeat: no-repeat;
-				position: center;
-				size: cover;
-				attachment: fixed;
-				color: black;
-			}
-
-			.container {
-				position: relative;
-				height: 100%;
-				display: flex;
-				align-items: center;
-				justify-content: center;
-			}
-
-			.labyrinth-section {
-				transition: all 0.2s ease-out;
-				max-width: 700px;
-				margin-bottom: 0;
-			}
-
-			&.purple {
-				background-image: url('../../../images/gameIllustrations/bg/purpleBgOverlay.jpg');
-			}
-
-			&.blue {
-				background-image: url('../../../images/gameIllustrations/bg/blueBgOverlay.jpg');
-			}
-
-			&.gold {
-				background-image: url('../../../images/gameIllustrations/bg/goldBgOverlay.jpg');
-			}
-
-			&.red {
-				background-image: url('../../../images/gameIllustrations/bg/redBgOverlay.jpg');
-			}
-		}
-	}
-}
-//}
-
 @media (max-width: $small-screen-down) {
 	.game-page {
 		padding: 0;
@@ -364,10 +112,6 @@ body {
 				padding: 0;
 			}
 		}
-
-		.labyrinth-section-wrap:not(.focus) .container {
-			padding: 0;
-		}
 	}
 }
 
@@ -378,5 +122,13 @@ body {
 		justify-content: center;
 		height: 100vh;
 		overflow: hidden;
+
+		&::before {
+			opacity: 0.8;
+		}
+
+		&.active::before {
+			opacity: 1;
+		}
 	}
 }

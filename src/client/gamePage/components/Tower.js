@@ -1,6 +1,8 @@
 import '../styles/tower.scss';
 import React, { memo } from 'react';
 import { connect } from 'react-redux';
+import classNames from 'classnames';
+import { useTranslation } from 'react-i18next';
 import towerImg from '../images/tower.png';
 import towerLightImg from '../images/light.png';
 import towerLightBg from '../images/lightBack.png';
@@ -8,22 +10,14 @@ import towerShadow from '../images/shadow.png';
 import * as gameActions from '../Actions.js';
 import * as towerModalActions from '../../../components/modals/tower/Actions.js';
 import Button from '../../../components/button/Button';
-import { useTranslation } from 'react-i18next';
-import classNames from 'classnames';
 
 const Tower = ({ className, gameData, changeData, toggleTowerModal }) => {
 	const { t } = useTranslation();
 
 	const { tower } = gameData || {};
-	const { active, response, completed } = tower || {};
+	const { active, completed } = tower || {};
 
 	const handleClick = () => {
-		// if (active && !response) {
-		// 	changeData({
-		// 		...gameData,
-		// 		tower: { active: true, response: Math.floor(Math.random() * 30) },
-		// 	});
-		// }
 		toggleTowerModal({ open: true });
 	};
 
