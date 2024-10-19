@@ -163,3 +163,23 @@ export function getGamesError() {
 		type: adminActionTypes.GET_GAMES_ERROR,
 	};
 }
+
+export function startGame(data) {
+	return {
+		type: adminActionTypes.START_GAME,
+		payload: { data },
+	};
+}
+
+export function startGameSuccess(data) {
+	return {
+		type: adminActionTypes.START_GAME_SUCCESS,
+		payload: { data },
+	};
+}
+
+export function startGameError() {
+	return {
+		type: adminActionTypes.START_GAME_ERROR,
+	};
+}

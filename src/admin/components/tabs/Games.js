@@ -1,26 +1,47 @@
-import React, { memo, useEffect, useMemo } from 'react';
+import React, { memo, useEffect, useMemo, useState } from 'react';
 import { compose } from 'redux';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
+import { BASE_URL } from '../../../services/Constants';
 import * as adminActions from '../../Actions';
 import * as createManagerActions from '../../modals/createManager/Actions';
+import * as createGameActions from '../../modals/createGame/Actions';
 import Button from '../../../components/button/Button';
 import Accordion from '../../../components/accordion/Accordion';
 import Label from '../../../components/label/Label';
-import { getGames, removeManager } from '../../Actions';
-import { toggleCreateGameModal } from '../../modals/createGame/Actions';
-import * as createGameActions from '../../modals/createGame/Actions';
 import Spinner from '../../../components/Spinner';
+import Game from '../elements/Game';
 
-const Games = ({ getGames, loadingGames, games, toggleCreateGameModal }) => {
+const Games = ({ getGames, loadingGames, games, toggleCreateGameModal, removeGame, startGame }) => {
+	const [formattedGames, setFormattedGames] = useState([]);
+
 	useEffect(() => {
 		getGames();
 	}, []);
 
+	useEffect(() => {
+		if (games) {
+			const categorizeGames = [
+				{
+					title: 'In Progress Games',
+					data: games.filter((game) => game.started && !game.end),
+				},
+				{
+					title: 'Pending Games',
+					data: games.filter((game) => !game.started && !game.end),
+				},
+				{ title: 'Finished Games', data: games.filter((game) => game.end) },
+			];
+
+			const formattedGames = categorizeGames.filter(({ data }) => data.length > 0);
+
+			setFormattedGames(formattedGames);
+		}
+	}, [games]);
+
 	return (
 		<div className="admin-section">
 			<header className="admin-section-header">
-				{/* <h3>Managers</h3> */}
 				<div className="btn-group">
 					<Button
 						iconName="icon-add"
@@ -30,53 +51,16 @@ const Games = ({ getGames, loadingGames, games, toggleCreateGameModal }) => {
 				</div>
 			</header>
 			{loadingGames && <Spinner />}
-			{games?.map((game) => (
-				<Accordion
-					key={game.id}
-					className="admin-page-accordion"
-					bordered
-					onClick={() => {}}
-					section={
-						<div className="row middle-xs">
-							<div className="col xs-6">
-								<h4 className="title">{game.name}</h4>
-								<span className="info">codes count: {game.codes.length}</span>
-							</div>
-							<div className="col xs-6">
-								<div className="btn-group right">
-									<Button
-										// onClick={logOut}
-										type="icon"
-										iconName="icon-delete"
-										className=""
-										// title="remove game"
-									/>
-								</div>
-							</div>
-							<span className="icon icon-expand-more" />
-						</div>
-					}
-					content={
-						<ul className="codes-list">
-							{game.codes.map((code) => (
-								<li key={code} className="codes-list-item row middle-xs">
-									<div className="col xs-6">{code}</div>
-									<div className="col xs-6">
-										<div className="btn-group right">
-											<Button
-												// onClick={logOut}
-												iconName="icon-delete"
-												className=""
-												type="icon"
-											/>
-										</div>
-									</div>
-								</li>
+			{formattedGames?.length
+				? formattedGames.map((section) => (
+						<section className="page-section">
+							<h3 className="page-section-title">{section.title}</h3>
+							{section.data.map((game) => (
+								<Game key={game._id} data={game} />
 							))}
-						</ul>
-					}
-				/>
-			))}
+						</section>
+				  ))
+				: 'No games'}
 		</div>
 	);
 };
@@ -88,6 +72,8 @@ const mapStateToProps = ({ adminReducer }) => ({
 
 const mapDispatchToProps = {
 	getGames: adminActions.getGames,
+	removeGame: adminActions.removeGame,
+	startGame: adminActions.startGame,
 	toggleCreateGameModal: createGameActions.toggleCreateGameModal,
 };
 

@@ -45,10 +45,7 @@ export default function adminReducer(state = initialState, action) {
 		case adminActionTypes.REMOVE_GAME_SUCCESS:
 			return {
 				...state,
-				overviewData: {
-					...state.overviewData,
-					games: state.overviewData.games?.filter((el) => el._id !== id),
-				},
+				games: state.games?.filter((el) => el._id !== id),
 			};
 		case adminActionTypes.REMOVE_CODE_SUCCESS:
 			return {
@@ -69,20 +66,12 @@ export default function adminReducer(state = initialState, action) {
 		case adminActionTypes.ADD_GAME_TO_LIST:
 			return {
 				...state,
-				overviewData: {
-					...state.overviewData,
-					games: [...state.overviewData.games, data],
-				},
+				games: [data, ...state.games],
 			};
 		case adminActionTypes.UPDATE_GAME_IN_LIST:
 			return {
 				...state,
-				overviewData: {
-					...state.overviewData,
-					games: state.overviewData.games.map((game) =>
-						game._id === data._id ? data : game,
-					),
-				},
+				games: state.games.map((game) => (game._id === data._id ? data : game)),
 			};
 
 		case adminActionTypes.ADD_MANAGER_TO_LIST:
@@ -136,6 +125,21 @@ export default function adminReducer(state = initialState, action) {
 				...state,
 				games: data,
 				loadingGames: false,
+			};
+		case adminActionTypes.START_GAME_SUCCESS:
+			return {
+				...state,
+				games: [
+					...state.games.map((game) =>
+						game._id === data.id
+							? {
+									...game,
+									started: game._id === data.id,
+									end: !!data.end,
+							  }
+							: game,
+					),
+				],
 			};
 		case adminActionTypes.GET_GAMES_ERROR:
 			return {

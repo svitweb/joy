@@ -20,13 +20,12 @@ const CreateGameModal = ({
 	userData,
 	players,
 }) => {
-	const { _id, name: gameName, codesCount: gameCodesCount } = editData || {};
+	const { _id, name: gameName, startDate: editStartGame, players: editPlayers } = editData || {};
 	const { _id: managerId } = userData || {};
 
 	const [name, setName] = useState(gameName || '');
-	const [codesCount, setCodesCount] = useState(null);
 	const [startDate, setStartDate] = useState(null);
-	const [selectedPlayers, setSelectedPlayers] = useState(null);
+	const [selectedPlayers, setSelectedPlayers] = useState([]);
 
 	const valid = useMemo(() => name?.trim(), [name]);
 
@@ -35,13 +34,18 @@ const CreateGameModal = ({
 			getPlayers({ managerId });
 		} else {
 			setName('');
-			setCodesCount(null);
+			setSelectedPlayers([]);
+			setStartDate(null);
 			clearState();
 		}
 	}, [open]);
 
 	useEffect(() => {
-		if (editData) setName(gameName);
+		if (editData) {
+			setName(gameName);
+			setStartDate(editStartGame && new Date(editStartGame));
+			setSelectedPlayers(editPlayers || []);
+		}
 	}, [editData]);
 
 	const onClose = () => {
@@ -51,7 +55,7 @@ const CreateGameModal = ({
 	const submitManageGame = () => {
 		createGame({
 			editId: _id,
-			data: { name, startDate },
+			data: { name, startDate, players: selectedPlayers },
 		});
 	};
 

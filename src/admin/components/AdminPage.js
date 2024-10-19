@@ -40,8 +40,7 @@ const AdminPage = ({ userData, toggleSignInModal, signOut, getUserData }) => {
 						<h1 className="admin-page-title">
 							{!!userData ? (
 								<>
-									{name}
-									<Label title={role} />
+									{name} <Label title={role} />
 								</>
 							) : (
 								<>Upgrade</>

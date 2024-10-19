@@ -28,4 +28,8 @@ export const adminActionTypes = keyMirror({
 	GET_GAMES: null,
 	GET_GAMES_SUCCESS: null,
 	GET_GAMES_ERROR: null,
+
+	START_GAME: null,
+	START_GAME_SUCCESS: null,
+	START_GAME_ERROR: null,
 });

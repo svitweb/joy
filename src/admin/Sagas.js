@@ -12,17 +12,20 @@ import {
 	removeGameSuccess,
 	removeManagerError,
 	removeManagerSuccess,
+	startGameError,
+	startGameSuccess,
 } from './Actions';
 
 export default function* () {
 	yield all([
-		yield takeLatest(adminActionTypes.GET_MANAGERS, handleGetManagers),
-		yield takeLatest(adminActionTypes.REMOVE_MANAGER, handleRemoveManagers),
-		yield takeLatest(adminActionTypes.REMOVE_GAME, handleRemoveGame),
-		yield takeLatest(adminActionTypes.REMOVE_CODE, handleRemoveCode),
-		yield takeLatest(adminActionTypes.GET_REQUESTS, handleGetRequests),
-		yield takeLatest(adminActionTypes.CONNECT_MANAGER, handleConnectManager),
-		yield takeLatest(adminActionTypes.GET_GAMES, handleGetGamesData),
+		takeLatest(adminActionTypes.GET_MANAGERS, handleGetManagers),
+		takeLatest(adminActionTypes.REMOVE_MANAGER, handleRemoveManagers),
+		takeLatest(adminActionTypes.REMOVE_GAME, handleRemoveGame),
+		takeLatest(adminActionTypes.REMOVE_CODE, handleRemoveCode),
+		takeLatest(adminActionTypes.GET_REQUESTS, handleGetRequests),
+		takeLatest(adminActionTypes.CONNECT_MANAGER, handleConnectManager),
+		takeLatest(adminActionTypes.GET_GAMES, handleGetGamesData),
+		takeLatest(adminActionTypes.START_GAME, handleStartGame),
 	]);
 }
 
@@ -42,6 +45,15 @@ export function* handleRemoveManagers({ payload }) {
 		yield put(adminActions.removeManagerSuccess(id));
 	} catch (e) {
 		yield put(adminActions.removeManagerError(e));
+	}
+}
+
+export function* handleGetGamesData() {
+	try {
+		const { data } = yield call(processRequest, '/admin/games');
+		yield put(adminActions.getGamesSuccess(data));
+	} catch (e) {
+		yield put(adminActions.getGamesError(e));
 	}
 }
 
@@ -94,11 +106,15 @@ export function* handleConnectManager({ payload }) {
 	}
 }
 
-export function* handleGetGamesData() {
+export function* handleStartGame({ payload }) {
 	try {
-		const { data } = yield call(processRequest, '/admin/games');
-		yield put(adminActions.getGamesSuccess(data));
+		const { data } = payload || {};
+		const { id, end } = data || {};
+
+		yield call(processRequest, `/admin/games/${id}/start`, 'PATCH', { end });
+
+		yield put(adminActions.startGameSuccess(data));
 	} catch (e) {
-		yield put(adminActions.getGamesError(e));
+		yield put(adminActions.startGameError(e));
 	}
 }
