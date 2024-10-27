@@ -25,25 +25,17 @@ const FoldoutOptions = ({
 			) : (
 				<>
 					{options.map((item, index) => {
-						return (
+						return nested ? (
 							<div key={index} className={classNames('section', { nested })}>
-								{nested ? (
-									<>
-										{item[optionSectionKey] && (
-											<h5 className="section-title">
-												{item[optionSectionKey]}
-											</h5>
-										)}
-										{item[optionSectionBodyKey].map((row, rowIndex) => {
-											return (
-												<FoldoutItem {...rest} key={rowIndex} item={row} />
-											);
-										})}
-									</>
-								) : (
-									<FoldoutItem {...rest} item={item} />
+								{item[optionSectionKey] && (
+									<h5 className="section-title">{item[optionSectionKey]}</h5>
 								)}
+								{item[optionSectionBodyKey].map((row, rowIndex) => {
+									return <FoldoutItem {...rest} key={rowIndex} item={row} />;
+								})}
 							</div>
+						) : (
+							<FoldoutItem key={index} {...rest} item={item} />
 						);
 					})}
 					{customElements}

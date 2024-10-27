@@ -2,6 +2,7 @@ import '../styles/style.scss';
 import React, { memo, useEffect, useRef, useState, lazy } from 'react';
 // import ReactPlayer from 'react-player/lazy';
 import classNames from 'classnames';
+
 const Labyrinth = lazy(() => import('./Labyrinth'));
 const Tower = lazy(() => import('./Tower'));
 const CardsMenu = lazy(() => import('./CardsMenu'));
@@ -49,6 +50,8 @@ import { cardImages } from '../Helpers';
 import CircleProgress from './CircleProgress';
 import HelmetWrapper from '../../../components/HelmetWrapper';
 import { connect } from 'react-redux';
+import * as gameActions from '../Actions';
+import { useParams } from 'react-router-dom';
 
 const imagesToPreload = [
 	...cardImages,
@@ -90,7 +93,9 @@ const preloadImage = (src) =>
 		img.onerror = (err) => reject(err);
 	});
 
-const GamePage = ({ gameData }) => {
+const GamePage = ({ gameData, getGame }) => {
+	const { code } = useParams();
+
 	const { tower } = gameData || {};
 	const { active, completed } = tower || {};
 
@@ -101,6 +106,8 @@ const GamePage = ({ gameData }) => {
 	const [isLoaded, setIsLoaded] = useState(false);
 
 	useEffect(() => {
+		getGame({ code });
+
 		handleDesktopView();
 
 		const loadImages = async () => {
@@ -205,4 +212,8 @@ const mapStateToProps = ({ gamePageReducer }) => ({
 	gameData: gamePageReducer.gameData,
 });
 
-export default connect(mapStateToProps, null)(memo(GamePage));
+const mapDispatchToProps = {
+	getGame: gameActions.getGame,
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(memo(GamePage));

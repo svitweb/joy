@@ -20,14 +20,32 @@ const CreateGameModal = ({
 	userData,
 	players,
 }) => {
-	const { _id, name: gameName, startDate: editStartGame, players: editPlayers } = editData || {};
+	const {
+		_id,
+		name: gameName,
+		startDate: editStartGame,
+		players: editPlayers,
+		type: editType,
+	} = editData || {};
 	const { _id: managerId } = userData || {};
+
+	const typeOptions = [
+		{
+			title: 'Group',
+			id: 1,
+		},
+		{
+			title: 'Individual',
+			id: 2,
+		},
+	];
 
 	const [name, setName] = useState(gameName || '');
 	const [startDate, setStartDate] = useState(null);
+	const [type, setType] = useState(null);
 	const [selectedPlayers, setSelectedPlayers] = useState([]);
 
-	const valid = useMemo(() => name?.trim(), [name]);
+	const valid = useMemo(() => !!name?.trim() && !!type, [name, type]);
 
 	useEffect(() => {
 		if (open) {
@@ -36,6 +54,7 @@ const CreateGameModal = ({
 			setName('');
 			setSelectedPlayers([]);
 			setStartDate(null);
+			setType(null);
 			clearState();
 		}
 	}, [open]);
@@ -45,6 +64,9 @@ const CreateGameModal = ({
 			setName(gameName);
 			setStartDate(editStartGame && new Date(editStartGame));
 			setSelectedPlayers(editPlayers || []);
+			setType(
+				typeOptions.find((type) => type.title.toLowerCase() === editType.toLowerCase()),
+			);
 		}
 	}, [editData]);
 
@@ -55,7 +77,7 @@ const CreateGameModal = ({
 	const submitManageGame = () => {
 		createGame({
 			editId: _id,
-			data: { name, startDate, players: selectedPlayers },
+			data: { name, startDate, players: selectedPlayers, type: type.title },
 		});
 	};
 
@@ -89,22 +111,39 @@ const CreateGameModal = ({
 							// timeSelect={timeSelect}
 							// startDate={startDate}
 						/>
-						<Dropdown
-							options={[
-								{
-									section: 'Players',
-									body: players,
-								},
-							]}
-							optionValueKey="_id"
-							optionTitleKey="name"
-							value={selectedPlayers}
-							label={'Players'}
-							onChange={setSelectedPlayers}
-							floatingLabel
-							type="multi"
-							nested
-						/>
+						<div className="form-field">
+							<Dropdown
+								options={typeOptions}
+								optionValueKey="id"
+								// optionTitleKey="name"
+								value={type}
+								label={'Type'}
+								onChange={setType}
+								floatingLabel
+								// type="multi"
+								// nested
+							/>
+							<span className="error-msg">{}</span>
+						</div>
+						<div className="form-field">
+							<Dropdown
+								options={[
+									{
+										section: 'Players',
+										body: players,
+									},
+								]}
+								optionValueKey="_id"
+								optionTitleKey="name"
+								value={selectedPlayers}
+								label={'Players'}
+								onChange={setSelectedPlayers}
+								floatingLabel
+								type="multi"
+								nested
+							/>
+							<span className="error-msg">{}</span>
+						</div>
 						<div className="btn-group submit-btn-group right">
 							<Button
 								onClick={submitManageGame}

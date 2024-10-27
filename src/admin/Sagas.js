@@ -109,9 +109,9 @@ export function* handleConnectManager({ payload }) {
 export function* handleStartGame({ payload }) {
 	try {
 		const { data } = payload || {};
-		const { id, end } = data || {};
+		const { id, finished } = data || {};
 
-		yield call(processRequest, `/admin/games/${id}/start`, 'PATCH', { end });
+		yield call(processRequest, `/admin/games/${id}/start`, 'PATCH', { finished });
 
 		yield put(adminActions.startGameSuccess(data));
 	} catch (e) {

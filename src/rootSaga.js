@@ -2,6 +2,7 @@ import { fork } from 'redux-saga/effects';
 import menuSagas from './components/menu/Sagas';
 import mainPageSagas from './client/mainPage/Sagas';
 import gameRequestReducer from './components/modals/gameRequest/Sagas';
+import gamePageSagas from './client/gamePage/Sagas';
 
 import adminSagas from './admin/Sagas';
 import createManagerSagas from './admin/modals/createManager/Sagas';
@@ -13,6 +14,7 @@ export default function* rootSaga() {
 	yield fork(menuSagas);
 	yield fork(mainPageSagas);
 	yield fork(gameRequestReducer);
+	yield fork(gamePageSagas);
 	yield fork(adminSagas);
 	yield fork(createManagerSagas);
 	yield fork(signInSagas);

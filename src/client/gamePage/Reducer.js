@@ -7,6 +7,8 @@ const storedGameData = getLocalStorageItem('gameData');
 
 const initialState = {
 	gameData: storedGameData ? JSON.parse(storedGameData) : {},
+	loadingGetGame: true,
+	gameAvailable: false,
 };
 
 export default function gamePageReducer(state = initialState, action) {
@@ -14,6 +16,23 @@ export default function gamePageReducer(state = initialState, action) {
 	const { data } = payload || {};
 
 	switch (type) {
+		case gamePageActionTypes.GET_GAME:
+			return {
+				...state,
+				loadingGetGame: true,
+			};
+		case gamePageActionTypes.GET_GAME_SUCCESS:
+			return {
+				...state,
+				loadingGetGame: false,
+				gameAvailable: true,
+			};
+		case gamePageActionTypes.GET_GAME_ERROR:
+			return {
+				...state,
+				loadingGetGame: false,
+				gameAvailable: false,
+			};
 		case gamePageActionTypes.CHANGE_GAME_DATA:
 			setLocalStorageItem('gameData', JSON.stringify(data || {}));
 
@@ -21,7 +40,6 @@ export default function gamePageReducer(state = initialState, action) {
 				...state,
 				gameData: data,
 			};
-
 		default:
 			return state;
 	}

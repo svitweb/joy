@@ -40,6 +40,12 @@ import img37 from '../../images/gameIllustrations/metaCards/37.webp';
 import img38 from '../../images/gameIllustrations/metaCards/38.webp';
 import img39 from '../../images/gameIllustrations/metaCards/39.webp';
 import img40 from '../../images/gameIllustrations/metaCards/40.webp';
+import img41 from '../../images/gameIllustrations/metaCards/41.webp';
+import img42 from '../../images/gameIllustrations/metaCards/42.webp';
+import img43 from '../../images/gameIllustrations/metaCards/43.webp';
+import img44 from '../../images/gameIllustrations/metaCards/44.webp';
+import img45 from '../../images/gameIllustrations/metaCards/45.webp';
+import img46 from '../../images/gameIllustrations/metaCards/46.webp';
 
 export const cardImages = [
 	img1,
@@ -82,6 +88,12 @@ export const cardImages = [
 	img38,
 	img39,
 	img40,
+	img41,
+	img42,
+	img43,
+	img44,
+	img45,
+	img46,
 ];
 
 export const getQuestionsByType = (type) =>
@@ -93,7 +105,7 @@ export const getQuestionsByType = (type) =>
 		}));
 
 export const getMetaCards = () =>
-	Array(40)
+	Array(46)
 		.fill('')
 		.map((val, index) => ({
 			id: `meta${index + 1}`,

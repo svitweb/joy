@@ -10,7 +10,7 @@ import Accordion from '../../../components/accordion/Accordion';
 import Label from '../../../components/label/Label';
 
 const Game = ({ data, toggleCreateGameModal, removeGame, startGame }) => {
-	const { _id, name, startDate, players, started, end } = data || {};
+	const { _id, name, startDate, players, started, finished } = data || {};
 
 	const handleRemoveGame = (e) => {
 		e.stopPropagation();
@@ -26,7 +26,7 @@ const Game = ({ data, toggleCreateGameModal, removeGame, startGame }) => {
 		e.stopPropagation();
 
 		if (started) {
-			if (confirm('Do you really want to end game?')) startGame({ id: _id, end: true });
+			if (confirm('Do you really want to end game?')) startGame({ id: _id, finished: true });
 			return;
 		}
 
@@ -43,13 +43,13 @@ const Game = ({ data, toggleCreateGameModal, removeGame, startGame }) => {
 					<div className="col xs-6">
 						<h4 className="title">
 							{name}{' '}
-							{!!started && !end && <Label title="game in progress" color="green" />}
+							{!!started && !finished && <Label title="game in progress" color="green" />}
 						</h4>
 						<span className="info">players count: {players?.length || '0'}</span>
 					</div>
 					<div className="col xs-6">
 						<div className="btn-group right">
-							{!!players?.length && startDate && !end && (
+							{!!players?.length && startDate && !finished && (
 								<Button
 									onClick={handleStartGame}
 									type="icon"
@@ -65,7 +65,7 @@ const Game = ({ data, toggleCreateGameModal, removeGame, startGame }) => {
 									className=""
 								/>
 							)}
-							{(!started || end) && (
+							{(!started || finished) && (
 								<Button
 									onClick={handleRemoveGame}
 									type="icon"

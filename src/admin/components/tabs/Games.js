@@ -24,13 +24,13 @@ const Games = ({ getGames, loadingGames, games, toggleCreateGameModal, removeGam
 			const categorizeGames = [
 				{
 					title: 'In Progress Games',
-					data: games.filter((game) => game.started && !game.end),
+					data: games.filter((game) => game.started && !game.finished),
 				},
 				{
 					title: 'Pending Games',
-					data: games.filter((game) => !game.started && !game.end),
+					data: games.filter((game) => !game.started && !game.finished),
 				},
-				{ title: 'Finished Games', data: games.filter((game) => game.end) },
+				{ title: 'Finished Games', data: games.filter((game) => game.finished) },
 			];
 
 			const formattedGames = categorizeGames.filter(({ data }) => data.length > 0);
@@ -53,7 +53,7 @@ const Games = ({ getGames, loadingGames, games, toggleCreateGameModal, removeGam
 			{loadingGames && <Spinner />}
 			{formattedGames?.length
 				? formattedGames.map((section) => (
-						<section className="page-section">
+						<section className="page-section" key={section.title}>
 							<h3 className="page-section-title">{section.title}</h3>
 							{section.data.map((game) => (
 								<Game key={game._id} data={game} />

@@ -21,7 +21,7 @@ const App = () => {
 		<LanguageProvider>
 			<Switch>
 				<PrivateRoute exact path="/" component={MainPage} />
-				<PrivateRoute exact path="/game/:id" component={GamePage} />
+				<PrivateRoute exact path="/game/:code" component={GamePage} />
 				<PrivateRoute exact path={["/admin", "/admin/:tab"]} component={AdminPage} />
 				{/* <Route exact path="/sign-in" component={SignIn} /> */}
 			</Switch>
