@@ -23,7 +23,6 @@ const Managers = ({
 	return (
 		<div className="admin-section">
 			<header className="admin-section-header">
-				<h3>Managers</h3>
 				<div className="btn-group">
 					<Button
 						iconName="icon-add"

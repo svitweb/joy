@@ -1,0 +1,33 @@
+.request-card {
+	.title {
+		margin-top: 8px;
+	}
+
+	.info {
+		margin-top: 4px;
+		font-size: 14px;
+		opacity: .8;
+	}
+
+	.actions {
+		display: flex;
+		align-items: center;
+		margin-top: 8px;
+
+		.wrts-dropdown {
+			width: auto;
+			flex: 0 0 200px;
+		}
+
+		.btn {
+			margin-left: 16px;
+		}
+	}
+
+	+ .request-card {
+		margin-top: 16px;
+		padding-top: 16px;
+		border-top: 1px solid rgba(255, 255, 255, 0.2);
+	}
+
+}

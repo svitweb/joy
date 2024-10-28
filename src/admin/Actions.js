@@ -133,9 +133,10 @@ export function connectManager(data) {
 	};
 }
 
-export function connectManagerSuccess() {
+export function connectManagerSuccess(data) {
 	return {
 		type: adminActionTypes.CONNECT_MANAGER_SUCCESS,
+		payload: { data },
 	};
 }
 

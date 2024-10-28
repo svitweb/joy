@@ -1,20 +1,11 @@
-import React, { memo, useEffect, useMemo, useState } from 'react';
+import React, { memo, useEffect, useState } from 'react';
 import { compose } from 'redux';
 import { connect } from 'react-redux';
-import PropTypes from 'prop-types';
-import moment from 'moment';
-import * as adminActions from '../../Actions';
-import * as createGameActions from '../../modals/createGame/Actions';
-import * as connectEmailActions from '../../modals/connectEmail/Actions';
-import Button from '../../../components/button/Button';
-import Accordion from '../../../components/accordion/Accordion';
-import CreateGameModal from '../../modals/createGame/components/CreateGameModal';
-import ConnectEmailModal from '../../modals/connectEmail/components/ConnectEmailModal';
-import Spinner from '../../../components/Spinner';
-import Label from '../../../components/label/Label';
-import Dropdown from '../../../components/dropdown/Dropdown';
-import RequestCard from '../RequestCard';
 import classNames from 'classnames';
+import * as adminActions from '../../Actions';
+import Button from '../../../components/button/Button';
+import Spinner from '../../../components/Spinner';
+import RequestCard from '../RequestCard';
 
 const Requests = ({ getRequests, loadingRequests, requests, getManagers, managers, userData }) => {
 	const [type, setType] = useState('pending');
@@ -30,27 +21,41 @@ const Requests = ({ getRequests, loadingRequests, requests, getManagers, manager
 	}, [role]);
 
 	useEffect(() => {
-		getRequests({ type, managerId: role === 'manager' ? _id : undefined });
+		handleReload();
 	}, [type, role, _id]);
+
+	const handleReload = () => {
+		getRequests({ type, managerId: role === 'manager' ? _id : undefined });
+	};
 
 	return (
 		<>
-			{role === 'admin' && (
-				<div className="btn-group">
-					<Button
-						className={classNames('switch-btn', { active: type === 'pending' })}
-						title="Pending"
-						onClick={() => setType('pending')}
-					/>
-					<Button
-						className={classNames('switch-btn', { active: type === 'connected' })}
-						title="Connected"
-						onClick={() => setType('connected')}
-					/>
-				</div>
-			)}
+			<div className="btn-group">
+				{role === 'admin' && (
+					<>
+						<Button
+							className={classNames('switch-btn', { active: type === 'pending' })}
+							title="Pending"
+							onClick={() => setType('pending')}
+							type="link"
+						/>
+						<Button
+							className={classNames('switch-btn', { active: type === 'connected' })}
+							title="Connected"
+							onClick={() => setType('connected')}
+							type="link"
+						/>
+					</>
+				)}
+				<Button
+					type="icon"
+					iconName="icon-reload"
+					title="reload"
+					className="reload-btn"
+					onClick={handleReload}
+				/>
+			</div>
 			<section className="admin-section">
-				<header className="admin-section-header">{/* <h3>Requests</h3> */}</header>
 				{loadingRequests && <Spinner />}
 				{!!requests?.length &&
 					requests.map((request) => (
@@ -62,8 +67,6 @@ const Requests = ({ getRequests, loadingRequests, requests, getManagers, manager
 						/>
 					))}
 			</section>
-			<CreateGameModal />
-			<ConnectEmailModal />
 		</>
 	);
 };

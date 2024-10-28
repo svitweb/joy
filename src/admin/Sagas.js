@@ -99,8 +99,9 @@ export function* handleConnectManager({ payload }) {
 	try {
 		const { data } = payload || {};
 
-		const { data: respData } = yield call(processRequest, `/requests/${data.id}`, 'PUT', data);
-		yield put(adminActions.connectManagerSuccess(respData));
+		yield call(processRequest, `/requests/${data.id}`, 'PUT', data);
+
+		yield put(adminActions.connectManagerSuccess(!data.isManager ? data : null));
 	} catch (e) {
 		yield put(adminActions.connectManagerError(e));
 	}

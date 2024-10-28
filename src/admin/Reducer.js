@@ -106,7 +106,7 @@ export default function adminReducer(state = initialState, action) {
 		case adminActionTypes.CONNECT_MANAGER_SUCCESS:
 			return {
 				...state,
-				// requests: data,
+				requests: data ? state.requests.filter((el) => el._id !== data.id) : state.requests,
 				loadingConnectManager: false,
 			};
 		case adminActionTypes.CONNECT_MANAGER_ERROR:

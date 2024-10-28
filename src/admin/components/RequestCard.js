@@ -1,3 +1,4 @@
+import '../styles/request_card.scss';
 import React, { memo, useEffect, useMemo, useState } from 'react';
 import { compose } from 'redux';
 import { connect } from 'react-redux';
@@ -13,37 +14,49 @@ const RequestCard = ({ data, managers, connectManager, isAdmin }) => {
 	const [selectedManager, setSelectedManager] = useState(manager);
 
 	const handleConnectManager = () => {
-		connectManager({ id: _id, managerId: selectedManager._id });
+		connectManager({ id: _id, managerId: selectedManager._id, isManager: !!managerId });
 	};
 
 	return (
-		<div>
-			<Label title={gamePackage} color={gamePackage === 'group' ? 'blue' : undefined} />
-			<h4>{name}</h4>
-			<div>{phone}</div>
-			<div>{email}</div>
-			{isAdmin &&
-				(manager ? (
-					<div>Manager: {managerName}</div>
-				) : (
-					<>
-						<Dropdown
-							options={managers}
-							optionTitleKey="name"
-							value={manager}
-							label={selectedManager ? 'Manager:' : 'Select manager'}
-							onChange={setSelectedManager}
-							floatingLabel
-						/>
-						{!!selectedManager && managerId !== selectedManager._id && (
-							<Button
-								type="icon"
-								iconName="icon-add"
-								onClick={handleConnectManager}
+		<div className="request-card">
+			<div className="row middle-xs">
+				<div className="col m-4 title-col">
+					<Label
+						title={gamePackage}
+						color={gamePackage === 'group' ? 'blue' : undefined}
+					/>
+					<h4 className="title">{name}</h4>
+				</div>
+				<div className="col m-2">
+					<div className="info">{phone}</div>
+				</div>
+				<div className="col m-3">
+					<div className="info">{email}</div>
+				</div>
+				<div className="col m-3">
+					{isAdmin && (
+						<div className="actions">
+							<Dropdown
+								options={managers}
+								optionTitleKey="name"
+								value={manager}
+								label={selectedManager ? 'Manager:' : 'Select manager'}
+								onChange={setSelectedManager}
+								floatingLabel
+								drawerTitle="Select manager"
+								small
 							/>
-						)}
-					</>
-				))}
+							{!!selectedManager && managerId !== selectedManager._id && (
+								<Button
+									type="icon"
+									iconName="icon-add"
+									onClick={handleConnectManager}
+								/>
+							)}
+						</div>
+					)}
+				</div>
+			</div>
 		</div>
 	);
 };
