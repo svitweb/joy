@@ -35,6 +35,32 @@ const LabyrinthQuestionModal = ({
 			setTimeout(() => {
 				setVisible(!!open);
 			}, 200);
+
+		if (objType === 'main' && type) {
+			const { redLab, purpleLab, goldLab, blueLab } = gameData || {};
+			const labData = gameData?.[`${type}Lab`];
+			const otherReadyQuestions = [redLab, purpleLab, goldLab, blueLab]
+				.filter((lab) => lab && lab !== labData && lab.ready_question)
+				.map((lab) => lab.ready_question);
+
+			const generateUniqueRandom = () => {
+				let randomValue;
+				do {
+					randomValue = Math.ceil(Math.random() * 4).toString();
+				} while (otherReadyQuestions.includes(randomValue.toString()));
+				return randomValue;
+			};
+
+			if (!labData?.ready_question) {
+				changeData({
+					...gameData,
+					[`${type}Lab`]: {
+						...labData,
+						ready_question: generateUniqueRandom(),
+					},
+				});
+			}
+		}
 	}, [open]);
 
 	const handleOnClose = (status) => {
@@ -98,7 +124,8 @@ const LabyrinthQuestionModal = ({
 		>
 			<div
 				className={classNames('bg', type, objType, { active: objType !== 'main' })}
-				onClick={objType === 'main' ? undefined : handleOnClose}
+				// onClick={objType === 'main' ? undefined : handleOnClose}
+				onClick={handleOnClose}
 			/>
 			{objType === 'top' && (
 				<p className="desc">
@@ -111,11 +138,12 @@ const LabyrinthQuestionModal = ({
 			)}
 			{objType === 'main' && (
 				<p className="desc">
-					{step === 1 ? t('object.ready_question') : t(`object.${type}_question`)}
+					{/* {step === 1 ? t('object.ready_question') : t(`object.${type}_question`)} */}
+					{t(`object.ready_question.${gameData[`${type}Lab`]?.ready_question}`)}
 				</p>
 			)}
 			{!!desc && <p className="desc">{desc}</p>}
-			{objType === 'main' && (
+			{/* {objType === 'main' && (
 				<div className="btn-group center">
 					<Button
 						type="icon"
@@ -130,7 +158,7 @@ const LabyrinthQuestionModal = ({
 						onClick={() => handleOnClose(true)}
 					/>
 				</div>
-			)}
+			)} */}
 		</Modal>
 	);
 };
