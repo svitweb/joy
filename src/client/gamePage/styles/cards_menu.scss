@@ -118,6 +118,15 @@
 				background-image: url('../../../images/gameIllustrations/bg/blueBg.jpg');
 			}
 
+			&.homework {
+				filter: none;
+
+				.menu-card-inner {
+					width: 110px;
+					background-image: url('../../../images/gameIllustrations/bg/towerModalBg.jpg');
+				}
+			}
+
 			&.response {
 				filter: none;
 

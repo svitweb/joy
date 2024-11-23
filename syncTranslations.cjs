@@ -62,7 +62,7 @@ function updateLocale(baseLocale, targetLocale) {
 }
 
 const pathToFile = 'src/utils/localization/';
-const baseLocalePath = path.resolve(__dirname, `${pathToFile}enLocale.json`);
+const baseLocalePath = path.resolve(__dirname, `${pathToFile}ruLocale.json`);
 const baseLocale = readLocale(baseLocalePath);
 
 if (baseLocale) {
@@ -70,7 +70,7 @@ if (baseLocale) {
 	writeLocale(baseLocalePath, sortedBaseLocale);
 
 	localeNames.forEach((locale) => {
-		if (locale !== 'en') {
+		if (locale !== 'ru') {
 			const localePath = path.resolve(__dirname, `${pathToFile}${locale}Locale.json`);
 			const targetLocale = readLocale(localePath);
 

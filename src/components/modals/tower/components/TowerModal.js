@@ -1,5 +1,5 @@
 import '../styles/style.scss';
-import React, { memo, useEffect, useState } from 'react';
+import React, { memo } from 'react';
 import { connect } from 'react-redux';
 import { useTranslation } from 'react-i18next';
 import classNames from 'classnames';
@@ -16,50 +16,27 @@ const TowerModal = ({
 	changeData,
 	setAudioVisualization,
 	gameData = {},
+	completedType,
+	clearState,
 }) => {
 	const { t } = useTranslation();
 
 	const { tower } = gameData || {};
-	const { active, response, completed } = tower || {};
-
-	const [isResponse, setIsResponse] = useState(false);
-	const [reject, setReject] = useState(false);
-
-	useEffect(() => {
-		if (!open && !!response) {
-			setIsResponse(true);
-		}
-	}, [open]);
+	const { active, homework, toResponse, response, completed } = tower || {};
 
 	const handleOnClose = (isRejected) => {
-		if (isRejected) setReject(true);
-
-		if (!active) setAudioVisualization({ audioFileName: audioVisualizationTypes.TOWER_ACTIVE });
+		// if (!active) setAudioVisualization({ audioFileName: audioVisualizationTypes.TOWER_ACTIVE });
 
 		toggleTowerModal({ open: false });
 
-		if (!active || completed) return;
+		if (!active) {
+			if (isRejected) return;
 
-		if (isRejected) {
 			setTimeout(() => {
 				changeData({
 					...gameData,
 					tower: {
-						...tower,
-						completed: true,
-					},
-				});
-			}, 200);
-			return;
-		}
-
-		if (!response) {
-			setTimeout(() => {
-				changeData({
-					...gameData,
-					tower: {
-						...tower,
-						response: Math.floor(Math.random() * 30),
+						active: true,
 					},
 				});
 			}, 200);
@@ -67,25 +44,87 @@ const TowerModal = ({
 			setTimeout(() => {
 				toggleTowerModal({ open: true });
 			}, 400);
-			return;
 		}
 
-		if (!completed) {
-			const selectedCards = gameData.selectedCards || [];
-			selectedCards.push({
-				id: 'response-card',
-				type: 'response',
-				desc: t(`tower.response.${response}`),
-			});
+		if (active && !homework) {
+			setTimeout(() => {
+				changeData({
+					...gameData,
+					tower: {
+						...tower,
+						homework: isRejected ? 'rejected' : Math.floor(Math.random() * 36),
+						toResponse: isRejected,
+					},
+				});
+			}, 200);
 
-			changeData({
-				...gameData,
-				tower: {
-					...tower,
-					completed: true,
-				},
-				selectedCards,
-			});
+			setTimeout(() => {
+				toggleTowerModal({ open: true });
+			}, 400);
+		}
+
+		if (homework && !toResponse) {
+			setTimeout(() => {
+				const selectedCards = gameData.selectedCards || [];
+
+				selectedCards.push({
+					id: 'homework-card',
+					type: 'homework',
+					desc: t(`tower.homework.${homework}`),
+				});
+
+				changeData({
+					...gameData,
+					tower: {
+						...tower,
+						toResponse: true,
+					},
+					selectedCards,
+				});
+			}, 200);
+
+			setTimeout(() => {
+				toggleTowerModal({ open: true });
+			}, 400);
+		}
+
+		if (toResponse && !response) {
+			setTimeout(() => {
+				changeData({
+					...gameData,
+					tower: {
+						...tower,
+						response: isRejected ? 'rejected' : Math.floor(Math.random() * 40),
+						completed: isRejected,
+					},
+				});
+			}, 200);
+
+			if (!isRejected)
+				setTimeout(() => {
+					toggleTowerModal({ open: true });
+				}, 400);
+		}
+
+		if (response && !completed) {
+			setTimeout(() => {
+				const selectedCards = gameData.selectedCards || [];
+
+				selectedCards.push({
+					id: 'response-card',
+					type: 'response',
+					desc: t(`tower.response.${response}`),
+				});
+
+				changeData({
+					...gameData,
+					tower: {
+						...tower,
+						completed: true,
+					},
+					selectedCards,
+				});
+			}, 200);
 		}
 	};
 
@@ -93,34 +132,32 @@ const TowerModal = ({
 		<Modal
 			isOpen={open}
 			className={classNames('tower-modal', {
-				response: !!response,
-				completed: isResponse || completed,
+				response: completedType === 'response' || (!!response && !completed),
+				completed: completed,
 			})}
-			clearState={() => {
-				if (!reject && !active)
-					changeData({
-						...gameData,
-						tower: {
-							active: true,
-						},
-					});
-
-				setReject(false);
-				setIsResponse(false);
-			}}
+			clearState={clearState}
 		>
 			<div
 				className="bg"
 				onClick={completed ? () => toggleTowerModal({ open: false }) : undefined}
 			/>
-			<p className="desc">
-				{!active && t('tower.ready_question')}
-				{!!active && !response && t('Ready for Game response?')}
-				{!!active && !!response && t(`tower.response.${response}`)}
-			</p>
+			{!completed ? (
+				<p className="desc">
+					{!active && !homework && t('tower.ready')}
+					{!!active && !homework && t('tower.ready_homework')}
+					{!!homework && !toResponse && t(`tower.homework.${homework}`)}
+					{toResponse && !response && t(`tower.ready_response`)}
+					{!!response && t(`tower.response.${response}`)}
+				</p>
+			) : (
+				<p className="desc">
+					{completedType === 'homework' && t(`tower.homework.${homework}`)}
+					{completedType === 'response' && t(`tower.response.${response}`)}
+				</p>
+			)}
 			{!completed && (
 				<div className="btn-group center">
-					{!response ? (
+					{!active || (!!active && !homework) || (toResponse && !response) ? (
 						<>
 							<Button
 								className="action-btn"
@@ -136,7 +173,12 @@ const TowerModal = ({
 							/>
 						</>
 					) : (
-						<Button title="Accept" onClick={() => handleOnClose(false)} />
+						<Button
+							className="action-btn"
+							type="icon"
+							iconName="icon-yes"
+							onClick={() => handleOnClose(false)}
+						/>
 					)}
 				</div>
 			)}
@@ -146,6 +188,7 @@ const TowerModal = ({
 
 const mapStateToProps = ({ towerModalReducer, gamePageReducer }) => ({
 	open: towerModalReducer.open,
+	completedType: towerModalReducer.completedType,
 	gameData: gamePageReducer.gameData,
 });
 

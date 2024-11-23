@@ -1,5 +1,7 @@
 const PRODUCTION_API_URL = 'https://upgradenjag-be.vercel.app';
-const DEV_API_URL = 'http://localhost:3030';
+// const DEV_API_URL = 'http://localhost:3030';
+const DEV_API_URL = 'https://upgradenjag-be.vercel.app';
+
 const PRODUCTION_URL = 'http://localhost:3000';
 const DEV_URL = 'http://localhost:3000';
 

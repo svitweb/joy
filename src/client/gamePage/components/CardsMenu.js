@@ -37,9 +37,8 @@ const CardsMenu = ({
 			return;
 		}
 
-		if (cardData.type === 'response') {
-			toggleTowerModal({ open: true });
-
+		if (cardData.type === 'homework' || cardData.type === 'response') {
+			toggleTowerModal({ open: true, completedType: cardData.type });
 			return;
 		}
 
