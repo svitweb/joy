@@ -190,8 +190,9 @@
 				}
 
 				.container {
-					position: relative;
+					position: static;
 					height: 100%;
+					max-width: 700px;
 					display: flex;
 					align-items: center;
 					justify-content: center;
@@ -199,24 +200,24 @@
 
 				.labyrinth-section {
 					transition: all 0.2s ease-out;
-					max-width: 700px;
+					max-width: calc(100vh - 140px);
 					margin-bottom: 0;
 				}
 
 				&.purple {
-					background-image: url('../../../images/gameIllustrations/bg/purpleBgOverlay.jpg');
+					background-image: url('../../../images/gameIllustrations/bg/purpleBg.jpg');
 				}
 
 				&.blue {
-					background-image: url('../../../images/gameIllustrations/bg/blueBgOverlay.jpg');
+					background-image: url('../../../images/gameIllustrations/bg/blueBg.jpg');
 				}
 
 				&.gold {
-					background-image: url('../../../images/gameIllustrations/bg/goldBgOverlay.jpg');
+					background-image: url('../../../images/gameIllustrations/bg/goldBg.jpg');
 				}
 
 				&.red {
-					background-image: url('../../../images/gameIllustrations/bg/redBgOverlay.jpg');
+					background-image: url('../../../images/gameIllustrations/bg/redBg.jpg');
 				}
 			}
 		}
@@ -511,5 +512,23 @@
 	.labyrinth-section {
 		max-width: 36vh;
 		margin-bottom: 10px;
+
+		&-wrap.focus {
+			&.purple {
+				background-image: url('../../../images/gameIllustrations/bg/purpleBgOverlay.jpg');
+			}
+
+			&.blue {
+				background-image: url('../../../images/gameIllustrations/bg/blueBgOverlay.jpg');
+			}
+
+			&.gold {
+				background-image: url('../../../images/gameIllustrations/bg/goldBgOverlay.jpg');
+			}
+
+			&.red {
+				background-image: url('../../../images/gameIllustrations/bg/redBgOverlay.jpg');
+			}
+		}
 	}
 }

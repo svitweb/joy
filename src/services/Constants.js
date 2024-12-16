@@ -17,3 +17,5 @@ export const baseVar = { authentication: false };
 export const COOKIES = { accessToken: null };
 
 export const AVAILABLE_LANGUAGES = ['ua', 'en', 'ru'];
+
+export const LABYRINTH_MAIN_OBJ_QUESTIONS_LENGTH = 30;

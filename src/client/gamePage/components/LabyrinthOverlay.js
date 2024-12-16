@@ -4809,183 +4809,182 @@ const LabyrinthOverlay = ({ type, gameData }) => {
 							fill="#FFDACE"
 						/>
 					</g>
-
 					<g
-						filter="url(#filter7_d_2236_358)"
+						filter="url(#filter6_d_2236_358)"
 						className={classNames('hide', { show: count > 29 })}
 					>
 						<circle cx="439" cy="521" r="5" fill="#FFE1E4" />
 					</g>
 					<g
-						filter="url(#filter8_d_2236_358)"
+						filter="url(#filter7_d_2236_358)"
 						className={classNames('hide', { show: count > 28 })}
 					>
 						<circle cx="444" cy="594" r="5" fill="#FFE1E4" />
 					</g>
 					<g
-						filter="url(#filter9_d_2236_358)"
+						filter="url(#filter8_d_2236_358)"
 						className={classNames('hide', { show: count > 27 })}
 					>
 						<circle cx="583" cy="516" r="5" fill="#FFE1E4" />
 					</g>
 					<g
-						filter="url(#filter10_d_2236_358)"
+						filter="url(#filter9_d_2236_358)"
 						className={classNames('hide', { show: count > 26 })}
 					>
 						<circle cx="662" cy="539" r="5" fill="#FFE1E4" />
 					</g>
 					<g
-						filter="url(#filter11_d_2236_358)"
+						filter="url(#filter10_d_2236_358)"
 						className={classNames('hide', { show: count > 25 })}
 					>
 						<circle cx="723" cy="537" r="5" fill="#FFE1E4" />
 					</g>
 					<g
-						filter="url(#filter12_d_2236_358)"
+						filter="url(#filter11_d_2236_358)"
 						className={classNames('hide', { show: count > 24 })}
 					>
 						<circle cx="792" cy="604" r="6" fill="#FFE1E4" />
 					</g>
 					<g
-						filter="url(#filter13_d_2236_358)"
+						filter="url(#filter12_d_2236_358)"
 						className={classNames('hide', { show: count > 23 })}
 					>
 						<circle cx="792" cy="563" r="6" fill="#FFE1E4" />
 					</g>
 					<g
-						filter="url(#filter14_d_2236_358)"
+						filter="url(#filter13_d_2236_358)"
 						className={classNames('hide', { show: count > 22 })}
 					>
 						<circle cx="618" cy="659" r="7" fill="#FFE1E4" />
 					</g>
 					<g
-						filter="url(#filter15_d_2236_358)"
+						filter="url(#filter14_d_2236_358)"
 						className={classNames('hide', { show: count > 21 })}
 					>
 						<circle cx="611" cy="606" r="6" fill="#FFE1E4" />
 					</g>
 					<g
-						filter="url(#filter16_d_2236_358)"
+						filter="url(#filter15_d_2236_358)"
 						className={classNames('hide', { show: count > 20 })}
 					>
 						<circle cx="533" cy="629" r="6" fill="#FFE1E4" />
 					</g>
 					<g
-						filter="url(#filter17_d_2236_358)"
+						filter="url(#filter16_d_2236_358)"
 						className={classNames('hide', { show: count > 19 })}
 					>
 						<circle cx="390" cy="620" r="6" fill="#FFE1E4" />
 					</g>
 					<g
-						filter="url(#filter18_d_2236_358)"
+						filter="url(#filter17_d_2236_358)"
 						className={classNames('hide', { show: count > 18 })}
 					>
 						<circle cx="700" cy="588" r="6" fill="#FFE1E4" />
 					</g>
 					<g
-						filter="url(#filter19_d_2236_358)"
+						filter="url(#filter18_d_2236_358)"
 						className={classNames('hide', { show: count > 17 })}
 					>
 						<circle cx="320" cy="627" r="6" fill="#FFE1E4" />
 					</g>
 					<g
-						filter="url(#filter20_d_2236_358)"
+						filter="url(#filter19_d_2236_358)"
 						className={classNames('hide', { show: count > 16 })}
 					>
 						<circle cx="247" cy="597" r="5" fill="#FFE1E4" />
 					</g>
 					<g
-						filter="url(#filter21_d_2236_358)"
+						filter="url(#filter20_d_2236_358)"
 						className={classNames('hide', { show: count > 15 })}
 					>
 						<circle cx="319" cy="557" r="5" fill="#FFE1E4" />
 					</g>
 					<g
-						filter="url(#filter22_d_2236_358)"
+						filter="url(#filter21_d_2236_358)"
 						className={classNames('hide', { show: count > 14 })}
 					>
 						<circle cx="611" cy="769" r="10" fill="#FFE1E4" />
 					</g>
 					<g
-						filter="url(#filter23_d_2236_358)"
+						filter="url(#filter22_d_2236_358)"
 						className={classNames('hide', { show: count > 13 })}
 					>
 						<circle cx="423" cy="767" r="10" fill="#FFE1E4" />
 					</g>
 					<g
-						filter="url(#filter24_d_2236_358)"
+						filter="url(#filter23_d_2236_358)"
 						className={classNames('hide', { show: count > 12 })}
 					>
 						<circle cx="479" cy="738" r="9" fill="#FFE1E4" />
 					</g>
 					<g
-						filter="url(#filter25_d_2236_358)"
+						filter="url(#filter24_d_2236_358)"
 						className={classNames('hide', { show: count > 11 })}
 					>
 						<circle cx="326" cy="728" r="9" fill="#FFE1E4" />
 					</g>
 					<g
-						filter="url(#filter26_d_2236_358)"
+						filter="url(#filter25_d_2236_358)"
 						className={classNames('hide', { show: count > 10 })}
 					>
 						<circle cx="233" cy="671" r="9" fill="#FFE1E4" />
 					</g>
 					<g
-						filter="url(#filter27_d_2236_358)"
+						filter="url(#filter26_d_2236_358)"
 						className={classNames('hide', { show: count > 9 })}
 					>
 						<circle cx="739" cy="733" r="9" fill="#FFE1E4" />
 					</g>
 					<g
-						filter="url(#filter28_d_2236_358)"
+						filter="url(#filter27_d_2236_358)"
 						className={classNames('hide', { show: count > 8 })}
 					>
 						<circle cx="686" cy="697" r="8" fill="#FFE1E4" />
 					</g>
 					<g
-						filter="url(#filter29_d_2236_358)"
+						filter="url(#filter28_d_2236_358)"
 						className={classNames('hide', { show: count > 7 })}
 					>
 						<circle cx="803" cy="675" r="9" fill="#FFE1E4" />
 					</g>
 					<g
-						filter="url(#filter30_d_2236_358)"
+						filter="url(#filter29_d_2236_358)"
 						className={classNames('hide', { show: count > 6 })}
 					>
 						<circle cx="361" cy="673" r="7" fill="#FFE1E4" />
 					</g>
 					<g
-						filter="url(#filter31_d_2236_358)"
+						filter="url(#filter30_d_2236_358)"
 						className={classNames('hide', { show: count > 5 })}
 					>
 						<circle cx="697" cy="642" r="7" fill="#FFE1E4" />
 					</g>
 					<g
-						filter="url(#filter32_d_2236_358)"
+						filter="url(#filter31_d_2236_358)"
 						className={classNames('hide', { show: count > 4 })}
 					>
 						<circle cx="839" cy="599" r="7" fill="#FFE1E4" />
 					</g>
 					<g
-						filter="url(#filter33_d_2236_358)"
+						filter="url(#filter32_d_2236_358)"
 						className={classNames('hide', { show: count > 3 })}
 					>
 						<circle cx="212" cy="571" r="7" fill="#FFE1E4" />
 					</g>
 					<g
-						filter="url(#filter34_d_2236_358)"
+						filter="url(#filter33_d_2236_358)"
 						className={classNames('hide', { show: count > 2 })}
 					>
 						<circle cx="423" cy="711" r="8" fill="#FFE1E4" />
 					</g>
 					<g
-						filter="url(#filter35_d_2236_358)"
+						filter="url(#filter34_d_2236_358)"
 						className={classNames('hide', { show: count > 1 })}
 					>
 						<circle cx="502" cy="671" r="8" fill="#FFE1E4" />
 					</g>
 					<g
-						filter="url(#filter36_d_2236_358)"
+						filter="url(#filter35_d_2236_358)"
 						className={classNames('hide', { show: count > 0 })}
 					>
 						<circle cx="600" cy="712" r="8" fill="#FFE1E4" />

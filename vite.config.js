@@ -39,7 +39,7 @@ export default defineConfig({
 	},
 	build: {
 		sourcemap: true,
-		minify: 'esbuild',
+		// minify: 'esbuild',
 		cssMinify: true,
 	},
 	test: {

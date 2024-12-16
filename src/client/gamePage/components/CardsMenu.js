@@ -45,6 +45,7 @@ const CardsMenu = ({
 		toggleLabyrinthQuestionModal({
 			open: true,
 			type: cardData.type,
+			objType: cardData.objType,
 			data: cardData,
 		});
 	};
@@ -134,7 +135,7 @@ const CardsMenu = ({
 						items={selectedCards.map((card, index) => (
 							<div
 								key={index}
-								className={classNames('menu-card', card.type)}
+								className={classNames('menu-card', card.type, card.objType)}
 								onClick={() => handleClickOnCard(card)}
 							>
 								<div

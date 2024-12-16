@@ -15,19 +15,19 @@ import * as gameActions from '../Actions';
 import * as labyrinthQuestionModalActions from '../../../components/modals/labyrinthQuestion/Actions';
 import * as audioVisualizationActions from '../../../components/audioVisualization/Actions';
 import { audioVisualizationTypes } from '../../../components/audioVisualization/Constants';
+import { LABYRINTH_MAIN_OBJ_QUESTIONS_LENGTH } from '../../../services/Constants';
 const LabyrinthOverlay = lazy(() => import('./LabyrinthOverlay'));
 
 const Labyrinth = ({
 	type,
 	toggleLabyrinthQuestionModal,
 	changeData,
-	disabledParallax,
 	gameData = {},
 	setAudioVisualization,
 }) => {
 	const node = useRef();
 
-	const { tower } = gameData;
+	const { tower, labObjQuestions = [] } = gameData || {};
 
 	const [active, setActive] = useState(false);
 	const [focus, setFocus] = useState(false);
@@ -100,9 +100,33 @@ const Labyrinth = ({
 			setAudioVisualization({ audioFileName: audioVisualizationTypes.LAB_OPEN });
 			return;
 		}
-
 		e.stopPropagation();
+
+		if (objType === 'main') {
+			const list =
+				labObjQuestions.length >= LABYRINTH_MAIN_OBJ_QUESTIONS_LENGTH
+					? []
+					: [...labObjQuestions];
+			if (labObjQuestions.length >= LABYRINTH_MAIN_OBJ_QUESTIONS_LENGTH) {
+				changeData({ ...gameData, labObjQuestions: [] });
+			}
+			let af = generateUniqueRandom(list);
+
+			changeData({ ...gameData, labObjQuestions: [...list, af] });
+
+			toggleLabyrinthQuestionModal({ open: true, type, objType, data: { id: af } });
+			return;
+		}
+
 		toggleLabyrinthQuestionModal({ open: true, type, objType });
+	};
+
+	const generateUniqueRandom = (list) => {
+		let randomValue;
+		do {
+			randomValue = Math.ceil(Math.random() * LABYRINTH_MAIN_OBJ_QUESTIONS_LENGTH).toString();
+		} while (list.includes(randomValue.toString()));
+		return randomValue;
 	};
 
 	return (

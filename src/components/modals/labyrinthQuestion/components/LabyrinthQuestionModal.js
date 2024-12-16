@@ -5,10 +5,9 @@ import { useTranslation } from 'react-i18next';
 import classNames from 'classnames';
 import * as labyrinthQuestionModalActions from '../Actions';
 import * as gameActions from '../../../../client/gamePage/Actions';
-import Button from '../../../button/Button';
-import Modal from '../../../modal/Modal';
 import * as audioVisualizationActions from '../../../audioVisualization/Actions';
 import { audioVisualizationTypes } from '../../../audioVisualization/Constants';
+import Modal from '../../../modal/Modal';
 
 const LabyrinthQuestionModal = ({
 	open,
@@ -35,35 +34,9 @@ const LabyrinthQuestionModal = ({
 			setTimeout(() => {
 				setVisible(!!open);
 			}, 200);
-
-		if (objType === 'main' && type) {
-			const { redLab, purpleLab, goldLab, blueLab } = gameData || {};
-			const labData = gameData?.[`${type}Lab`];
-			const otherReadyQuestions = [redLab, purpleLab, goldLab, blueLab]
-				.filter((lab) => lab && lab !== labData && lab.ready_question)
-				.map((lab) => lab.ready_question);
-
-			const generateUniqueRandom = () => {
-				let randomValue;
-				do {
-					randomValue = Math.ceil(Math.random() * 4).toString();
-				} while (otherReadyQuestions.includes(randomValue.toString()));
-				return randomValue;
-			};
-
-			if (!labData?.ready_question) {
-				changeData({
-					...gameData,
-					[`${type}Lab`]: {
-						...labData,
-						ready_question: generateUniqueRandom(),
-					},
-				});
-			}
-		}
 	}, [open]);
 
-	const handleOnClose = (status) => {
+	const handleOnClose = () => {
 		if (objType === 'top') {
 			toggleLabyrinthQuestionModal({ open: false });
 
@@ -73,19 +46,9 @@ const LabyrinthQuestionModal = ({
 			return;
 		}
 
-		if (objType === 'main') {
-			// if (step === 1 && status) {
-			// 	setStep(2);
-			// 	return;
-			// }
-
-			toggleLabyrinthQuestionModal({ open: false });
-			return;
-		}
-
 		if (!selected) {
 			const selectedCards = gameData.selectedCards || [];
-			selectedCards.push({ ...data, type, selected: true });
+			selectedCards.push({ ...data, type, objType, selected: true });
 			changeData({ ...gameData, selectedCards });
 		}
 
@@ -123,8 +86,7 @@ const LabyrinthQuestionModal = ({
 			}}
 		>
 			<div
-				className={classNames('bg', type, objType, { active: objType !== 'main' })}
-				// onClick={objType === 'main' ? undefined : handleOnClose}
+				className={classNames('bg', type, objType, { active: objType !== 'top' })}
 				onClick={handleOnClose}
 			/>
 			{objType === 'top' && (
@@ -136,29 +98,8 @@ const LabyrinthQuestionModal = ({
 					)}
 				</p>
 			)}
-			{objType === 'main' && (
-				<p className="desc">
-					{/* {step === 1 ? t('object.ready_question') : t(`object.${type}_question`)} */}
-					{t(`object.ready_question.${gameData[`${type}Lab`]?.ready_question}`)}
-				</p>
-			)}
+			{objType === 'main' && <p className="desc">{t(`object.ready_question.${data.id}`)}</p>}
 			{!!desc && <p className="desc">{desc}</p>}
-			{/* {objType === 'main' && (
-				<div className="btn-group center">
-					<Button
-						type="icon"
-						className="action-btn no"
-						iconName="icon-no"
-						onClick={() => handleOnClose(false)}
-					/>
-					<Button
-						type="icon"
-						className="action-btn yes"
-						iconName="icon-yes"
-						onClick={() => handleOnClose(true)}
-					/>
-				</div>
-			)} */}
 		</Modal>
 	);
 };
