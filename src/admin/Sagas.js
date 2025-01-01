@@ -11,7 +11,7 @@ import {
 	removeGameError,
 	removeGameSuccess,
 	removeManagerError,
-	removeManagerSuccess,
+	removeManagerSuccess, removeRequestError, removeRequestSuccess,
 	startGameError,
 	startGameSuccess,
 } from './Actions';
@@ -23,6 +23,7 @@ export default function* () {
 		takeLatest(adminActionTypes.REMOVE_GAME, handleRemoveGame),
 		takeLatest(adminActionTypes.REMOVE_CODE, handleRemoveCode),
 		takeLatest(adminActionTypes.GET_REQUESTS, handleGetRequests),
+		takeLatest(adminActionTypes.REMOVE_REQUESTS, handleRemoveRequests),
 		takeLatest(adminActionTypes.CONNECT_MANAGER, handleConnectManager),
 		takeLatest(adminActionTypes.GET_GAMES, handleGetGamesData),
 		takeLatest(adminActionTypes.START_GAME, handleStartGame),
@@ -92,6 +93,18 @@ export function* handleGetRequests({ payload }) {
 		yield put(adminActions.getRequestsSuccess(respData));
 	} catch (e) {
 		yield put(adminActions.getRequestsError(e));
+	}
+}
+
+export function* handleRemoveRequests({ payload }) {
+	try {
+		const { data } = payload || {};
+		const { id } = data || {};
+
+		const { data: respData } = yield call(processRequest, `/requests/${id}`, 'DELETE');
+		yield put(adminActions.removeRequestSuccess(respData));
+	} catch (e) {
+		yield put(adminActions.removeRequestError(e));
 	}
 }
 

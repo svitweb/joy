@@ -10,12 +10,12 @@ export default function* () {
 
 export function* handleGetGame({ payload }) {
 	try {
-		const { data } = payload || {};
-		const { code } = data || {};
+		const { data: requestData } = payload || {};
+		const { code } = requestData || {};
 
-		yield call(processRequest, `/requests/game/${code}`, 'GET');
+		const { data } = yield call(processRequest, `/requests/game/${code}`, 'GET');
 
-		yield put(gameActions.getGameSuccess());
+		yield put(gameActions.getGameSuccess(data));
 	} catch (e) {
 		yield put(gameActions.getGameError(e));
 	}

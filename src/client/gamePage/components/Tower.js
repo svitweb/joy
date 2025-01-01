@@ -10,6 +10,7 @@ import towerShadow from '../images/shadow.png';
 import * as gameActions from '../Actions.js';
 import * as towerModalActions from '../../../components/modals/tower/Actions.js';
 import Button from '../../../components/button/Button';
+import { historyPush } from '../../../services/History';
 
 const Tower = ({ className, gameData, changeData, toggleTowerModal }) => {
 	const { t } = useTranslation();
@@ -31,7 +32,13 @@ const Tower = ({ className, gameData, changeData, toggleTowerModal }) => {
 			{completed ? (
 				<div className="final-block">
 					<h1 className="title">GAME DONE</h1>
-					<Button onClick={() => changeData({})} title="RESET" />
+					<Button
+						onClick={() => {
+							historyPush('/');
+							// changeData({});
+						}}
+						title="Back home"
+					/>
 				</div>
 			) : (
 				<div className="tower">

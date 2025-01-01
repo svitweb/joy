@@ -9,7 +9,7 @@ const PrivateRoute = lazy(() => import('./components/routeWrappers/PrivateRoute'
 // import GamePage from "./client/gamePage/components/GamePage";
 const MainPage = lazy(() => import('./client/mainPage/components/MainPage'));
 const AdminPage = lazy(() => import('./admin/components/AdminPage'));
-const GamePage = lazy(() => import('./client/gamePage/components/GamePage'));
+const GamePage = lazy(() => import('./client/gamePage/components/MainLanding'));
 
 const App = () => {
 	useEffect(() => {

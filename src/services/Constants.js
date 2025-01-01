@@ -1,8 +1,8 @@
 const PRODUCTION_API_URL = 'https://upgradenjag-be.vercel.app';
-// const DEV_API_URL = 'http://localhost:3030';
-const DEV_API_URL = 'https://upgradenjag-be.vercel.app';
+const DEV_API_URL = 'http://localhost:3030';
+// const DEV_API_URL = 'https://upgradenjag-be.vercel.app';
 
-const PRODUCTION_URL = 'http://localhost:3000';
+const PRODUCTION_URL = 'https://teal-oyster-825684.hostingersite.com';
 const DEV_URL = 'http://localhost:3000';
 
 export const BRAND_NAME = 'UPGRADE';

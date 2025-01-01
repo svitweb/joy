@@ -126,6 +126,26 @@ export function getRequestsError() {
 	};
 }
 
+export function removeRequest(data) {
+	return {
+		type: adminActionTypes.REMOVE_REQUESTS,
+		payload: { data },
+	};
+}
+
+export function removeRequestSuccess(data) {
+	return {
+		type: adminActionTypes.REMOVE_REQUESTS_SUCCESS,
+		payload: { data },
+	};
+}
+
+export function removeRequestError() {
+	return {
+		type: adminActionTypes.REMOVE_REQUESTS_ERROR,
+	};
+}
+
 export function connectManager(data) {
 	return {
 		type: adminActionTypes.CONNECT_MANAGER,

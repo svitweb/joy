@@ -16,6 +16,11 @@ export function processRequest(url = '', method = 'GET', data = {}) {
 		delete headers['Auth-Token'];
 	}
 
+	if (method === 'GET' && data) {
+		const params = new URLSearchParams(data).toString();
+		url = `${url}?${params}`;
+	}
+
 	return axios({
 		headers,
 		method,

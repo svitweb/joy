@@ -94,7 +94,7 @@ const preloadImage = (src) =>
 	});
 
 const GamePage = ({ gameData, getGame }) => {
-	const { code } = useParams();
+	// const { code } = useParams();
 
 	const { tower } = gameData || {};
 	const { active, completed } = tower || {};
@@ -106,7 +106,7 @@ const GamePage = ({ gameData, getGame }) => {
 	const [isLoaded, setIsLoaded] = useState(false);
 
 	useEffect(() => {
-		getGame({ code });
+		// getGame({ code });
 
 		handleDesktopView();
 
@@ -139,9 +139,9 @@ const GamePage = ({ gameData, getGame }) => {
 		setDesktopView(window.innerWidth >= 1200);
 	};
 
-	const [playing, setPlaying] = useState(true);
-	const [playedSeconds, setPlayedSeconds] = useState(0);
-	const playerRef = useRef(null);
+	// const [playing, setPlaying] = useState(true);
+	// const [playedSeconds, setPlayedSeconds] = useState(0);
+	// const playerRef = useRef(null);
 
 	const onStart = () => {
 		setStartGame(true);
@@ -150,7 +150,7 @@ const GamePage = ({ gameData, getGame }) => {
 
 	return (
 		<>
-			<HelmetWrapper title="UPGRADE-GAME" description="Upgrade yourself" />
+			{/*<HelmetWrapper title="UPGRADE-GAME" description="Upgrade yourself" />*/}
 			{/* <div className="audio-player">
 				<ReactPlayer
 					ref={playerRef}

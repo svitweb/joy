@@ -38,9 +38,11 @@ export function* handleCreateGame({ payload }) {
 export function* handleGetPlayers({ payload }) {
 	try {
 		const { data: formData } = payload || {};
-		const { managerId } = formData || {};
+		const { managerId, type } = formData || {};
 
-		const { data } = yield call(processRequest, `/requests/pending/${managerId}`);
+		const { data } = yield call(processRequest, `/requests/pending/${managerId}`, 'GET', {
+			type,
+		});
 		yield put(createManagerActions.getPlayersSuccess(data));
 	} catch (e) {
 		yield put(createManagerActions.getPlayersError(e));

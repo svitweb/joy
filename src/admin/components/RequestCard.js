@@ -7,7 +7,7 @@ import Dropdown from '../../components/dropdown/Dropdown';
 import Button from '../../components/button/Button';
 import * as adminActions from '../Actions';
 
-const RequestCard = ({ data, managers, connectManager, isAdmin }) => {
+const RequestCard = ({ data, managers, connectManager, isAdmin, removeRequest }) => {
 	const { _id, name, phone, email, package: gamePackage, manager } = data || {};
 	const { _id: managerId, name: managerName } = manager || {};
 
@@ -15,6 +15,10 @@ const RequestCard = ({ data, managers, connectManager, isAdmin }) => {
 
 	const handleConnectManager = () => {
 		connectManager({ id: _id, managerId: selectedManager._id, isManager: !!managerId });
+	};
+
+	const handleRemoveRequests = () => {
+		removeRequest({ id: _id });
 	};
 
 	return (
@@ -53,6 +57,13 @@ const RequestCard = ({ data, managers, connectManager, isAdmin }) => {
 									onClick={handleConnectManager}
 								/>
 							)}
+							{!managerId ?? (
+								<Button
+									type="icon"
+									iconName="icon-delete"
+									onClick={handleRemoveRequests}
+								/>
+							)}
 						</div>
 					)}
 				</div>
@@ -67,6 +78,7 @@ const mapStateToProps = ({ adminReducer }) => ({
 
 const mapDispatchToProps = {
 	connectManager: adminActions.connectManager,
+	removeRequest: adminActions.removeRequest,
 	// getManagers: adminActions.getManagers,
 	//
 	// removeGame: adminActions.removeGame,

@@ -48,9 +48,7 @@ const CreateGameModal = ({
 	const valid = useMemo(() => !!name?.trim() && !!type, [name, type]);
 
 	useEffect(() => {
-		if (open) {
-			getPlayers({ managerId });
-		} else {
+		if (!open) {
 			setName('');
 			setSelectedPlayers([]);
 			setStartDate(null);
@@ -58,6 +56,13 @@ const CreateGameModal = ({
 			clearState();
 		}
 	}, [open]);
+
+	useEffect(() => {
+		if (type?.title) {
+			setSelectedPlayers([]);
+			getPlayers({ managerId, type: type.title.toLowerCase() });
+		}
+	}, [type]);
 
 	useEffect(() => {
 		if (editData) {
@@ -125,7 +130,7 @@ const CreateGameModal = ({
 							/>
 							<span className="error-msg">{}</span>
 						</div>
-						<div className="form-field">
+						{!!type && <div className="form-field">
 							<Dropdown
 								options={[
 									{
@@ -143,7 +148,7 @@ const CreateGameModal = ({
 								nested
 							/>
 							<span className="error-msg">{}</span>
-						</div>
+						</div>}
 						<div className="btn-group submit-btn-group right">
 							<Button
 								onClick={submitManageGame}
