@@ -7,7 +7,7 @@ import Spiral from '../../../images/illustrations/spiral';
 import Labyrinth from '../../../images/illustrations/labyrinth';
 import Button from '../../../components/button/Button';
 import Socials from '../../../components/socials/Socials';
-import LanguageSelector from '../../languageSelector/LanguageSelector';
+// import LanguageSelector from '../../languageSelector/LanguageSelector';
 
 const Menu = ({ scrollToRef, blocks }) => {
 	const { t } = useTranslation();
@@ -58,9 +58,9 @@ const Menu = ({ scrollToRef, blocks }) => {
 						onClick={() => handleNavigate(blocks[5])}
 					/>
 
-					<LanguageSelector className="hide show-xs" />
+					{/* <LanguageSelector className="hide show-xs" /> */}
 				</nav>
-				<LanguageSelector className="hide-xs" />
+				{/* <LanguageSelector className="hide-xs" /> */}
 				<button
 					className={classNames('nav-btn hamburger hide-s hide-m hide-l', {
 						active,
