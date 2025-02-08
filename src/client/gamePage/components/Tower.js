@@ -25,19 +25,20 @@ const Tower = ({ className, gameData, changeData, toggleTowerModal }) => {
 	return (
 		<div
 			className={classNames(className, {
-				'col s-4 s-offset-4 tower-col': true,
+				'col s-4 s-offset-4 tower-col': !completed,
 				col: completed,
 			})}
 		>
 			{completed ? (
 				<div className="final-block">
-					<h1 className="title">GAME DONE</h1>
+					<h1 className="title">{t('game.done.title')}</h1>
+					<p className="desc">{t('game.done.description')}</p>
 					<Button
 						onClick={() => {
 							historyPush('/');
 							// changeData({});
 						}}
-						title="Back home"
+						title={t('game.done.btn')}
 					/>
 				</div>
 			) : (

@@ -1,15 +1,18 @@
 import '../styles/style.scss';
-import React, { memo, useEffect, useRef, useState, lazy } from 'react';
-import { useParams } from 'react-router-dom';
+import React, { memo, useEffect } from 'react';
+import { useParams, useHistory } from 'react-router-dom';
 import { connect } from 'react-redux';
+import { useTranslation } from 'react-i18next';
+import moment from 'moment';
 import * as gameActions from '../Actions';
 import HelmetWrapper from '../../../components/HelmetWrapper';
 import GamePage from './GamePage';
-import moment from 'moment';
 import Button from '../../../components/button/Button';
 
 const MainLanding = ({ gameData, changeData, loadingGetGame, game, getGame }) => {
+	const history = useHistory();
 	const { code } = useParams();
+	const { t } = useTranslation();
 
 	const { started, start, finished } = game || {};
 
@@ -18,7 +21,6 @@ const MainLanding = ({ gameData, changeData, loadingGetGame, game, getGame }) =>
 	}, []);
 
 	useEffect(() => {
-		console.log('gameData', gameData);
 		if ((finished || (start && !started)) && Object.keys(gameData).length) {
 			changeData({});
 			// const interval = setInterval(() => {
@@ -28,31 +30,43 @@ const MainLanding = ({ gameData, changeData, loadingGetGame, game, getGame }) =>
 		}
 	}, [game, gameData]);
 
+	const goToHomeAndScroll = () => {
+		history.push('/', { scrollTo: 'contactForm' });
+	};
+
 	return (
 		<>
 			<HelmetWrapper title="UPGRADE-GAME" description="Upgrade yourself" />
 			{!!started && !finished && <GamePage />}
 			{!!start && !started && (
-				<div>
-					<h1>Game will start at: {moment(start).format('DDD MMMM - HH:mm')}</h1>
-					<p>Once game started our manager will connect with you</p>
-					<Button title="Go home page" link={'/'} />
+				<div className="empty-state-wrap">
+					<div className="empty-state">
+						<h1 className="title">
+							{t('game.pending.title', {
+								time: moment(start).format('DD/MM - HH:mm'),
+							})}
+						</h1>
+						<p className="desc">{t('game.pending.description')}</p>
+						<Button title={t('game.pending.btn')} link={'/'} />
+					</div>
 				</div>
 			)}
 			{!loadingGetGame && !game && (
-				<div>
-					<h1>
-						Game not found, connect with our manager to get information about your game
-					</h1>
-					<Button title="Go home page" link={'/'} />
+				<div className="empty-state-wrap">
+					<div className="empty-state">
+						<h1 className="title">{t('game.not_found.title')}</h1>
+						<p className="desc">{t('game.not_found.description')}</p>
+						<Button title={t('game.not_found.btn')} onClick={goToHomeAndScroll} />
+					</div>
 				</div>
 			)}
 			{!!game && !!finished && (
-				<div>
-					<h1>Your game finished</h1>
-					<p>Thank you for playing</p>
-					<p>connect with us to get more games</p>
-					<Button title="Go home page" link={'/'} />
+				<div className="empty-state-wrap">
+					<div className="empty-state">
+						<h1 className="title">{t('game.finished.title')}</h1>
+						<p className="desc">{t('game.finished.description')}</p>
+						<Button title={t('game.finished.btn')} link={'/'} />
+					</div>
 				</div>
 			)}
 		</>

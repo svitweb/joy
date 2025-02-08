@@ -27,9 +27,8 @@ i18n.use(LanguageDetector)
 			},
 		},
 		whiteList: ['ua', 'ru', 'en'],
-		// lng: getLocalStorageItem('language') || getSystemLanguage(),
-		lng: 'ru',
-		fallbackLng: 'ru',
+		lng: getLocalStorageItem('language') || getSystemLanguage(),
+		fallbackLng: 'en',
 		interpolation: {
 			escapeValue: false,
 		},

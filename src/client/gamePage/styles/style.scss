@@ -20,6 +20,23 @@ body {
 	background-color: $black;
 	overflow: auto;
 
+	&-header {
+		position: fixed;
+		top: 0;
+		left: 0;
+		width: 100%;
+		z-index: 3;
+		padding: 24px;
+
+		.container {
+			display: flex;
+		}
+
+		.language-selector {
+			margin-left: auto;
+		}
+	}
+
 	&-container {
 		position: relative;
 		z-index: 2;
@@ -40,6 +57,7 @@ body {
 			size: cover;
 			attachment: fixed;
 		}
+		transition: background-image 0.2s ease-out;
 		opacity: 0.5;
 	}
 
@@ -50,6 +68,11 @@ body {
 	&.active::before {
 		opacity: 0.8;
 	}
+
+	&.completed::before {
+		opacity: 0.6 !important;
+		background-image: url('../images/gameBgDone.webp');
+	}
 }
 
 .final-block {
@@ -57,12 +80,22 @@ body {
 	flex-direction: column;
 	align-items: center;
 	justify-content: center;
+	max-width: 536px;
+	margin: 0 auto;
+	padding: 24px 24px 32px;
+	border-radius: 40%;
+	box-shadow: 0 0 40px 40px rgba(5, 0, 20, 0.75);
+	background-color: rgba(5, 0, 20, 0.75);
+	text-align: center;
 
 	.title {
 		position: relative;
-		margin-bottom: 24px;
-		padding-top: 24px;
-		z-index: 1;
+		margin-bottom: 16px;
+		//z-index: 1;
+	}
+
+	.desc {
+		margin-bottom: 32px;
 	}
 }
 
@@ -100,6 +133,34 @@ body {
 		.icon {
 			font-size: 24px;
 		}
+	}
+}
+
+.empty-state {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	margin: auto;
+	padding: 24px;
+	max-width: 500px;
+	text-align: center;
+
+	&-wrap {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		min-height: 100vh;
+	}
+
+	.title {
+		margin-bottom: 24px;
+		white-space: pre-line;
+	}
+
+	.desc {
+		margin-bottom: 32px;
+		white-space: pre-line;
 	}
 }
 

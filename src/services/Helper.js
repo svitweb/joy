@@ -29,5 +29,5 @@ export const getSystemLanguage = () => {
 	const systemLanguage = navigator?.language || navigator?.userLanguage;
 	const languageCode = systemLanguage?.split('-')[1]?.toLowerCase();
 
-	return AVAILABLE_LANGUAGES.includes(languageCode) ? languageCode : 'en';
+	return languageCode && AVAILABLE_LANGUAGES.includes(languageCode) ? languageCode : 'en';
 };

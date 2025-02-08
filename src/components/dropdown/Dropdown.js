@@ -9,6 +9,7 @@ import useActiveElement from './useActiveElement';
 import Foldout from './foldout/FoldoutOptions';
 import Header from './Header';
 import Input from '../input/Input';
+import Scrollbar from '../ScrollBar';
 
 const Dropdown = ({
 	callbackAction,
@@ -124,6 +125,7 @@ const Dropdown = ({
 
 		return () => {
 			document.removeEventListener('click', handleClickOutside);
+			if (searchValue !== '') setSearchValue('');
 		};
 	}, [listVisible]);
 
@@ -150,8 +152,8 @@ const Dropdown = ({
 				copiedOptions.forEach((item) => {
 					const nestedResult = item[optionSectionBodyKey].filter((nestedItem) =>
 						nestedItem[optionTitleKey]
-							?.toLowerCase()
-							.includes(searchValue?.trim()?.toLowerCase()),
+							.toLowerCase()
+							.includes(searchValue.trim().toLowerCase()),
 					);
 
 					if (nestedResult.length) {
@@ -166,7 +168,7 @@ const Dropdown = ({
 			} else {
 				const copiedOptions = [...initOptions];
 				const filteredData = copiedOptions.filter((item) =>
-					item[optionTitleKey]?.toLowerCase().includes(searchValue.trim().toLowerCase()),
+					item[optionTitleKey].toLowerCase().includes(searchValue.trim().toLowerCase()),
 				);
 				setOptions(filteredData);
 			}
@@ -204,7 +206,10 @@ const Dropdown = ({
 		)
 			return;
 
-		if (listVisible) setListVisible(false);
+		if (listVisible) {
+			e.stopPropagation();
+			setListVisible(false);
+		}
 	};
 
 	const toggleDropdown = (e) => {
@@ -338,61 +343,62 @@ const Dropdown = ({
 								/>
 							</div>
 						)}
-
-						<div
-							ref={dropdownOptions}
-							className={classNames('body', {
-								'no-results': !options.length && fallbackOption,
-							})}
-						>
-							{sectionTitle && (
-								<span className="text section-title">{sectionTitle}</span>
-							)}
-							{resetSelectedValue && (
-								<div className="clear-btn-wrap">
-									<Button
-										className="btn"
-										title={resetSelectedValueBtnTitle}
-										type="link"
-										onClick={resetSelectedValue}
+						<Scrollbar autoHeightMax={optionsMenuHeight} isMobileView={isMobileView}>
+							<div
+								ref={dropdownOptions}
+								className={classNames('body', {
+									'no-results': !options.length && fallbackOption,
+								})}
+							>
+								{sectionTitle && (
+									<span className="text section-title">{sectionTitle}</span>
+								)}
+								{resetSelectedValue && (
+									<div className="clear-btn-wrap">
+										<Button
+											className="btn"
+											title={resetSelectedValueBtnTitle}
+											type="link"
+											onClick={resetSelectedValue}
+										/>
+									</div>
+								)}
+								{nestedHeader}
+								{children || (
+									<Foldout
+										callbackAction={handleCallbackAction}
+										customElements={foldoutCustomElements}
+										fallbackOption={fallbackOption}
+										handleItem={handleItem}
+										hideSelectedOption={hideSelectedOption}
+										listVisible={listVisible}
+										nested={nested}
+										noResultsTitle={noResultsTitle}
+										optionAdditionalLabelKey={optionAdditionalLabelKey}
+										optionAdditionalSubValueKey={optionAdditionalSubValueKey}
+										optionCallbackKey={optionCallbackKey}
+										optionCheckedKey={optionCheckedKey}
+										optionTitlePostKey={optionTitlePostKey}
+										optionDescriptionKey={optionDescriptionKey}
+										optionDisabledKey={optionDisabledKey}
+										optionFlagKey={optionFlagKey}
+										optionFlagProperty={optionFlagProperty}
+										optionIconKey={optionIconKey}
+										optionImageKey={optionImageKey}
+										optionLabelKey={optionLabelKey}
+										optionSectionBodyKey={optionSectionBodyKey}
+										optionSectionKey={optionSectionKey}
+										optionSubValueKey={optionSubValueKey}
+										optionTitleKey={optionTitleKey}
+										optionTypeKey={optionTypeKey}
+										optionValueKey={optionValueKey}
+										options={options}
+										selectValue={selectValue}
+										type={type}
 									/>
-								</div>
-							)}
-							{nestedHeader}
-							{children || (
-								<Foldout
-									callbackAction={handleCallbackAction}
-									customElements={foldoutCustomElements}
-									fallbackOption={fallbackOption}
-									handleItem={handleItem}
-									hideSelectedOption={hideSelectedOption}
-									listVisible={listVisible}
-									nested={nested}
-									noResultsTitle={noResultsTitle}
-									optionAdditionalLabelKey={optionAdditionalLabelKey}
-									optionAdditionalSubValueKey={optionAdditionalSubValueKey}
-									optionCallbackKey={optionCallbackKey}
-									optionCheckedKey={optionCheckedKey}
-									optionTitlePostKey={optionTitlePostKey}
-									optionDescriptionKey={optionDescriptionKey}
-									optionDisabledKey={optionDisabledKey}
-									optionFlagKey={optionFlagKey}
-									optionFlagProperty={optionFlagProperty}
-									optionIconKey={optionIconKey}
-									optionImageKey={optionImageKey}
-									optionLabelKey={optionLabelKey}
-									optionSectionBodyKey={optionSectionBodyKey}
-									optionSectionKey={optionSectionKey}
-									optionSubValueKey={optionSubValueKey}
-									optionTitleKey={optionTitleKey}
-									optionTypeKey={optionTypeKey}
-									optionValueKey={optionValueKey}
-									options={options}
-									selectValue={selectValue}
-									type={type}
-								/>
-							)}
-						</div>
+								)}
+							</div>
+						</Scrollbar>
 					</div>
 				</div>,
 				portalSelector,
@@ -455,7 +461,7 @@ Dropdown.propTypes = {
 	label: PropTypes.string,
 	loading: PropTypes.bool,
 	menuHeight: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
-	menuPosition: PropTypes.oneOf(['right', 'left']),
+	menuPosition: PropTypes.oneOf(['top', 'left', 'right']),
 	name: PropTypes.string,
 	nested: PropTypes.bool,
 	onActive: PropTypes.func,

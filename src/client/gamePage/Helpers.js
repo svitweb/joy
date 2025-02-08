@@ -111,5 +111,4 @@ export const getMetaCards = () =>
 			id: `meta${index + 1}`,
 			img: cardImages[index],
 			type: 'meta',
-			desc: i18n.t(`meta_cards.${index + 1}`),
 		}));

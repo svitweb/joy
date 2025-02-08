@@ -1,5 +1,6 @@
 import '../styles/style.scss';
-import React, { memo, useRef, lazy } from 'react';
+import React, { memo, useRef, lazy, useEffect } from 'react';
+import { useHistory, useLocation } from 'react-router-dom';
 const Main = lazy(() => import('../sections/Main'));
 const About = lazy(() => import('../sections/About'));
 const Themes = lazy(() => import('../sections/Themes'));
@@ -17,6 +18,8 @@ const Menu = lazy(() => import('../../../components/menu/components/Menu'));
 // import Managers from '../sections/Managers';
 
 const MainPage = () => {
+	const history = useHistory();
+
 	const scrollToRef = (ref) => {
 		ref.current.scrollIntoView({ behavior: 'smooth' });
 	};
@@ -29,6 +32,18 @@ const MainPage = () => {
 	const b6 = useRef(null);
 
 	const blocks = [b1, b2, b3, b4, b5, b6];
+
+	const location = useLocation();
+
+	useEffect(() => {
+		if (location.state?.scrollTo) {
+			const element = document.getElementById(location.state.scrollTo);
+			if (element) {
+				element.scrollIntoView({ behavior: 'auto' });
+			}
+			history.replace({ pathname: location.pathname, state: {} });
+		}
+	}, [location]);
 
 	return (
 		<>

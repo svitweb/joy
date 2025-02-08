@@ -13,7 +13,7 @@ const Contact = ({ contactRequestSubmitted, blockRef }) => {
 	const contactRequestDone = Cookies.get('contactRequest') || contactRequestSubmitted;
 
 	return (
-		<div ref={blockRef} className="page-section form-section">
+		<div ref={blockRef} id="contactForm" className="page-section form-section">
 			<Spiral />
 			<LabyrinthImg />
 			<div className="container">

@@ -44,6 +44,7 @@ import gBgT from '../../../images/gameIllustrations/bg/goldBgTree.jpg';
 import rBgT from '../../../images/gameIllustrations/bg/redBgTree.jpg';
 import towerModalBg from '../../../images/gameIllustrations/bg/towerModalBg.jpg';
 import finalBg from '../../../images/gameIllustrations/bg/finalBg.jpg';
+import gameBgDone from '../images/gameBgDone.webp';
 // import mainAudio from '../../../music/bg1.mp3';
 
 import { cardImages } from '../Helpers';
@@ -51,7 +52,7 @@ import CircleProgress from './CircleProgress';
 import HelmetWrapper from '../../../components/HelmetWrapper';
 import { connect } from 'react-redux';
 import * as gameActions from '../Actions';
-import { useParams } from 'react-router-dom';
+import LanguageSelector from '../../../components/languageSelector/LanguageSelector';
 
 const imagesToPreload = [
 	...cardImages,
@@ -83,6 +84,7 @@ const imagesToPreload = [
 	rBgT,
 	towerModalBg,
 	finalBg,
+	gameBgDone,
 ];
 
 const preloadImage = (src) =>
@@ -104,6 +106,13 @@ const GamePage = ({ gameData, getGame }) => {
 
 	const [progress, setProgress] = useState(0);
 	const [isLoaded, setIsLoaded] = useState(false);
+
+	useEffect(() => {
+		if (completed) {
+			setIsLoaded(true);
+			setStartGame(true);
+		}
+	}, [completed]);
 
 	useEffect(() => {
 		// getGame({ code });
@@ -150,7 +159,6 @@ const GamePage = ({ gameData, getGame }) => {
 
 	return (
 		<>
-			{/*<HelmetWrapper title="UPGRADE-GAME" description="Upgrade yourself" />*/}
 			{/* <div className="audio-player">
 				<ReactPlayer
 					ref={playerRef}
@@ -175,8 +183,13 @@ const GamePage = ({ gameData, getGame }) => {
 				</div>
 			) : (
 				<>
-					<main className={classNames('page-content game-page', { active })}>
+					<main className={classNames('page-content game-page', { active, completed })}>
 						<div className="container game-page-container">
+							<div className="game-page-header">
+								<div className="container">
+									<LanguageSelector />
+								</div>
+							</div>
 							<div className={classNames('row', { 'hide-xs': active })}>
 								<div className="col xs-6 s-4">
 									<Labyrinth type="purple" />

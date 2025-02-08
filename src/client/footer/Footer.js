@@ -21,7 +21,7 @@ const Footer = ({ scrollToRef, blocks }) => {
 					<div className="col xs-5 s-4 m-3">
 						<h3 className="main-footer-title">{t('footer.menu')}</h3>
 						<ul>
-							{Array(5)
+							{Array(4)
 								.fill('')
 								.map((el, index) => (
 									<li key={index}>
