@@ -19,6 +19,13 @@ export function contactRequestError() {
 	};
 }
 
+export function setSubmittedState(data) {
+	return {
+		type: mainPageActionTypes.SET_SUBMITTED_STATE,
+		payload: { data },
+	};
+}
+
 export function clearContactRequestForm() {
 	return {
 		type: mainPageActionTypes.CLEAR_CONTACT_REQUEST_FORM,

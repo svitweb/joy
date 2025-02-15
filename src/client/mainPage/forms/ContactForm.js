@@ -9,6 +9,7 @@ import { contactRequestFormValidate } from '../../../services/FormValidate';
 import { renderFormInput, renderPhoneInput } from '../../../components/FormFields';
 import Button from '../../../components/button/Button';
 import { useLanguage } from '../../../services/LanguageContext';
+import Cookies from 'js-cookie';
 
 const ContactForm = ({
 	contactRequest,
@@ -16,6 +17,7 @@ const ContactForm = ({
 	handleSubmit,
 	valid,
 	clearContactRequestForm,
+	setSubmittedState,
 }) => {
 	const { t } = useTranslation();
 
@@ -29,8 +31,15 @@ const ContactForm = ({
 		dispatch(reset('contactRequestForm'));
 	}, [language]);
 
+	const contactRequestDone = Cookies.get('contactRequest');
+
 	const submit = (data) => {
 		if (!valid) return;
+
+		if (contactRequestDone) {
+			setSubmittedState(true);
+			return;
+		}
 		contactRequest({ ...data, messenger });
 	};
 
@@ -48,7 +57,7 @@ const ContactForm = ({
 						name="name"
 						type="text"
 						component={renderFormInput}
-						label={'Ваше Имя'}
+						label={t('forms.name_field')}
 						floatingLabel
 					/>
 				</div>
@@ -112,6 +121,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = {
 	contactRequest: mainPageActions.contactRequest,
+	setSubmittedState: mainPageActions.setSubmittedState,
 	clearContactRequestForm: mainPageActions.clearContactRequestForm,
 };
 

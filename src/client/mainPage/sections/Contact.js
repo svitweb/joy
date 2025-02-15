@@ -7,10 +7,10 @@ import Cookies from 'js-cookie';
 import ContactForm from '../forms/ContactForm';
 import { useTranslation } from 'react-i18next';
 
-const Contact = ({ contactRequestSubmitted, blockRef }) => {
+const Contact = ({ contactRequestSubmitted, contactRequestWasSubmitted, blockRef }) => {
 	const { t } = useTranslation();
 
-	const contactRequestDone = Cookies.get('contactRequest') || contactRequestSubmitted;
+	const contactRequestDone = Cookies.get('contactRequest');
 
 	return (
 		<div ref={blockRef} id="contactForm" className="page-section form-section">
@@ -19,16 +19,32 @@ const Contact = ({ contactRequestSubmitted, blockRef }) => {
 			<div className="container">
 				<div className="row">
 					<div className="col s-8 s-offset-2">
-						{contactRequestDone ? (
+						{contactRequestSubmitted || contactRequestWasSubmitted ? (
 							<>
 								<h2 className="section-title">
-									{t('main_page.contact_form.submit_success.title')}
+									{contactRequestWasSubmitted && !contactRequestSubmitted
+										? t('Заявка вже відправлена')
+										: t('main_page.contact_form.submit_success.title')}
 								</h2>
 								<h3 className="subtitle">
+									{contactRequestWasSubmitted && !contactRequestSubmitted
+										? t('Ви вже надсилали заявку сьогодні')
+										: t('main_page.contact_form.submit_success.sub_title')}
 									{t('main_page.contact_form.submit_success.sub_title')}
 								</h3>
 								<p className="desc">
-									{t('main_page.contact_form.submit_success.description')}
+									{contactRequestWasSubmitted && !contactRequestSubmitted
+										? t(
+												'Наш менеджер зв’яжеться з вами протягом 24 годин. Повторно подати заявку можна завтра.\n' +
+													'\n' +
+													'Якщо ваше питання термінове, зв’яжіться з нами:\n' +
+													'📩 Email: [ваш email]\n' +
+													'📞 Телефон: [ваш номер]\n' +
+													'💬 Telegram / WhatsApp: [посилання або номер]\n' +
+													'\n' +
+													'Дякуємо за ваше звернення!',
+										  )
+										: t('main_page.contact_form.submit_success.description')}
 								</p>
 							</>
 						) : (
@@ -52,6 +68,7 @@ const Contact = ({ contactRequestSubmitted, blockRef }) => {
 
 const mapStateToProps = ({ mainPageReducer }) => ({
 	contactRequestSubmitted: mainPageReducer.contactRequestSubmitted,
+	contactRequestWasSubmitted: mainPageReducer.contactRequestWasSubmitted,
 });
 
 export default connect(mapStateToProps, null)(memo(Contact));

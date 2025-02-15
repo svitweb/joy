@@ -5,10 +5,12 @@ import { reset } from 'redux-form';
 const initialState = {
 	contactRequestSubmitLoading: false,
 	contactRequestSubmitted: false,
+	contactRequestWasSubmitted: false,
 };
 
 export default function mainPageReducer(state = initialState, action) {
-	const { type } = action;
+	const { type, payload } = action;
+	const { data } = payload || {};
 
 	switch (type) {
 		case mainPageActionTypes.CONTACT_REQUEST:
@@ -29,6 +31,11 @@ export default function mainPageReducer(state = initialState, action) {
 			return {
 				...state,
 				loadingSubmitContact: false,
+			};
+		case mainPageActionTypes.SET_SUBMITTED_STATE:
+			return {
+				...state,
+				contactRequestWasSubmitted: data,
 			};
 
 		case mainPageActionTypes.CLEAR_CONTACT_REQUEST_FORM:
